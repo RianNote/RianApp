@@ -96,7 +96,7 @@ export default new WebpackConfig().extend('[root]/base.js').merge({
     // determine whether we're running on a Node server and set this to true
     // in the server.js config
     new webpack.DefinePlugin({
-      SERVER: false,
-    }),
+      SERVER: false
+    })
   ],
 });

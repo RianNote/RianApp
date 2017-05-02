@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-yarn install
+yarn install --ignore-optional
 yarn run server
 

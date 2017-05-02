@@ -144,8 +144,8 @@ export default new WebpackConfig().extend({
     // Set NODE_ENV to 'development', in case we need verbose debug logs
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-      },
-    }),
+        NODE_ENV: JSON.stringify('development')
+      }
+    })
   ],
 });

@@ -77,6 +77,7 @@ import App from 'src/components/app';
 // Import paths.  We'll use this to figure out where our public folder is
 // so we can serve static files
 import PATHS from 'config/paths';
+import { IP_ENV } from 'config/project';
 
 //GraphQL Server 
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa';
@@ -188,25 +189,27 @@ const PORT = process.env.PORT || 4000;
       )}`;
     }); 
 
+  if(process.env.NODE_ENV === 'production'){
+    // Create WebSocket listener server
+    const websocketServer = createServer((request, response) => {
+      response.writeHead(404);
+      response.end();
+    });
+    // Bind it to port and start listening
+    websocketServer.listen(5000, () => console.log(
+      `Websocket Server is now running on port 5000, ${IP_ENV}:5000/api/subscriptions`
+    ));
+    const subscriptionsServer = new SubscriptionServer(
+      {
+        subscriptionManager: subscriptionManager
+      },
+      {
+        server: websocketServer
+      }
+    );
+  }
+  
   // Start Koa
-  // Create WebSocket listener server
-  const websocketServer = createServer((request, response) => {
-    response.writeHead(404);
-    response.end();
-  });
-  // Bind it to port and start listening
-  websocketServer.listen(5000, () => console.log(
-    `Websocket Server is now running on http://localhost:5000/api/subscriptions`
-  ));
-  const subscriptionsServer = new SubscriptionServer(
-    {
-      subscriptionManager: subscriptionManager
-    },
-    {
-      server: websocketServer
-    }
-  );
-
   (new Koa())
     .use(koaBody())
     // Preliminary security for HTTP headers

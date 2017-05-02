@@ -1,12 +1,23 @@
-version: '2'
+version: "3"
 services:
   web:
+    image: ceruberu/rian-container:0.1.1
     build: .
     ports:
-      - "8000:8000"
+      - "4000:4000"
+      - "5000:5000"
+      - "8080:8080"
     volumes:
-      - .:/rian
+      - data:/data/db
     depends_on:
       - mongodb
+    networks:
+      - webnet
   mongodb:
     image: "mongo:3.4.3"
+    networks:
+      - webnet
+volumes:
+  data:
+networks:
+  webnet:

@@ -42,7 +42,7 @@ import { css } from './common';
 import PATHS from '../../config/paths';
 
 // Project configuration to control build settings
-import { BUNDLE_ANALYZER } from '../../config/project';
+import { BUNDLE_ANALYZER, IP_ENV } from '../../config/project';
 
 // ----------------------
 
@@ -104,9 +104,9 @@ export default new WebpackConfig().extend({
     // Set NODE_ENV to 'production', so that React will minify our bundle
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('production')
       },
-    }),
+    })
 
     // Check for errors, and refuse to emit anything with issues
     new webpack.NoEmitOnErrorsPlugin(),

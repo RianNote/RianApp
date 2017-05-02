@@ -14,7 +14,7 @@ import {
 } from "subscriptions-transport-ws";
 
 // Custom configuration/settings
-import { APOLLO } from 'config/project';
+import { APOLLO, IP_ENV } from 'config/project';
 
 // ----------------------
 
@@ -45,8 +45,9 @@ export function browserClient() {
   });
 
   //Make subsciption server && Change
-  const wsClient = new SubscriptionClient(`ws://localhost:${SUBSCRIPTIONPORT}/api/subscriptions`, {
-      reconnect: true
+  const subscriptionURL = `ws://${IP_ENV}:${SUBSCRIPTIONPORT}/api/subscriptions`;
+  const wsClient = new SubscriptionClient(subscriptionURL, {
+      reconnect: false // 일단 꺼놓기
   });
   // Extend the network interface with the WebSocket
   const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(
