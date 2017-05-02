@@ -1,30 +1,29 @@
 // ----------------------
 // IMPORTS
-
+const SUBSCRIPTIONPORT = 5000;
 // React propTypes
 import PropTypes from 'prop-types';
 
 // Apollo client library
 import { createNetworkInterface, ApolloClient } from 'react-apollo';
 
+//Apollo Socket
+import {
+    SubscriptionClient,
+    addGraphQLSubscriptions
+} from "subscriptions-transport-ws";
+
 // Custom configuration/settings
 import { APOLLO } from 'config/project';
 
 // ----------------------
 
-// Create a new Apollo network interface, to point to our API server.
-// Note:  By default in this kit, we'll connect to a sample endpoint that
-// repsonds with simple messages.  Update [root]/config.js as needed.
-const networkInterface = createNetworkInterface({
-  uri: APOLLO.uri,
-});
-
 // Helper function to create a new Apollo client, by merging in
 // passed options alongside the defaults
-function createClient(opt = {}) {
+function createClient(opt = {}, networkInterface) {
   return new ApolloClient(Object.assign({
     reduxRootSelector: state => state.apollo,
-    networkInterface,
+    networkInterface: networkInterface,
   }, opt));
 }
 
@@ -38,12 +37,35 @@ export function mergeData(toMerge) {
 
 // Creates a new browser client
 export function browserClient() {
-  return createClient();
+  // Create a new Apollo network interface, to point to our API server.
+  // Note:  By default in this kit, we'll connect to a sample endpoint that
+  // repsonds with simple messages.  Update [root]/config.js as needed.
+  const networkInterface = createNetworkInterface({
+    uri: APOLLO.uri,
+  });
+
+  //Make subsciption server && Change
+  const wsClient = new SubscriptionClient(`ws://localhost:${SUBSCRIPTIONPORT}/api/subscriptions`, {
+      reconnect: true
+  });
+  // Extend the network interface with the WebSocket
+  const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(
+      networkInterface,
+      wsClient
+  );
+  return createClient({connectToDevTools: true}, networkInterface);
 }
 
 // Creates a new server-side client
 export function serverClient() {
+  // Create a new Apollo network interface, to point to our API server.
+  // Note:  By default in this kit, we'll connect to a sample endpoint that
+  // repsonds with simple messages.  Update [root]/config.js as needed.
+  const networkInterface = createNetworkInterface({
+    uri: APOLLO.uri,
+  });
+
   return createClient({
     ssrMode: true,
-  });
+  }, networkInterface);
 }

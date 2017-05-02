@@ -78,6 +78,14 @@ import App from 'src/components/app';
 // so we can serve static files
 import PATHS from 'config/paths';
 
+//GraphQL Server 
+import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa';
+import { SubscriptionManager, PubSub } from 'graphql-subscriptions';
+import { schema } from './qlSchema/schema.js';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { pubsub } from './pubsub/pubsub.js';
+import koaBody from 'koa-bodyparser';
+import { createServer } from 'http';
 // ----------------------
 
 // Read in manifest files
@@ -92,6 +100,30 @@ const scripts = [
   'vendor.js',
   'browser.js'].map(key => manifest[key]);
 
+//Make SubscriptionMAnager
+const subscriptionManager = new SubscriptionManager({
+  schema,
+  pubsub: pubsub,
+  setupFunctions: {
+    //어떤 서브스크립션에 대한 검증인가
+    chatSubscription: (options, args) => ({ //이렇게 리턴으로 서브스크립션 key를 가지고 있는 옵젝을 리턴해야함.
+      chatSubscription: {
+        filter: newMessage => {
+          //comment로 들어오는게 지금 pubsub으로 보내야되는 값
+          //args는 최초에 서브스크립션을 찍었을때 들어온 variables들.
+          console.log("Filter", newMessage.chatSubscription.projectid === args.projectid, newMessage, args)
+          if (newMessage.chatSubscription.projectid === args.projectid) { 
+            return true 
+          } else {
+            return false
+          } 
+
+        }
+      }
+    })
+  }
+});
+
 // Port to bind to.  Takes this from the `PORT` environment var, or assigns
 // to 4000 by default
 const PORT = process.env.PORT || 4000;
@@ -100,6 +132,8 @@ const PORT = process.env.PORT || 4000;
 (async function server() {
   // Set up routes
   const router = (new KoaRouter())
+    .post('/api/graphql', graphqlKoa({ schema }))
+    .get('/api/graphiql', graphiqlKoa({ endpointURL: '/api/graphql' }))
     // Set-up a general purpose /ping route to check the server is alive
     .get('/ping', async ctx => {
       ctx.body = 'pong';
@@ -110,7 +144,6 @@ const PORT = process.env.PORT || 4000;
     .get('/favicon.ico', async ctx => {
       ctx.res.statusCode = 204;
     })
-
     // Everything else is React
     .get('/*', async ctx => {
       const route = {};
@@ -153,11 +186,29 @@ const PORT = process.env.PORT || 4000;
           scripts={scripts}
           css={manifest['browser.css']} />,
       )}`;
-    });
+    }); 
 
   // Start Koa
-  (new Koa())
+  // Create WebSocket listener server
+  const websocketServer = createServer((request, response) => {
+    response.writeHead(404);
+    response.end();
+  });
+  // Bind it to port and start listening
+  websocketServer.listen(5000, () => console.log(
+    `Websocket Server is now running on http://localhost:5000/api/subscriptions`
+  ));
+  const subscriptionsServer = new SubscriptionServer(
+    {
+      subscriptionManager: subscriptionManager
+    },
+    {
+      server: websocketServer
+    }
+  );
 
+  (new Koa())
+    .use(koaBody())
     // Preliminary security for HTTP headers
     .use(koaHelmet())
 
@@ -198,9 +249,9 @@ const PORT = process.env.PORT || 4000;
 
     // If the requests makes it here, we'll assume they need to be handled
     // by the router
+
     .use(router.routes())
     .use(router.allowedMethods())
-
     // Bind to the specified port
     .listen(PORT);
 }());
