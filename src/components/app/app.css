@@ -1,0 +1,12 @@
+/* Define some variables we might want to use elsewhere */
+:root {
+  --fg: #0b2296;
+  --bg: #00bcd4;
+}
+
+#rianLayout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
