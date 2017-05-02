@@ -106,7 +106,7 @@ export default new WebpackConfig().extend({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       },
-    })
+    }),
 
     // Check for errors, and refuse to emit anything with issues
     new webpack.NoEmitOnErrorsPlugin(),

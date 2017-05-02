@@ -32,7 +32,7 @@ jobs:
               - ~/.cache/yarn
         - run:
             name: Install Dependencies
-            command: yarn install
+            command: yarn install --ignore-optional
         - run:
             name: Build
             command: yarn build
