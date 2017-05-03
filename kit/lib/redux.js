@@ -7,7 +7,7 @@ own reducers for store state outside of Apollo
 // ----------------------
 // IMPORTS
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-
+import Reducers from 'src/reducers';
 // ----------------------
 
 export default function createNewStore(apolloClient) {
@@ -16,6 +16,7 @@ export default function createNewStore(apolloClient) {
     // own here, for global store management outside of Apollo
     combineReducers({
       apollo: apolloClient.reducer(),
+      ...Reducers  
     }),
     // Initial server state, provided by the server.  Only relevant in the
     // browser -- on the server, we'll start with a blank object
@@ -29,5 +30,6 @@ export default function createNewStore(apolloClient) {
     ),
   );
 
+  console.log("FIRST STORE: ", store.getState());
   return store;
 }

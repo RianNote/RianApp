@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import css from './note.css';
-import NoteNav from './noteNav';
-import NoteTimeLine from './noteTimeline';
-import NoteEditor from './noteEditor';
+import css from '../note.css';
+
 
 @connect(mapState)
-export default class Note extends Component {
+export default class NoteTimeLine extends Component {
   constructor(props) {
     super(props);
   }
   render() {
   	const { Mode } = this.props;
+    console.log(css, "NOTECSS");
     return (
-      <div id={css[`note-${Mode}`]}>
-        <NoteNav />
-        <NoteTimeLine />
-        <NoteEditor />
+      <div className={css.middle}>
 			</div>
     );
   }
