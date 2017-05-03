@@ -25,14 +25,11 @@ import css from './app.css';
 // available as a string relative to [root]/dist/assets/img/
 import logo from './reactql-logo.svg';
 
-// <Home> Component
-import Home from './home';
-
-// <Header> Component
-import Header from './header';
-
 // <Note> Component
 import Note from 'src/components/note';
+
+// <Timeline> Component
+import Timeline from 'src/components/timeline'
 // ----------------------
 
 // Helper component that will be conditionally shown when the route matches.
@@ -119,10 +116,9 @@ export default () => (
         name: 'description',
         content: 'ReactQL starter kit app',
       }]} />
-    <Header />
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/note" component={Note} />
+      <Route exact path="/" component={Note} />
+      <Route exact path="/timeline" component={Timeline} />
     </Switch>
   </div>
 );

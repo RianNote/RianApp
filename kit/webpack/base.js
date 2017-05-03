@@ -24,6 +24,9 @@ import cssnext from 'postcss-cssnext';
 // CSSNano will optimise our stylesheet code
 import cssnano from 'cssnano';
 
+// @import 
+import postcssImport from 'postcss-import';
+
 // Show a nice little progress bar
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
@@ -34,7 +37,7 @@ import chalk from 'chalk';
 // Since we haven't yet established our module resolution paths, we have to
 // use the full relative path
 import PATHS from '../../config/paths';
-
+import { CSS_VARIABLES } from '../../config/project';
 // ----------------------
 
 // Export a new 'base' config, which we can extend/merge from
@@ -128,8 +131,16 @@ export default new WebpackConfig().merge({
         postcss() {
           return {
             plugins: [
+              postcssImport({ addDependencyTo: webpack }),
               postcssNested(),
-              cssnext(),
+              cssnext({
+                features: {
+                  customProperties: {
+                    warnings: false,
+                    variables: CSS_VARIABLES
+                  }
+                }
+              }),
               cssnano({
                 // Disable autoprefixer-- CSSNext already used it
                 autoprefixer: false,

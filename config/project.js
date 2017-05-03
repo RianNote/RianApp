@@ -10,3 +10,10 @@ export const APOLLO = {
 export const BUNDLE_ANALYZER = {
   openAnalyzer: false,
 };
+
+export const CSS_VARIABLES = {
+  headerHeight: "70px",
+  navWidth: "250px",
+  timelineWidth: "370px",
+  rianColor: "#00da82"
+};

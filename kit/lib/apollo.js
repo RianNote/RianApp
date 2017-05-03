@@ -47,7 +47,7 @@ export function browserClient() {
   //Make subsciption server && Change
   const subscriptionURL = `ws://${IP_ENV}:${SUBSCRIPTIONPORT}/api/subscriptions`;
   const wsClient = new SubscriptionClient(subscriptionURL, {
-      reconnect: false // 일단 꺼놓기
+      reconnect: process.env.NODE_ENV === 'production' // 프로덕션이 아니면 일단 꺼놓기
   });
   // Extend the network interface with the WebSocket
   const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(
