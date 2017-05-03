@@ -43,7 +43,6 @@ import PATHS from '../../config/paths';
 
 // Project configuration to control build settings
 import { BUNDLE_ANALYZER, IP_ENV } from '../../config/project';
-
 // ----------------------
 
 // The final CSS file will wind up in `dist/public/assets/css/style.[contenthash].css`
@@ -104,8 +103,9 @@ export default new WebpackConfig().extend({
     // Set NODE_ENV to 'production', so that React will minify our bundle
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      },
+        NODE_ENV: JSON.stringify('production'),
+        AWS_IP: JSON.stringify(process.env.AWS_IP)
+      }
     }),
 
     // Check for errors, and refuse to emit anything with issues

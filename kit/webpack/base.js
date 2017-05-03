@@ -101,6 +101,11 @@ export default new WebpackConfig().merge({
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        AWS_IP: JSON.stringify(process.env.AWS_IP)
+      }
+    }),
     // Progress bar + options
     new ProgressBarPlugin({
       format: ` ${chalk.magenta.bold('ReactQL')} building [:bar] ${chalk.green.bold(':percent')} (:elapsed seconds)`,

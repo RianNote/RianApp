@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
 yarn install --ignore-optional
-yarn run server
+yarn run build-aws
+yarn run server-aws
 

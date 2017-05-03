@@ -17,6 +17,7 @@ import { css } from './common';
 
 import PATHS from '../../config/paths';
 
+import { IP_ENV } from '../../config/project';
 // ----------------------
 
 // Helper function to recursively filter through loaders, and apply the
@@ -127,7 +128,8 @@ export default new WebpackConfig().extend({
       // with a string not only removes this expensive check, it allows
       // a minifier to remove all of React's warnings in production.
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production'),
+        AWS_IP: JSON.stringify(process.env.AWS_IP)
       },
     })
   ],

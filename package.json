@@ -10,9 +10,11 @@
     "build-browser": "cross-env WEBPACK_CONFIG=browser_prod webpack --colors",
     "build-server": "cross-env WEBPACK_CONFIG=server webpack --colors",
     "build-run": "cross-env WEBPACK_CONFIG=browser_prod,server webpack --colors && node dist/server",
-    "lint": "eslint .",
+    "build-aws": "cross-env AWS_IP=$(curl http://instance-data/latest/meta-data/public-ipv4) WEBPACK_CONFIG=browser_prod,server webpack --colors",
+    "lint": "eslint .", 
     "clean": "rimraf dist",
     "server": "node dist/server",
+    "server-aws": "AWS_IP=$(curl http://instance-data/latest/meta-data/public-ipv4) node dist/server",
     "start": "cross-env WEBPACK_CONFIG=browser_dev webpack-dev-server"
   },
   "devDependencies": {

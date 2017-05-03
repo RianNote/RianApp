@@ -77,7 +77,6 @@ import App from 'src/components/app';
 // Import paths.  We'll use this to figure out where our public folder is
 // so we can serve static files
 import PATHS from 'config/paths';
-import { IP_ENV } from 'config/project';
 
 //GraphQL Server 
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa';
@@ -197,7 +196,7 @@ const PORT = process.env.PORT || 4000;
     });
     // Bind it to port and start listening
     websocketServer.listen(5000, () => console.log(
-      `Websocket Server is now running on port 5000, ${IP_ENV}:5000/api/subscriptions`
+      `Websocket Server is now running on port 5000`
     ));
     const subscriptionsServer = new SubscriptionServer(
       {
