@@ -106,7 +106,8 @@ export default new WebpackConfig().merge({
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        AWS_IP: JSON.stringify(process.env.AWS_IP)
+        AWS_IP: JSON.stringify(process.env.AWS_IP),
+        IS_DOCKER: JSON.stringify(process.env.IS_DOCKER)
       }
     }),
     // Progress bar + options

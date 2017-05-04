@@ -1,26 +1,25 @@
-version: "3"
+version: '3'
 services:
   mongodb:
-    image: "mongo:3.4.3"
+    image: ${MONGO}
     networks:
       - webnet
   web:
-    image: ceruberu/rian-container:0.1.1
+    image: ceruberu/rian-container:${IMAGE_VERSION}
     build: .
     ports:
       - "4000:4000"
       - "5000:5000"
       - "8080:8080"
     volumes:
-      - data:/data/db
+      - data:${DATA_DIRECTORY}
     depends_on:
       - mongodb
     links:
       - mongodb
     networks:
       - webnet
-    environment:
-      - IS_DOCKER=true
+    env_file: ./config/node.env
 networks:
   webnet:
 volumes:
