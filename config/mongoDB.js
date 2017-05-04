@@ -1,7 +1,6 @@
-import { IP_ENV } from './project';
-
+const DOCKER_ENV = process.env.IS_DOCKER ? 'mongodb' : 'localhost';
 const mongoConfig = {
-		mongoURL: `mongodb://${IP_ENV}:27017/rian`, // mongodb for docker
+		mongoURL: `mongodb://${DOCKER_ENV}:27017/rian`, // mongodb for docker
 };
 
 export default mongoConfig;

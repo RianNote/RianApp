@@ -142,12 +142,13 @@ const subscriptionManager = new SubscriptionManager({
 (async function server() {
   // 몽고DB 연결
   mongoose.Promise = global.Promise;
-  mongoose.connect(mongoConfig.mongoURL, error => {
-    if (error) {
-      console.error("Please make sure Mongodb is installed and running!"); // eslint-disable-line no-console
-      throw error;
-    }
+  mongoose.connect(mongoConfig.mongoURL).then(
+    () => { console.log(`connected to MongoDB: ${mongoConfig.mongoURL}`)}, 
+    error => { 
+    console.error("Please make sure Mongodb is installed and running!");
+    throw error;
   });
+
   // Set up routes
   const router = (new KoaRouter())
     .post('/api/graphql', graphqlKoa({ schema }))
