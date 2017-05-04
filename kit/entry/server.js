@@ -77,6 +77,20 @@ import App from 'src/components/app';
 // Import paths.  We'll use this to figure out where our public folder is
 // so we can serve static files
 import PATHS from 'config/paths';
+import { PORT } from 'config/project';
+import { isLoggedIn } from './utils/serverUtils';
+// MongoDB + Mongoose
+import mongoose from 'mongoose';
+import mongoConfig from 'config/mongoDB';
+
+// Auth
+import session from 'koa-session';
+import bodyParser from 'koa-bodyparser';
+import passport from 'koa-passport';
+import passportRoutes from 'config/routes';
+import passportConfig from 'config/passport';
+import cookieConfig from 'config/cookie';
+
 
 //GraphQL Server 
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa';
@@ -124,12 +138,16 @@ const subscriptionManager = new SubscriptionManager({
   }
 });
 
-// Port to bind to.  Takes this from the `PORT` environment var, or assigns
-// to 4000 by default
-const PORT = process.env.PORT || 4000;
-
 // Run the server
 (async function server() {
+  // 몽고DB 연결
+  mongoose.Promise = global.Promise;
+  mongoose.connect(mongoConfig.mongoURL, error => {
+    if (error) {
+      console.error("Please make sure Mongodb is installed and running!"); // eslint-disable-line no-console
+      throw error;
+    }
+  });
   // Set up routes
   const router = (new KoaRouter())
     .post('/api/graphql', graphqlKoa({ schema }))
@@ -145,14 +163,15 @@ const PORT = process.env.PORT || 4000;
       ctx.res.statusCode = 204;
     })
     // Everything else is React
-    .get('/*', async ctx => {
+    .get('/*', isLoggedIn, async ctx => {
+      const preloadedState = ctx.state.initial || {}; 
       const route = {};
 
       // Create a new server Apollo client for this request
       const client = serverClient();
 
       // Create a new Redux store for this request
-      const store = createNewStore(client);
+      const store = createNewStore(client, preloadedState);
 
       // Generate the HTML from our React tree.  We're wrapping the result
       // in `react-router`'s <StaticRouter> which will pull out URL info and
@@ -188,7 +207,6 @@ const PORT = process.env.PORT || 4000;
       )}`;
     }); 
 
-  if(process.env.NODE_ENV === 'production'){
     // Create WebSocket listener server
     const websocketServer = createServer((request, response) => {
       response.writeHead(404);
@@ -206,17 +224,26 @@ const PORT = process.env.PORT || 4000;
         server: websocketServer
       }
     );
-  }
   
   // Start Koa
-  (new Koa())
-    .use(koaBody())
-    // Preliminary security for HTTP headers
-    .use(koaHelmet())
 
+  const app = new Koa();
+  app.keys = ['your-session-secret']
+  app.use(session(cookieConfig, app))
+  app.use(bodyParser())
+  app.use(koaBody())
+  // Preliminary security for HTTP headers
+  app.use(koaHelmet())
+  // Passport 설정 실행 및 각 로컬 및 소셜 로그인 Strategy 추가 
+  passportConfig(passport);
+  app.use(passport.initialize())
+  app.use(passport.session())
+  const authRoute = passportRoutes(passport);
+  app.use(authRoute.routes());
+  app.use(authRoute.allowedMethods());
     // Error wrapper.  If an error manages to slip through the middleware
     // chain, it will be caught and logged back here
-    .use(async (ctx, next) => {
+    app.use(async (ctx, next) => {
       try {
         await next();
       } catch (e) {
@@ -230,7 +257,7 @@ const PORT = process.env.PORT || 4000;
 
     // It's useful to see how long a request takes to respond.  Add the
     // timing to a HTTP Response header
-    .use(async (ctx, next) => {
+    app.use(async (ctx, next) => {
       const start = ms.now();
       await next();
       const end = ms.parse(ms.since(start));
@@ -241,7 +268,7 @@ const PORT = process.env.PORT || 4000;
     // Serve static files from our dist/public directory, which is where
     // the compiled JS, images, etc will wind up.  Note this is being checked
     // FIRST before any routes -- static files always take priority
-    .use(koaStatic(PATHS.public, {
+    app.use(koaStatic(PATHS.public, {
       // All asset names contain the hashes of their contents so we can
       // assume they are immutable for caching
       maxage: 31536000000,
@@ -251,9 +278,8 @@ const PORT = process.env.PORT || 4000;
 
     // If the requests makes it here, we'll assume they need to be handled
     // by the router
-
-    .use(router.routes())
-    .use(router.allowedMethods())
+    app.use(router.routes())
+    app.use(router.allowedMethods())
     // Bind to the specified port
-    .listen(PORT);
+    app.listen(PORT, ()=> console.log('Server is now listening on ', PORT));
 }());

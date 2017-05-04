@@ -1,0 +1,6 @@
+.facebookButton {
+	text-decoration: none;
+  display: flex;
+  align-items: center;
+	color: gray(95%);
+}

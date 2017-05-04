@@ -1,0 +1,79 @@
+.infiniteContainer {
+  box-sizing: border-box;
+  border-top: 1px solid gray(80%);
+}
+.timelineSearch {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	border-right: 1px solid gray(80%);
+}
+.timelineSearchBar{
+	box-sizing: border-box;
+	flex: 1;
+	margin-right: 0px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	border: 1px solid gray(80%);
+}
+.timelineSearchButton{
+	box-sizing: border-box;
+	flex: 0 0 30px;
+	margin: 10px;
+	border-radius: 10px;
+	border: 1px solid gray(80%);
+}
+.snippetContainer {
+	display: flex;
+	height: 150px;
+	flex-direction: row;
+}
+
+.snippetSide {
+	display: flex;
+	flex: 0 0 60px;
+	box-sizing: border-box;
+	padding-left: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.snippetSide:active {
+	padding-left: 0px;
+	border-left: 5px solid var(--rianColor);
+}
+
+.snippetBody {
+	width: 300px;
+	padding: 8px;
+	display: flex;
+	flex: 1;
+	box-sizing: border-box;
+	border-bottom: 1px solid gray(90%);
+	border-right: 1px solid gray(90%);
+	flex-direction: column;
+	justify-content: stretch;
+}
+.snippetTitle {
+	display: block;
+	flex: 1;
+	line-height: 44px;
+	font-size: 18px;
+	font-weight: bold;
+	justify-content: center;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;	
+}
+.snippetSnippet {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+  overflow: hidden; 
+  line-height: 33px;
+	flex: 2;
+	color: gray(50%);
+}

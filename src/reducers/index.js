@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 // Import Reducers
 import * as NoteReducer from './NoteReducer';
-// import * as UserReducer from './UserReducer';
+import * as UserReducer from './UserReducer';
 // import * as ProjectReducer from './ProjectReducer';
 // import * as CalendarReducer from './CalendarReducer';
 // import * as PlanReducer from './PlanReducer';
@@ -14,6 +14,7 @@ import * as NoteReducer from './NoteReducer';
 
 export default Object.assign(
 	{}, 
-	NoteReducer
+	NoteReducer,
+	UserReducer
 )
 
