@@ -19,11 +19,21 @@ export default class NoteTimeLine extends Component {
         tag={data.tag}
       />
     )); 
-    this.state = {
-      List: MockList,
-      browserSize: window.innerHeight - 50
-    };
+    if(SERVER){
+      this.state = {
+        List: MockList
+      };
+    } else {
+      this.state = {
+        List: MockList,
+        browserSize: window.innerHeight - 50
+      };
+    }
+    
 
+    
+  }
+  componentDidMount() {
     window.addEventListener("resize", () => {
       this.setState((prevState, props) => {
         return {
@@ -33,24 +43,28 @@ export default class NoteTimeLine extends Component {
     })
   }
   render() {
-    return (
-      <div className={noteCss.middle}>
-        <div className={css.timelineSearch}>
-          <div className={css.timelineSearchBar}>
+    if(SERVER){
+      return (<div></div>)
+    } else {
+      return (
+        <div className={noteCss.middle}>
+          <div className={css.timelineSearch}>
+            <div className={css.timelineSearchBar}>
+            </div>
+            <div className={css.timelineSearchButton}>
+            </div>
           </div>
-          <div className={css.timelineSearchButton}>
-          </div>
+          <Infinite
+            className={css.infiniteContainer}
+            containerHeight={this.state.browserSize}
+            elementHeight={150}
+            timeScrollStateLastsForAfterUserScrolls={0}
+          >
+            {this.state.List}
+          </Infinite>
         </div>
-        <Infinite
-          className={css.infiniteContainer}
-          containerHeight={this.state.browserSize}
-          elementHeight={150}
-          timeScrollStateLastsForAfterUserScrolls={0}
-        >
-          {this.state.List}
-        </Infinite>
-      </div>
-    );
+      )
+    }
   }
 }
 
