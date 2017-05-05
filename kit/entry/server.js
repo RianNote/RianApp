@@ -215,7 +215,7 @@ const subscriptionManager = new SubscriptionManager({
     });
     // Bind it to port and start listening
     websocketServer.listen(5000, () => console.log(
-      `Websocket Server is now running on port 5000`
+      `RockSocket is now running on port 5000`
     ));
     const subscriptionsServer = new SubscriptionServer(
       {
@@ -282,5 +282,5 @@ const subscriptionManager = new SubscriptionManager({
     app.use(router.routes())
     app.use(router.allowedMethods())
     // Bind to the specified port
-    app.listen(PORT, ()=> console.log('Server is now listening on ', PORT));
+    app.listen(PORT, ()=> console.log('Rock Spirit comes from ', PORT));
 }());

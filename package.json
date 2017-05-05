@@ -67,6 +67,8 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "font-awesome-webpack": "^0.0.5-beta.2",
+    "froala-editor": "^2.6.0",
     "graphql-server-koa": "^0.7.2",
     "graphql-subscriptions": "^0.3.1",
     "graphql-tools": "^0.11.0",
@@ -91,6 +93,7 @@
     "react": "^15.5.4",
     "react-apollo": "^1.1.0",
     "react-dom": "^15.5.4",
+    "react-froala-wysiwyg": "^2.6.1",
     "react-helmet": "^5.0.3",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^5.0.4",
@@ -99,6 +102,7 @@
     "react-virtualized": "^9.7.4",
     "redux": "^3.6.0",
     "regenerator-runtime": "^0.10.3",
-    "subscriptions-transport-ws": "^0.5.5"
+    "subscriptions-transport-ws": "^0.5.5",
+    "url-loader": "^0.5.8"
   }
 }
