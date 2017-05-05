@@ -42,6 +42,9 @@
   }
   & .middle {
     flex: 0 0 var(--timelineWidth);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
   }
   & .right {
     flex: 1;  
