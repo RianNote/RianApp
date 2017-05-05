@@ -24,9 +24,6 @@ import cssnext from 'postcss-cssnext';
 // CSSNano will optimise our stylesheet code
 import cssnano from 'cssnano';
 
-// @import 
-import postcssImport from 'postcss-import';
-
 // Show a nice little progress bar
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
@@ -63,7 +60,8 @@ export default new WebpackConfig().merge({
   // actually get that stuff working in *Javascript* -- woot!
   module: {
     loaders: [
-      // Fonts
+        // Fonts
+        
       {
         test: /\.(woff|woff2|ttf|eot)$/i,
         loader: 'file-loader',
@@ -110,6 +108,11 @@ export default new WebpackConfig().merge({
         IS_DOCKER: JSON.stringify(process.env.IS_DOCKER)
       }
     }),
+    //Jquery for Froala Editor
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
     // Progress bar + options
     new ProgressBarPlugin({
       format: ` ${chalk.magenta.bold('ReactQL')} building [:bar] ${chalk.green.bold(':percent')} (:elapsed seconds)`,
@@ -132,7 +135,6 @@ export default new WebpackConfig().merge({
         postcss() {
           return {
             plugins: [
-              postcssImport({ addDependencyTo: webpack }),
               postcssNested(),
               cssnext({
                 features: {
