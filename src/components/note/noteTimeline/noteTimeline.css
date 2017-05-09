@@ -2,12 +2,17 @@
   box-sizing: border-box;
   border-top: 1px solid gray(80%);
 }
+
+.autoSizer {
+	flex: 1 1 auto;
+}
+
 .timelineSearch {
 	display: flex;
 	width: 100%;
-	height: 50px;
+	flex: 0 0 50px;
 	box-sizing: border-box;
-	border-right: 1px solid gray(80%);
+	border-right: 1px solid gray(90%);
 }
 .timelineSearchBar{
 	box-sizing: border-box;
@@ -17,14 +22,14 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 10px;
-	border: 1px solid gray(80%);
+	border: 1px solid gray(90%);
 }
 .timelineSearchButton{
 	box-sizing: border-box;
 	flex: 0 0 30px;
 	margin: 10px;
 	border-radius: 10px;
-	border: 1px solid gray(80%);
+	border: 1px solid gray(90%);
 }
 .snippetContainer {
 	display: flex;

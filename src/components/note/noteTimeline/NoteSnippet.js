@@ -1,8 +1,11 @@
 import React from "react";
 import css from './noteTimeline.css';
-const NoteSnippet = ({ title, final_modified_at, snippet, tag }) => {
+const NoteSnippet = ({ title, final_modified_at, snippet, tag, style}) => {
 	return (
-		<div className={css.snippetContainer}>
+		<div 
+			className={css.snippetContainer}
+			style={style}
+		>
 			<div className={css.snippetSide}>
 				1d
 			</div>
