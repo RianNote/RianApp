@@ -1,3 +1,7 @@
+.mainWriting {
+
+}
+
 .clearfix::after {
   clear: both;
   display: block;

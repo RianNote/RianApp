@@ -10,11 +10,9 @@ import 'froala-editor/js/froala_editor.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
 
 import FroalaEditor from 'react-froala-wysiwyg';
-import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
-import FroalaEditorInput from 'react-froala-wysiwyg/FroalaEditorInput';
 import './jquery.caret-master/jquery.caret.js';
-
-
+import { mockContent } from './mock.js'
+import screenfull from 'screenfull'
 @connect(mapState)
 export default class NoteEditor extends Component {
   constructor(props) {
@@ -24,13 +22,13 @@ export default class NoteEditor extends Component {
       tag: '',
       options: { },
       initControls: '',
-      content: '<span>Fuck you</span>',
-    };
-
+      content: mockContent
+    }
     this.handleModelChange = this.handleModelChange.bind(this);
     this.handleController = this.handleController.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleTagChange = this.handleTagChange.bind(this);
+    this.fullScreen = this.fullScreen.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +58,10 @@ export default class NoteEditor extends Component {
 
       }
     }, true);
+
+    window.addEventListener("resize", () => {
+      this.forceUpdate()
+    })
   }
 
 
@@ -78,7 +80,6 @@ export default class NoteEditor extends Component {
   }
 
   handleTitleChange(e) {
-    console.log('sdfsdf', e.target.value);
     this.setState({ title: e.target.value });
   }
 
@@ -86,9 +87,17 @@ export default class NoteEditor extends Component {
     this.setState({ tag: e.target.value });
   }
 
+  fullScreen(){
+    if (screenfull.enabled) {
+    screenfull.request();
+    } else {
+      // Ignore or do something else
+    }
+  }
+
 
   render() {
-  	const { Mode } = this.props;
+    const { Mode } = this.props;
     return (
       <div className={css.right}>
         <div className="left-editor">
@@ -100,21 +109,24 @@ export default class NoteEditor extends Component {
             tag="mainwriting"
             model={this.state.content}
             config={{
+              spellcheck: false,
               height: `${window.innerHeight - (88 + 50)}`,
               width: '100%',
               editorClass: 'mainEditor',
-              placeholderText: 'Fuck you',
+              placeholder: 'Fuck you',
+              charCounterCount: false,
               enter: $.FroalaEditor.ENTER_DIV,
               toolbarInline: true,
+              toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'print', 'help', 'html', '|', 'undo', 'redo'],
               language: 'ko',
-              spellcheck: false,
+              fontSizeDefaultSelection: '20',
             }}
             onModelChange={this.handleModelChange}
             onManualControllerReady={this.handleController} />
         </div>
-        <div className="right-tool">
+        <div className="right-tool" style={ {paddingTop: `${window.innerHeight-150}` + 'px' }}>
           <div className="fa fa-etsy richstyle fa-lg" aria-hidden="true" />
-          <div className="fa fa-square-o mode fa-lg" aria-hidden="true" />
+          <div className="fa fa-square-o mode fa-lg" aria-hidden="true" onClick={this.fullScreen}/>
         </div>
       </div>
     );
@@ -123,7 +135,7 @@ export default class NoteEditor extends Component {
 
 function mapState(state) {
   return {
-  	Mode: state.Note.mode,
+    Mode: state.Note.mode,
     Note: state.Note,
   };
 }
