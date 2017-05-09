@@ -1,0 +1,22 @@
+.left-editor {
+	flex: 9;
+}
+
+.right-tool {
+	flex: 1;
+	display: flex;
+	padding-top: 730px;
+	flex-direction: column;
+	align-items: center;
+	margin-right: -50px;
+	padding-left: 30px;
+}
+
+.richstyle {
+	margin-bottom: 20px;
+}
+
+.mode {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

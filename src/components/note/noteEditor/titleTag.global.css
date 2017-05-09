@@ -1,0 +1,21 @@
+.head {
+	margin-bottom: 15px;
+}
+
+.title {
+	display: block;
+	width: 100%;
+	border: none;
+	background-color: #FBFBFB;
+	height: 40px;
+	margin: 0px;
+}
+
+.tag {
+	display: block;
+	width: 100%;
+	border: none;
+	background-color: #FBFBFB;
+	height: 40px;
+	margin: 0px;
+}
