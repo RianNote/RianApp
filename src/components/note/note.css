@@ -54,6 +54,7 @@
     flex-direction: row;  
     justify-content: center;
     background-color: #FBFBFB;
+    overflow: scroll;
     padding-top: 30px;
     padding-left: 200px;
     padding-right: 300px;

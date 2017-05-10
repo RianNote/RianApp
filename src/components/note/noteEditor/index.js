@@ -52,9 +52,7 @@ export default class NoteEditor extends Component {
     //   }
     // }, true);
 
-    window.addEventListener("resize", () => {
-      this.forceUpdate()
-    })
+ 
   }
 
 
@@ -91,20 +89,8 @@ export default class NoteEditor extends Component {
 
   render() {
     const { Mode } = this.props;
-    const innerHeight = window.innerHeight
-    return (
-      <div className={css.right}>
-        <div className="left-editor">
-          <div className="head">
-            <input className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />
-            <input className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
-          </div>
-          <FroalaEditor
-            tag="mainwriting"
-            model={this.state.content}
-            config={{
+    const config = {
               spellcheck: false,
-              height: `${innerHeight - (88 + 50)}`,
               width: '100%',
               editorClass: 'mainEditor',
               placeholder: 'Fuck you',
@@ -113,11 +99,22 @@ export default class NoteEditor extends Component {
               toolbarInline: true,
               toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'print', 'help', 'html', '|', 'undo', 'redo'],
               fontSizeDefaultSelection: '20',
-            }}
+    }
+    return (
+      <div className={css.right}>
+        <div className="left-editor">
+          <div className="head">
+            <textarea className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />
+            <textarea className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
+          </div>
+          <FroalaEditor
+            tag="mainwriting"
+            model={this.state.content}
+            config={config}
             onModelChange={this.handleModelChange}
             onManualControllerReady={this.handleController} />
         </div>
-        <div className="right-tool" style={ {paddingTop: `${innerHeight-150}` + 'px' }}>
+        <div className="right-tool">
           <div className="fa fa-etsy richstyle fa-lg" aria-hidden="true" />
           <div className="fa fa-square-o mode fa-lg" aria-hidden="true" onClick={this.fullScreen}/>
         </div>
