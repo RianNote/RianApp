@@ -11,6 +11,11 @@
 	background-color: #FBFBFB;
 	height: 40px;
 	margin: 0px;
+	resize: none;
+}
+
+.title:focus {
+	outline: none;
 }
 
 .tag {
@@ -22,4 +27,9 @@
 	background-color: #FBFBFB;
 	height: 40px;
 	margin: 0px;
+	resize: none;
+}
+
+.tag:focus {
+	outline: none;
 }

@@ -7,10 +7,8 @@ import './titleTag.global.css';
 import './totalLayout.global.css';
 // Note that Froala Editor has to be required separately
 import 'froala-editor/js/froala_editor.pkgd.min.js';
-import 'froala-editor/js/languages/ko.js';
 
 import FroalaEditor from 'react-froala-wysiwyg';
-import './jquery.caret-master/jquery.caret.js';
 import { mockContent } from './mock.js'
 import screenfull from 'screenfull'
 @connect(mapState)
@@ -38,30 +36,23 @@ export default class NoteEditor extends Component {
 
 
     this.initControls.getEditor()('toolbar.hide');
-    this.initControls.getEditor()('events.on', 'keydown', e => {
-      if (e.which == '13' || e.which == '10') {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log($('.fr-view'));
-        console.log($('.fr-view').caret());
-        // console.log($(window.getSelection()))
-        // $(window.getSelection()).animate({top: 10}, '500')
-      }
-      if (e.which == '38') {
-        if ($('.fr-view').caret('position').top - $('.fr-view').caret('position').height <= 0) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      }
-      if (e.which == '40') {
+    // this.initControls.getEditor()('events.on', 'keydown', e => {
+    //   if (e.which == '13' || e.which == '10') {
+   
+    //     // console.log($(window.getSelection()))
+    //     // $(window.getSelection()).animate({top: 10}, '500')
+    //   }
+    //   if (e.which == '38') {
+         
+        
+    //   }
+    //   if (e.which == '40') {
 
 
-      }
-    }, true);
+    //   }
+    // }, true);
 
-    window.addEventListener("resize", () => {
-      this.forceUpdate()
-    })
+ 
   }
 
 
@@ -98,19 +89,8 @@ export default class NoteEditor extends Component {
 
   render() {
     const { Mode } = this.props;
-    return (
-      <div className={css.right}>
-        <div className="left-editor">
-          <div className="head">
-            <input className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />
-            <input className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
-          </div>
-          <FroalaEditor
-            tag="mainwriting"
-            model={this.state.content}
-            config={{
+    const config = {
               spellcheck: false,
-              height: `${window.innerHeight - (88 + 50)}`,
               width: '100%',
               editorClass: 'mainEditor',
               placeholder: 'Fuck you',
@@ -118,13 +98,23 @@ export default class NoteEditor extends Component {
               enter: $.FroalaEditor.ENTER_DIV,
               toolbarInline: true,
               toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'print', 'help', 'html', '|', 'undo', 'redo'],
-              language: 'ko',
               fontSizeDefaultSelection: '20',
-            }}
+    }
+    return (
+      <div className={css.right}>
+        <div className="left-editor">
+          <div className="head">
+            <textarea className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />
+            <textarea className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
+          </div>
+          <FroalaEditor
+            tag="mainwriting"
+            model={this.state.content}
+            config={config}
             onModelChange={this.handleModelChange}
             onManualControllerReady={this.handleController} />
         </div>
-        <div className="right-tool" style={ {paddingTop: `${window.innerHeight-150}` + 'px' }}>
+        <div className="right-tool">
           <div className="fa fa-etsy richstyle fa-lg" aria-hidden="true" />
           <div className="fa fa-square-o mode fa-lg" aria-hidden="true" onClick={this.fullScreen}/>
         </div>
