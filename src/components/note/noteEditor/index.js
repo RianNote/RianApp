@@ -95,7 +95,6 @@ export default class NoteEditor extends Component {
               editorClass: 'mainEditor',
               placeholder: 'Fuck you',
               charCounterCount: false,
-              enter: $.FroalaEditor.ENTER_DIV,
               toolbarInline: true,
               toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'print', 'help', 'html', '|', 'undo', 'redo'],
               fontSizeDefaultSelection: '20',
