@@ -7,52 +7,39 @@ import './titleTag.global.css';
 import './totalLayout.global.css';
 // Note that Froala Editor has to be required separately
 import 'froala-editor/js/froala_editor.pkgd.min.js';
-
 import FroalaEditor from 'react-froala-wysiwyg';
 import { mockContent } from './mock.js'
 import screenfull from 'screenfull'
+import { XYruler } from './util.js'
+
 @connect(mapState)
 export default class NoteEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      tag: '',
+      title: 'Lorem Ipsum',
+      tag: '#Latin',
       options: { },
       initControls: '',
-      content: mockContent
+      content: mockContent,
+      typewrite: false,
     }
     this.handleModelChange = this.handleModelChange.bind(this);
     this.handleController = this.handleController.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleTagChange = this.handleTagChange.bind(this);
     this.fullScreen = this.fullScreen.bind(this);
+    this.typeWrite = this.typeWrite.bind(this);
+    
   }
 
   componentDidMount() {
     console.log(this.state);
     this.initControls.initialize();
     const textEditor = this.initControls.getEditor()();
-
-
     this.initControls.getEditor()('toolbar.hide');
-    // this.initControls.getEditor()('events.on', 'keydown', e => {
-    //   if (e.which == '13' || e.which == '10') {
-   
-    //     // console.log($(window.getSelection()))
-    //     // $(window.getSelection()).animate({top: 10}, '500')
-    //   }
-    //   if (e.which == '38') {
-         
-        
-    //   }
-    //   if (e.which == '40') {
-
-
-    //   }
-    // }, true);
-
- 
+    console.log(textEditor)
+    textEditor[0].spellcheck = false
   }
 
 
@@ -64,10 +51,6 @@ export default class NoteEditor extends Component {
   handleController(initControls) {
     this.initControls = initControls;
     console.log('create', initControls);
-    const backToTypeWriting = () => {
-      this.state.initTypeControls.getEditor()('html.set', '');
-      this.state.initTypeControls.getEditor()('events.focus');
-    };
   }
 
   handleTitleChange(e) {
@@ -86,6 +69,11 @@ export default class NoteEditor extends Component {
     }
   }
 
+  typeWrite(){
+    this.setState((prevState, props) => ({
+      typewrite: !prevState.typewrite
+    }))
+  }
 
   render() {
     const { Mode } = this.props;
@@ -93,29 +81,83 @@ export default class NoteEditor extends Component {
               spellcheck: false,
               width: '100%',
               editorClass: 'mainEditor',
-              placeholder: 'Fuck you',
+              spellcheck: false,
               charCounterCount: false,
-              enter: $.FroalaEditor.ENTER_DIV,
               toolbarInline: true,
-              toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'print', 'help', 'html', '|', 'undo', 'redo'],
-              fontSizeDefaultSelection: '20',
+              toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', '|', 'insertHR', '|', 'print',  'html', '|'],
+              paragraphFormat: {
+                N: 'Normal',
+                H3: 'Head 3',
+                H2: 'Head 2',
+                H1: 'Head 1',
+              }
     }
+
+    if (this.state.typewrite) {
+      const adjustScrollTop = (argu) => {
+          console.log(window.getSelection().getRangeAt(0), window.getSelection().getRangeAt(0).getClientRects())
+          if (window.getSelection().getRangeAt(0).getClientRects()[0].top > window.innerHeight/2) {
+                document.getElementsByClassName(css.right)[0].scrollTop = 
+                    document.getElementsByClassName(css.right)[0].scrollTop 
+                      - (window.innerHeight/2 - window.getSelection().getRangeAt(0).getClientRects()[0].top)
+          } else if (window.getSelection().getRangeAt(0).getClientRects()[0].top < window.innerHeight/2) {
+                document.getElementsByClassName(css.right)[0].scrollTop = 
+                    document.getElementsByClassName(css.right)[0].scrollTop 
+                      + (window.getSelection().getRangeAt(0).getClientRects()[0].bottom - window.innerHeight/2)
+          }
+          console.log(window.innerHeight/2, window.getSelection().getRangeAt(0).getClientRects()[0].bottom)
+      }
+      
+
+
+      $('.fr-view').click(e => {
+        adjustScrollTop()
+      })
+
+      this.initControls.getEditor()('events.on', 'keydown', e => {
+
+          if (e.which == '13' || e.which == '10') {
+            adjustScrollTop()
+          }
+          if (e.which == '8') {
+            adjustScrollTop()
+          }
+          if (e.which == '38') {
+            adjustScrollTop()
+          }
+          if (e.which == '40') {
+            adjustScrollTop()
+          }
+
+      }, true);
+
+
+    }
+
     return (
       <div className={css.right}>
-        <div className="left-editor">
-          <div className="head">
-            <textarea className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />
-            <textarea className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
-          </div>
+        <div className="left-editor" >
+          {!this.state.typewrite &&
+            <div className="head">
+              <textarea className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />
+              <textarea className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
+            </div>
+          }
+          {this.state.typewrite &&
+            <div style={ { height: window.innerHeight/2 + 200 + 'px'} } />
+          }
           <FroalaEditor
             tag="mainwriting"
             model={this.state.content}
             config={config}
             onModelChange={this.handleModelChange}
             onManualControllerReady={this.handleController} />
+          {this.state.typewrite && 
+            <div style={ { height: window.innerHeight/2 + 200 + 'px'} } />
+          }   
         </div>
         <div className="right-tool">
-          <div className="fa fa-etsy richstyle fa-lg" aria-hidden="true" />
+          <div className="fa fa-etsy richstyle fa-lg" aria-hidden="true" onClick={this.typeWrite}/>
           <div className="fa fa-square-o mode fa-lg" aria-hidden="true" onClick={this.fullScreen}/>
         </div>
       </div>
@@ -129,3 +171,5 @@ function mapState(state) {
     Note: state.Note,
   };
 }
+
+
