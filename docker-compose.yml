@@ -13,8 +13,6 @@ services:
     image: ceruberu/rian-note:latest
     deploy:
       replicas: 1
-    # build: .
-    # sequential_deployment: true
     ports:
       - "4000:4000"
       - "5000:5000"
@@ -23,13 +21,10 @@ services:
       - data:/data/db
     depends_on:
       - mongodb
-    # links:
-      # - mongodb
     logging:
       driver: "json-file"
     networks:
       - webnet
-    # env_file: ./config/node.env
 networks:
   webnet:
 volumes:
