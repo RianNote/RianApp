@@ -95,9 +95,9 @@ import cookieConfig from 'config/cookie';
 //GraphQL Server 
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa';
 import { SubscriptionManager, PubSub } from 'graphql-subscriptions';
-import { schema } from './qlSchema/schema.js';
+import { schema } from 'graphqlServer/qlSchema/schema';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
-import { pubsub } from './pubsub/pubsub.js';
+import { pubsub } from 'graphqlServer/pubsub/pubsub';
 import koaBody from 'koa-bodyparser';
 import { createServer } from 'http';
 // ----------------------
@@ -143,9 +143,9 @@ const subscriptionManager = new SubscriptionManager({
   // 몽고DB 연결
   mongoose.Promise = global.Promise;
   mongoose.connect(mongoConfig.mongoURL).then(
-    () => { console.log(`connected to MongoDB: ${mongoConfig.mongoURL}`)}, 
+    () => { console.log(`connected to RockofMongo: ${mongoConfig.mongoURL}`)}, 
     error => { 
-    console.error("Please make sure Mongodb is installed and running!");
+    console.error("Mongo is Rock City");
     throw error;
   });
 

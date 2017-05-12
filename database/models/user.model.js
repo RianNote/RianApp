@@ -15,7 +15,7 @@ const User = new Schema({
   kakao_id: String,
   google_id: String,
   created_at: { type: 'Date', default: Date.now, required: true },
-  last_login: { type: 'Date', default: Date.now }
+  last_login: { type: 'Date', default: Date.now },
 });
  
 export default mongoose.model('Users', User)
