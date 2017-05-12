@@ -2883,3 +2883,12 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
   z-index: 9999;
   display: none;
 }
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400');
+.fr-view {
+   font-family: 'Quicksand', sans-serif;
+   font-size: 20px;
+   font-weight: 400;
+   color: #545454;
+   padding-bottom: 30px;
+}
+
