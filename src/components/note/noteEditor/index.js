@@ -93,46 +93,46 @@ export default class NoteEditor extends Component {
               }
     }
 
-    if (this.state.typewrite) {
-      const adjustScrollTop = (argu) => {
-          console.log(window.getSelection().getRangeAt(0), window.getSelection().getRangeAt(0).getClientRects())
-          if (window.getSelection().getRangeAt(0).getClientRects()[0].top > window.innerHeight/2) {
-                document.getElementsByClassName(css.right)[0].scrollTop = 
-                    document.getElementsByClassName(css.right)[0].scrollTop 
-                      - (window.innerHeight/2 - window.getSelection().getRangeAt(0).getClientRects()[0].top)
-          } else if (window.getSelection().getRangeAt(0).getClientRects()[0].top < window.innerHeight/2) {
-                document.getElementsByClassName(css.right)[0].scrollTop = 
-                    document.getElementsByClassName(css.right)[0].scrollTop 
-                      + (window.getSelection().getRangeAt(0).getClientRects()[0].bottom - window.innerHeight/2)
-          }
-          console.log(window.innerHeight/2, window.getSelection().getRangeAt(0).getClientRects()[0].bottom)
-      }
+    // if (this.state.typewrite) {
+    //   const adjustScrollTop = (argu) => {
+    //       console.log(window.getSelection().getRangeAt(0), window.getSelection().getRangeAt(0).getClientRects())
+    //       if (window.getSelection().getRangeAt(0).getClientRects()[0].top > window.innerHeight/2) {
+    //             document.getElementsByClassName(css.right)[0].scrollTop = 
+    //                 document.getElementsByClassName(css.right)[0].scrollTop 
+    //                   - (window.innerHeight/2 - window.getSelection().getRangeAt(0).getClientRects()[0].top)
+    //       } else if (window.getSelection().getRangeAt(0).getClientRects()[0].top < window.innerHeight/2) {
+    //             document.getElementsByClassName(css.right)[0].scrollTop = 
+    //                 document.getElementsByClassName(css.right)[0].scrollTop 
+    //                   + (window.getSelection().getRangeAt(0).getClientRects()[0].bottom - window.innerHeight/2)
+    //       }
+    //       console.log(window.innerHeight/2, window.getSelection().getRangeAt(0).getClientRects()[0].bottom)
+    //   }
       
 
 
-      $('.fr-view').click(e => {
-        adjustScrollTop()
-      })
+    //   $('.fr-view').click(e => {
+    //     adjustScrollTop()
+    //   })
 
-      this.initControls.getEditor()('events.on', 'keydown', e => {
+    //   this.initControls.getEditor()('events.on', 'keydown', e => {
 
-          if (e.which == '13' || e.which == '10') {
-            adjustScrollTop()
-          }
-          if (e.which == '8') {
-            adjustScrollTop()
-          }
-          if (e.which == '38') {
-            adjustScrollTop()
-          }
-          if (e.which == '40') {
-            adjustScrollTop()
-          }
+    //       if (e.which == '13' || e.which == '10') {
+    //         adjustScrollTop()
+    //       }
+    //       if (e.which == '8') {
+    //         adjustScrollTop()
+    //       }
+    //       if (e.which == '38') {
+    //         adjustScrollTop()
+    //       }
+    //       if (e.which == '40') {
+    //         adjustScrollTop()
+    //       }
 
-      }, true);
+    //   }, true);
 
 
-    }
+    // }
 
     return (
       <div className={css.right}>
@@ -143,18 +143,12 @@ export default class NoteEditor extends Component {
               <textarea className="tag" placeholder="tag" value={this.state.tag} onChange={this.handleTagChange} />
             </div>
           }
-          {this.state.typewrite &&
-            <div style={ { height: window.innerHeight/2 + 200 + 'px'} } />
-          }
           <FroalaEditor
             tag="mainwriting"
             model={this.state.content}
             config={config}
             onModelChange={this.handleModelChange}
-            onManualControllerReady={this.handleController} />
-          {this.state.typewrite && 
-            <div style={ { height: window.innerHeight/2 + 200 + 'px'} } />
-          }   
+            onManualControllerReady={this.handleController} />  
         </div>
         <div className="right-tool">
           <div className="fa fa-etsy richstyle fa-lg" aria-hidden="true" onClick={this.typeWrite}/>
