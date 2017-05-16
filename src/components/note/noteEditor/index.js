@@ -42,7 +42,6 @@ export default class NoteEditor extends Component {
     textEditor[0].spellcheck = false
   }
 
-
   handleModelChange(model) {
     this.setState((prevState, props) => ({ content: model }));
   }

@@ -45,7 +45,7 @@ export function browserClient() {
   });
 
   //Make subsciption server && Change
-  const subscriptionURL = `ws://${IP_ENV}:${SUBSCRIPTIONPORT}/api/subscriptions`;
+  const subscriptionURL = `ws://${IP_ENV}:${SUBSCRIPTIONPORT}`;
   const wsClient = new SubscriptionClient(subscriptionURL, {
       reconnect: process.env.NODE_ENV === 'production' // 프로덕션이 아니면 일단 꺼놓기
   });
