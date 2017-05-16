@@ -1,4 +1,5 @@
 import { pubsub } from '../pubsub/pubsub.js';
+import Note from 'database/models/note.model.js';
 
 export const resolvers = {
 
@@ -26,6 +27,20 @@ export const resolvers = {
       newObj4.content = "저는 테스트와 함께 시작합니다"
       newObj4.date = "2013/4/30"
       return [newObj, newObj2, newObj3, newObj4]
+    },
+
+    noteTimeline(obj, args, context){
+      console.log('Note', obj, args, context);
+      const newObj = {};
+      newObj._id = '591aa1f5e366280be6db7f58';
+      newObj.created_at = '2017/03/24';
+      newObj.final_modified_at = '2017/03/24';
+      console.log('newObj', newObj)
+      return Note.find({ userid: args.userId })
+             .select('_id created_at final_modified_at')
+             .exec((err, note) => {
+                return [newObj]
+             })
     },
   },
 
