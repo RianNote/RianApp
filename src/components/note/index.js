@@ -16,7 +16,7 @@ export default class Note extends Component {
       <div id={css[`note-${Mode}`]}>
         <NoteNav />
         <NoteTimeLine />
-        <NoteEditor />
+        {!SERVER && <NoteEditor />}
 			</div>
     );
   }

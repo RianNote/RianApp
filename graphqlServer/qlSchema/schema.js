@@ -2,12 +2,14 @@ import {
   makeExecutableSchema,
   addMockFunctionsToSchema,
 } from 'graphql-tools';
-import chatSchema from './Chat/ChatSchema'
+import ChatSchema from './Chat/ChatSchema'
+import NoteSchema from './Note/NoteSchema'
 import { resolvers } from '../resolvers/resolvers.js';
 
 const RootQuery = `
   type Query {
      chatContents(projectid: String!): [Message]
+     noteTimeline(userId: ID!): [Note]
   }
 
   type Mutation {
@@ -28,7 +30,7 @@ const SchemaDefinition = `
 `;
 
 const schema = makeExecutableSchema({ 
-  typeDefs: [SchemaDefinition, RootQuery, chatSchema], 
+  typeDefs: [SchemaDefinition, RootQuery, ChatSchema, NoteSchema], 
   resolvers 
 });
 export { schema }

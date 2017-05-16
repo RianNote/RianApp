@@ -3,12 +3,14 @@ const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 const Note = new Schema({
-	userid: { type: Schema.Types.ObjectId, ref: 'Users'},
+	userid: Schema.Types.ObjectId,
 	title: String,
 	snippet: String,
 	tag: [String],
 	data: String,
 	created_at: String,
 	final_modified_at: String,
-	publish: { type: Boolean, required: true },
+	publish: { type: Boolean, required: true, default: false },
 })
+
+export default mongoose.model('Notes', Note)

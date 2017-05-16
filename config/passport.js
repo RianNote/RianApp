@@ -1,10 +1,20 @@
 import User from 'database/models/user.model.js';
+import Note from 'database/models/note.model.js';
+import { saveNote } from 'database/controllers/note.ctrl.js';
 import moment from 'moment';
 import { PORT, IP_ENV } from './project';
+import MockNote from 'MockData/noteList.js'
 import { Strategy as FacebookStrategy } from "passport-facebook";
 
+// {
+// 	"title":"vel est donec odio justo sollicitudin ut suscipit a feugiat et",
+// 	"final_modified_at":"7/13/2016",
+// 	"snippet":"Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+// 	"tag":"Pittsburgh"
+// },
+
 // import authConfig from '../config/oauth'
-export default function passportConfig(passport){
+export default async function passportConfig(passport){
 	passport.serializeUser((user, done)=>{
 	  done(null, user.id)
 	})
@@ -42,7 +52,7 @@ export default function passportConfig(passport){
 					});
 				} else {
 					// 유저를 못찾았다면 유저를 만든다
-					var newUser = new User({
+					const newUser = new User({
 						facebook_id: profile.id,
 						token: token,
 						name: `${profile.name.givenName} ${profile.name.familyName}`,
@@ -50,10 +60,21 @@ export default function passportConfig(passport){
 						picture: profile.photos[0].value
 					});
 
-					newUser.save((err, updatedUser)=>{
-						if (err) throw err;
-						done(null, updatedUser);
-					});			
+
+						newUser.save((err, updatedUser)=>{
+							if (err) throw err;
+							const NotePromise = MockNote.map((infor) => {
+								saveNote(updatedUser._id, infor)
+							})
+
+							Promise.all(NotePromise).then(resolve => {
+								done(null, updatedUser);
+							})
+							//done(null, updatedUser);
+						})
+						
+						
+
 				}
 			});
 		})
