@@ -34,12 +34,9 @@ export default class NoteEditor extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
     this.initControls.initialize();
     const textEditor = this.initControls.getEditor()();
     this.initControls.getEditor()('toolbar.hide');
-    console.log(textEditor)
-    textEditor[0].spellcheck = false
   }
 
   handleModelChange(model) {
@@ -49,7 +46,6 @@ export default class NoteEditor extends Component {
 
   handleController(initControls) {
     this.initControls = initControls;
-    console.log('create', initControls);
   }
 
   handleTitleChange(e) {

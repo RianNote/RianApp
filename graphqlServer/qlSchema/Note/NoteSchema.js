@@ -4,8 +4,8 @@ const Note = `
 		created_at: String!
 		final_modified_at: String!
 		tag: [String]
-		preview: [Preview]
-		content: [Content]
+		preview: Preview
+		content: Content
 	}
 
 	type Preview {
