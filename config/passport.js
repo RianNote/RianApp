@@ -59,8 +59,6 @@ export default async function passportConfig(passport){
 						email: profile.email || profile.emails[0].value || "null",
 						picture: profile.photos[0].value
 					});
-
-
 						newUser.save((err, updatedUser)=>{
 							if (err) throw err;
 							const NotePromise = MockNote.map((infor) => {
@@ -72,9 +70,6 @@ export default async function passportConfig(passport){
 							})
 							//done(null, updatedUser);
 						})
-						
-						
-
 				}
 			});
 		})

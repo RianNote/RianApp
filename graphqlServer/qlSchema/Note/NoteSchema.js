@@ -1,11 +1,11 @@
 const Note = `
 	type Note {
-		objectId: ID!
-		createdAt: String!
-		finalModifiedAt: String!
+		_id: ID!
+		created_at: String!
+		final_modified_at: String!
 		tag: [String]
-		preview: [Preview]
-		content: [Content]
+		preview: Preview
+		content: Content
 	}
 
 	type Preview {
