@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "cross-env WEBPACK_CONFIG=browser_prod,server webpack --colors",
     "build-browser": "cross-env WEBPACK_CONFIG=browser_prod webpack --colors",
     "build-server": "cross-env WEBPACK_CONFIG=server webpack --colors",
@@ -17,17 +17,31 @@
     "server-aws": "AWS_IP=$(curl http://instance-data/latest/meta-data/public-ipv4) node dist/server",
     "start": "cross-env WEBPACK_CONFIG=browser_dev webpack-dev-server"
   },
+  "jest": {
+    "setupFiles": [
+      "./_test_/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-regenerator": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.4.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "chalk": "^1.1.3",
@@ -37,6 +51,8 @@
     "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
     "cssnano": "^3.10.0",
+    "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-import-resolver-webpack": "^0.8.1",
@@ -47,12 +63,16 @@
     "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.3.0",
+    "jest": "^20.0.3",
     "node-sass": "^4.5.2",
     "postcss-cssnext": "^2.10.0",
     "postcss-loader": "^1.3.3",
     "postcss-nested": "^1.0.1",
     "progress-bar-webpack-plugin": "^1.9.3",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4",
     "resolve-url-loader": "^2.0.2",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
