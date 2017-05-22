@@ -2893,6 +2893,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h3:before {
+  font-size: 20px;
   content: 'H3';
   margin-left: -40px;
   margin-right: 10px;
@@ -2900,15 +2901,17 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h2:before {
+  font-size: 20px;
   content: 'H2';
-  margin-left: -50px;
+  margin-left: -40px;
   margin-right: 10px;
   color: #B4B4B4;
 }
 
 .fr-view h1:before {
+  font-size: 20px;
   content: 'H1';
-  margin-left: -60px;
+  margin-left: -40px;
   margin-right: 10px;
   color: #B4B4B4;
 }
