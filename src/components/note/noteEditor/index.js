@@ -17,7 +17,7 @@ export default class NoteEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Lorem Ipsum',
+      title: 'Lorem ipsum dolor sit amet',
       tag: '#Latin',
       options: { },
       initControls: '',

@@ -148,11 +148,5 @@ export default new WebpackConfig().extend({
       }
     })
   ],
-
-  externals: {
-  'react/addons': true,
-  'react/lib/ExecutionEnvironment': true,
-  'react/lib/ReactContext': true
-  },
   
 });

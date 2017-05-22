@@ -2885,10 +2885,39 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400');
 .fr-view {
-   font-family: 'Quicksand', sans-serif;
-   font-size: 20px;
-   font-weight: 400;
-   color: #545454;
-   padding-bottom: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #545454;
+  padding-bottom: 30px;
 }
+
+.fr-view h3:before {
+  content: 'H3';
+  margin-left: -40px;
+  margin-right: 10px;
+  color: #B4B4B4;
+}
+
+.fr-view h2:before {
+  content: 'H2';
+  margin-left: -50px;
+  margin-right: 10px;
+  color: #B4B4B4;
+}
+
+.fr-view h1:before {
+  content: 'H1';
+  margin-left: -60px;
+  margin-right: 10px;
+  color: #B4B4B4;
+}
+
+.fr-view li span {
+  font-size: 20px;
+  font-weight: 400;
+  color: #545454;
+}
+
+
 
