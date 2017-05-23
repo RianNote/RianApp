@@ -12,7 +12,7 @@ import css from './noteTimeline.css';
 const getTimelineQuery = graphql(getNotelineNumber, { 
   options: (props) => ({
     variables: {
-      userId: "591aa1f5e366280be6db7f58" //임시 키
+      userId: "5923b81861322804b81cecb6" //임시 키
     },
     ssr: false, 
   }),
@@ -63,7 +63,7 @@ export default class NoteTimeLine extends Component {
     return (
       <div className={noteCss.middle}>
         <div className={css.timelineSearch}>
-          <div className={css.timelineSearchBar} />
+          <input className={css.timelineSearchBar} />
           <div className={css.timelineSearchButton} />
         </div>
         <div className={css.autoSizer}>

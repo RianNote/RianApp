@@ -2885,7 +2885,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400');
 .fr-view {
   font-family: 'Quicksand', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 400;
   color: #545454;
   padding-bottom: 30px;
@@ -2897,7 +2897,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h3:before {
-  font-size: 20px;
+  font-size: 15px;
   content: 'H3';
   margin-left: -35px;
   margin-right: 10px;
@@ -2905,7 +2905,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h2:before {
-  font-size: 20px;
+  font-size: 15px;
   content: 'H2';
   margin-left: -35px;
   margin-right: 10px;
@@ -2913,7 +2913,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h1:before {
-  font-size: 20px;
+  font-size: 15px;
   content: 'H1';
   margin-left: -35px;
   margin-right: 10px;
@@ -2925,7 +2925,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view li span {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 400;
   color: #545454;
   line-height: 30px;

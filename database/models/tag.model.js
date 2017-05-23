@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 const Tag = new Schema({
-	userid: { type: Schema.Types.ObjectId, ref: 'Users'},
-	notes: [{ type: Schema.Types.ObjectId, ref: 'Notes'}],
+	userid: { type: String, default: true },
+	notes: [String],
 	name: { type: String, default: true }
 })
+
+export default mongoose.model('Tags', Tag)
