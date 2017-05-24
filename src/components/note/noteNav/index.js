@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { gql, graphql, compose } from 'react-apollo';
+import {Motion, spring} from 'react-motion';
 import { getTagList } from '../../../graphqls/TagGraphQl.js';
 import noteCss from '../note.css';
 import css from './noteNav.css';
@@ -20,6 +21,17 @@ const getTagListQuery = graphql(getTagList, {
 export default class NoteNav extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      sideBar: false
+    }
+    this.changeSideBar = this.changeSideBar.bind(this)
+  }
+
+  changeSideBar(argu){
+    this.setState({
+      sideBar: argu
+    })
+    console.log('true', argu)
   }
 
   componentDidMount(){
@@ -36,9 +48,9 @@ export default class NoteNav extends Component {
     if (this.props.TagData.getTagList) {
       tagList = this.props.TagData.getTagList.map((Tag, index) => {
         return (
-          <div className={noteCss.tag} > 
-            <div className={noteCss.icon} /> 
-            <div className={noteCss.text}>
+          <div className={css.tag} > 
+            <div className={css.icon} /> 
+            <div className={css.text}>
               {Tag.name}
             </div>
           </div>
@@ -46,22 +58,29 @@ export default class NoteNav extends Component {
       })
     } 
     return (
-      <div className={noteCss.left}>
-        <div className={noteCss.firstTag} />
-        <div className={noteCss.tag}>
-          <div className={noteCss.icon} /> 
-          <a className={css.facebookButton} href="/auth/facebook">Facebook</a>
-        </div>
-      {tagList && tagList}
-      {!tagList && 
-        <div className={noteCss.tag} > 
-            <div className={noteCss.icon} /> 
-            <div className={noteCss.text}>
-              Loading
+      <div>
+        <div className={css.hover} onMouseEnter={ ()=>{this.changeSideBar(true);} } onMouseLeave={ ()=>{this.changeSideBar(false);} } />
+        <Motion style={{x: spring(this.state.sideBar ? 150 : 0)}}>
+        { ({x}) =>
+          <div id={css.left} style={{width: `${x}px`}}>
+            <div className={css.firstTag} />
+            <div className={css.tag}>
+              <div className={css.icon} /> 
+              <a className={css.facebookButton} href="/auth/facebook">Facebook</a>
             </div>
-        </div> 
-      }
-			</div>
+              {tagList && tagList}
+              {!tagList && 
+                <div className={css.tag}> 
+                    <div className={css.icon} /> 
+                    <div className={css.text}>
+                      Loading
+                    </div>
+                </div> 
+              }
+          </div>
+        }     
+        </Motion>
+      </div>
     );
   }
 }

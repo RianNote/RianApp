@@ -4,60 +4,21 @@
   /*flex: 1;*/
   justify-content: center;
   align-items: stretch;
-  & .left {
-    flex: 0 0 var(--navWidth);
-    display: flex;
-    flex-direction: column;
-    background-color:  rgb(51,53,56);
-    overflow: scroll;
-    & .firstTag{
-      display: flex;
-      flex: 0 0 50px;
-    }
-    & .tag {
-      display: flex;
-      flex: 0 0 40px;
-      padding-left: 10px;
-      padding-right: 10px;
-      align-items: stretch;
-      color: gray(95%);
-
-      & .icon {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 20px;
-        margin: 10px;
-        border-radius: 2px;
-        border: 1px solid gray(95%);
-      }
-
-      & .text {
-        display: block;
-        width: 90px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        line-height: 40px;
-        align-items: center;
-      }
-    }
-  }
-  & .middle {
-    flex: 0 0 var(--timelineWidth);
-    background-color: #FBFBFB;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-  }
-  & .right {
-    flex: 1;  
+  & .paper {
+    flex: 0 0 600px;
     display: flex;
     flex-direction: row;  
     justify-content: center;
-    background-color: #FBFBFB;
     overflow: scroll;
     padding-top: 30px;
     padding-left: 150px;
     padding-right: 150px;
     /*align-items:center;*/
+  }
+  & .middle {
+    flex: 0 0 var(--timelineWidth);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
   }
 }

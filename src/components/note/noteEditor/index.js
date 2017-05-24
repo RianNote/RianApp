@@ -130,7 +130,7 @@ export default class NoteEditor extends Component {
     // }
 
     return (
-      <div className={css.right}>
+      <div className={css.paper}>
         <div className="left-editor" >
           {!this.state.typewrite &&
             <div className="head">
