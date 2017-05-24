@@ -15,10 +15,11 @@
     padding-right: 150px;
     /*align-items:center;*/
   }
-  & .middle {
-    flex: 0 0 var(--timelineWidth);
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+  & .hover {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 100px;  
   }
 }

@@ -1,12 +1,18 @@
+.noteList {
+	display: flex;
+    flex-direction: column;
+    overflow: auto;
+    position: fixed;
+    left: 0;
+    height: 100%;
+}
 .infiniteContainer {
   box-sizing: border-box;
   border-top: 1px solid gray(80%);
 }
-
 .autoSizer {
 	flex: 1 1 auto;
 }
-
 .timelineSearch {
 	display: flex;
 	width: 100%;

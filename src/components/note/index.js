@@ -11,9 +11,11 @@ export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sideBar: false
+      sideBar: false,
+      whichBar: 'TagNav'
     }
     this.changeSideBar = this.changeSideBar.bind(this)
+    this.changeWhichBar = this.changeWhichBar.bind(this)
   }
 
   changeSideBar(argu){
@@ -23,11 +25,24 @@ export default class Note extends Component {
     console.log('true', argu)
   }
 
+  changeWhichBar(argu){
+    this.setState({
+      whichBar: argu
+    })
+    console.log('whichBar', argu)
+  }
+
   render() {
   	const { Mode } = this.props;
     return (
       <div id={css[`note-${Mode}`]}>
-        <NoteNav />
+        <div className={css.hover} onMouseEnter={ ()=>{this.changeSideBar(true);} } onMouseLeave={ ()=>{this.changeSideBar(false);} }>
+          {
+            this.state.whichBar === 'TagNav' ? 
+            <NoteNav sideBar={this.state.sideBar} changeWhichBar={this.changeWhichBar} /> : 
+            <NoteTimeLine sideBar={this.state.sideBar} changeWhichBar={(argu)=>{this.changeWhichBar(argu);}} />
+          }
+        </div>  
         {!SERVER && <NoteEditor />}
 			</div>
     );

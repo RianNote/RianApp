@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { gql, graphql, compose } from 'react-apollo';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
+import {Motion, spring} from 'react-motion';
 import List from 'react-virtualized/dist/commonjs/List';
 import InfiniteLoader from 'react-virtualized/dist/commonjs/InfiniteLoader';
 import NoteSnippet from './NoteSnippet';
 import { getNotelineNumber } from '../../../graphqls/TimelineGraphQl.js';
-import noteCss from '../note.css';
 import css from './noteTimeline.css';
 
 const getTimelineQuery = graphql(getNotelineNumber, { 
@@ -30,6 +30,7 @@ export default class NoteTimeLine extends Component {
   }
 
   componentDidMount() {
+     console.log('NoteTiimelinedidMount')
   }
 
   componentWillReceiveProps(nextProps) {
@@ -61,36 +62,41 @@ export default class NoteTimeLine extends Component {
 
   render() {
     return (
-      <div className={noteCss.middle}>
-        <div className={css.timelineSearch}>
-          <input className={css.timelineSearchBar} />
-          <div className={css.timelineSearchButton} />
-        </div>
-        <div className={css.autoSizer}>
-          {this.props.noteData.noteTimeline &&
-            <InfiniteLoader
-              isRowLoaded={this._isRowLoaded}
-              loadMoreRows={this._loadMoreRows}
-              rowCount={this.props.noteData.noteTimeline.length}>
-              {({ onRowsRendered, registerChild }) => (
-                <AutoSizer>
-                  {({ height, width }) => (
-                    <List
-                      height={height}
-                      rowHeight={150}
-                      onRowsRendered={onRowsRendered}
-                      ref={registerChild}
-                      rowRenderer={this._rowRenderer}
-                      rowCount={this.props.noteData.noteTimeline.length}
-                      width={width} />
-                  )}
-                </AutoSizer>
-              )}
-            </InfiniteLoader>
-          }
-        </div>
-      </div>
-
+      <div>
+        <Motion style={{x: spring(this.props.sideBar ? 300 : 0)}}>
+        { ({x}) => 
+            <div className={css.noteList} style={{width: `${x}px`}}>
+              <div className={css.timelineSearch}>
+                <input className={css.timelineSearchBar} />
+                <div className={css.timelineSearchButton} />
+              </div>
+              <div className={css.autoSizer}>
+                {this.props.noteData.noteTimeline &&
+                  <InfiniteLoader
+                    isRowLoaded={this._isRowLoaded}
+                    loadMoreRows={this._loadMoreRows}
+                    rowCount={this.props.noteData.noteTimeline.length}>
+                    {({ onRowsRendered, registerChild }) => (
+                      <AutoSizer>
+                        {({ height, width }) => (
+                          <List
+                            height={height}
+                            rowHeight={150}
+                            onRowsRendered={onRowsRendered}
+                            ref={registerChild}
+                            rowRenderer={this._rowRenderer}
+                            rowCount={this.props.noteData.noteTimeline.length}
+                            width={width} />
+                        )}
+                      </AutoSizer>
+                    )}
+                  </InfiniteLoader>
+                }
+              </div>
+            </div>
+        }
+        </Motion>
+      </div>  
     );
   }
 }

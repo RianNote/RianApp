@@ -21,21 +21,14 @@ const getTagListQuery = graphql(getTagList, {
 export default class NoteNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sideBar: false
-    }
-    this.changeSideBar = this.changeSideBar.bind(this)
-  }
-
-  changeSideBar(argu){
-    this.setState({
-      sideBar: argu
-    })
-    console.log('true', argu)
   }
 
   componentDidMount(){
     console.log('didMount', this.props)
+  }
+
+  componentWillUnmount() {
+    console.log('UnmountNoteNav')
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,7 +41,7 @@ export default class NoteNav extends Component {
     if (this.props.TagData.getTagList) {
       tagList = this.props.TagData.getTagList.map((Tag, index) => {
         return (
-          <div className={css.tag} > 
+          <div className={css.tag} onClick={()=>{this.props.changeWhichBar('NoteList');}}> 
             <div className={css.icon} /> 
             <div className={css.text}>
               {Tag.name}
@@ -59,10 +52,9 @@ export default class NoteNav extends Component {
     } 
     return (
       <div>
-        <div className={css.hover} onMouseEnter={ ()=>{this.changeSideBar(true);} } onMouseLeave={ ()=>{this.changeSideBar(false);} } />
-        <Motion style={{x: spring(this.state.sideBar ? 150 : 0)}}>
+        <Motion style={{x: spring(this.props.sideBar ? 150 : 0)}}>
         { ({x}) =>
-          <div id={css.left} style={{width: `${x}px`}}>
+          <div id={css.tagNav} style={{width: `${x}px`}}>
             <div className={css.firstTag} />
             <div className={css.tag}>
               <div className={css.icon} /> 
@@ -70,7 +62,7 @@ export default class NoteNav extends Component {
             </div>
               {tagList && tagList}
               {!tagList && 
-                <div className={css.tag}> 
+                <div className={css.tag} onClick={()=>{this.props.changeWhichBar('NoteList');}}> 
                     <div className={css.icon} /> 
                     <div className={css.text}>
                       Loading

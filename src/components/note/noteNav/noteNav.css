@@ -1,19 +1,12 @@
 .facebookButton {
-	text-decoration: none;
+	  text-decoration: none;
     display: flex;
     align-items: center;
-	color: rgb(251, 251, 251);
+	  color: rgb(251, 251, 251);
 }
-.hover {
-	z-index: 999;
-    position: fixed;
-    left: 0;
-    height: 100%;
-    width: 50px;  
-}
-#left {
-	z-index: 0;
-	position: fixed;
+#tagNav {
+	  z-index: 0;
+	  position: fixed;
     left: 0;
     height: 100%;
     display: flex;
