@@ -131,7 +131,7 @@ export default class NoteEditor extends Component {
 
     return (
       <div className={css.paper}>
-        <div className="left-editor" >
+        <div className="left-editor">
           {!this.state.typewrite &&
             <div className="head">
               <textarea className="title" placeholder="title" value={this.state.title} onChange={this.handleTitleChange} />

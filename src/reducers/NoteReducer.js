@@ -3,7 +3,7 @@ import {
 } from '../constants'
 
 let ModeState = {
-	mode: 3
+	mode: 'List'
 }
 
 export function Note(state = ModeState, action) {

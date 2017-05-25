@@ -24,6 +24,7 @@ export default class NoteNav extends Component {
   }
 
   componentDidMount(){
+    
     console.log('didMount', this.props)
   }
 

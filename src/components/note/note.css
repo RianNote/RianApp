@@ -1,4 +1,4 @@
-#note-3 {
+#note-List {
   display: flex;
   width:100%;
   /*flex: 1;*/
@@ -15,11 +15,25 @@
     padding-right: 150px;
     /*align-items:center;*/
   }
+  & .card-List {
+    flex: 0 0 1000px;
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+  }
+
   & .hover {
     z-index: 999;
     position: fixed;
     left: 0;
     height: 100%;
-    width: 100px;  
+    width: 10px; 
+      & .fixedBar {
+        position: fixed;
+        height: 100%;
+        width: 50px;
+        border-right: solid #DDDDDD 1px;
+      }
   }
 }
+

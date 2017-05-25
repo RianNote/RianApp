@@ -7,7 +7,7 @@
 #tagNav {
 	  z-index: 0;
 	  position: fixed;
-    left: 0;
+    left: 50px;
     height: 100%;
     display: flex;
     flex-direction: column;

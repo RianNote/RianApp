@@ -1,10 +1,9 @@
 import React from 'react';
-import { render, shallow, mount } from 'enzyme';
 import PropTypes from 'prop-types';
 
-import NoteTimeLine from '../src/components/note/noteTimeline/index.js';
+import NoteCardTimeLine from '../src/components/note/noteCardTimeline/index.js';
 
-describe('Note Container', () => {
+describe('TEST JEST', () => {
 	it('Test!', () => {
 
 		const Mock = () => {
@@ -13,4 +12,13 @@ describe('Note Container', () => {
 		const noteContainer = shallow(<Mock />);
 		expect(noteContainer).toBeDefined();
 	});
+});
+
+describe('NoteCardTimeLine', () => {
+	it('canRenderNoteCardTimeLine', () => {
+		const wrapper = shallow(<NoteCardTimeLine  />);
+		expect(wrapper.find('.container')).to.have.length(1);
+	});
+
+
 });
