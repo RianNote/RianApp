@@ -18,8 +18,8 @@
   & .card-List {
     flex: 0 0 1000px;
     display: flex;
-    flex-direction: row;  
-    justify-content: center;
+    flex-direction: column;  
+    justify-content: flex-start;
   }
 
   & .hover {

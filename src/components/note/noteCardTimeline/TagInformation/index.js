@@ -5,8 +5,8 @@ import css from './tagInformation.css'
 const TagInformation = ({noteCount}) => {
 	return (
 		<div className={css.container}>
-			<p className={css['note-count']}>{noteCount}</p>
-			<p className={css['standard']}>Notes</p>
+			<span className={css['note-count']}>{noteCount}</span>
+			<span className={css['standard']}>Notes</span>
 		</div>
 	)
 }
