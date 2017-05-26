@@ -28,7 +28,7 @@ export default class NoteCardTimeline extends Component {
               		<TagInformation noteCount={this.state.noteCount} />
            		</div>
            		<div className={css.mansory}>
-           			<CardSnippet title='지금 이 순간에 존재하는 방법들에 관하여' preview='현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다.' tag={['개발', '영성', '수양']} />
+           			<CardSnippet title='지금 이 순간에 존재하는 방법들에 관하여' preview='현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다.' tag={['개발과 함께하는 그대의 시간', '영성', '수양']} />
            			<CardSnippet title='그대와 나의 역할에 관하여' preview='현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다.' tag={['감상']} />
            			<CardSnippet title='컴퓨터 공학 개론과 당신의 운명' preview='현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다.' tag={['수업', '개발']} />
            			<CardSnippet title='딥러닝 개론' preview='현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다.' tag={['음악', '가사']} />
