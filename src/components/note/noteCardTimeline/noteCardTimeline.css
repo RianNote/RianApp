@@ -6,20 +6,19 @@
 
 .title {
     display: block;
-    border: none;
-    font-size: 15px;
-    color: grey;
     height: 40px;
     margin: 0px;
     resize: none;
-    font-weight: 200;
-    font-family: 'Lato';
-    border-bottom: solid 1px;
-    border-color: #E7E6E6;
     text-align: justify;
     margin-top: 30px;
-    height: 30px;
-    width: 100%;
+    width: 380px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    border: solid 1px #d0d0d0;
+    font-family: 'Lato';
+    font-size: 15px;
+    color: #d0d0d0;
   }
 
 .title:focus {

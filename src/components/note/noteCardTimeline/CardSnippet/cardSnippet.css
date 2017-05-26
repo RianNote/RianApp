@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 .container {
-  width: 200px;
-  height: 160px;
+  width: 220px;
+  height: 190px;
   margin: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 .container:hover {
-  width: 200px;
-  height: 160px;
+  width: 220px;
+  height: 190px;
   margin-top: 7px;
   border-radius: 8px;
   transition-delay: 1s;
@@ -66,7 +66,7 @@
 		font-family: 'Lato';
 		margin: auto 26px auto 26px;
 		font-size: 10px;
-		line-height: 1.5;
+		line-height: 1.6;
 		text-align: left;
 		overflow: hidden;
 		color: #BCBCBC;
@@ -90,11 +90,11 @@
 			border-radius: 8px;
   			border: solid 1px #ffbfcb;
 			text-align: center;
-			width: 30px;
-			margin: auto 2px auto 2px;
+			width: 25px;
+			margin: auto 1px auto 1px;
 			padding: 0 1px 0 1px;
 			letter-spacing: 0.1em;
-			font-size: 10px;
+			font-size: 8px;
 			color: #ffbfcb;
 		}
 	}

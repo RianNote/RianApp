@@ -16,7 +16,8 @@
     /*align-items:center;*/
   }
   & .card-List {
-    flex: 0 0 900px;
+    margin-left: 50px;
+    flex: 0 0 1000px;
     display: flex;
     flex-direction: column;  
     justify-content: flex-start;
