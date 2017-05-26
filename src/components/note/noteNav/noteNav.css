@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .facebookButton {
 	  text-decoration: none;
     display: flex;
@@ -10,8 +12,9 @@
     left: 50px;
     height: 100%;
     display: flex;
+    font-family: 'Lato';
     flex-direction: column;
-    background-color:  rgb(51,53,56);
+    background-color: #FFCAD7;
     overflow: scroll;
     & .firstTag{
       display: flex;
@@ -20,7 +23,7 @@
     & .tag {
       display: flex;
       flex: 0 0 40px;
-      padding-left: 10px;
+      padding-left: 3px;
       padding-right: 10px;
       align-items: stretch;
       color: gray(95%);

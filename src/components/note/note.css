@@ -16,7 +16,7 @@
     /*align-items:center;*/
   }
   & .card-List {
-    flex: 0 0 1000px;
+    flex: 0 0 900px;
     display: flex;
     flex-direction: column;  
     justify-content: flex-start;

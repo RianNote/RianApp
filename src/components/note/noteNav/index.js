@@ -53,7 +53,7 @@ export default class NoteNav extends Component {
     } 
     return (
       <div>
-        <Motion style={{x: spring(this.props.sideBar ? 150 : 0)}}>
+        <Motion style={{x: spring(this.props.sideBar ? 130 : 0)}}>
         { ({x}) =>
           <div id={css.tagNav} style={{width: `${x}px`}}>
             <div className={css.firstTag} />

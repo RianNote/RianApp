@@ -15,7 +15,8 @@ const CardSnippet = ({title, preview, tag, thumbnail }) => {
 	return (
 		<div className={css.container}>
 			<div className={css.head}>
-				<p className={css.title}>{title}</p>
+				<div className={css.block}/>
+				<div className={css.title}>{title}</div>
 			</div>
 			<div className={css.footer}>
 				<p className={css.preview}>{preview}</p>
