@@ -7,10 +7,10 @@ describe('TEST JEST', () => {
 	it('Test!', () => {
 
 		const Mock = () => {
-			return <div></div>
+			return <div className='container'></div>
 		}
-		const noteContainer = shallow(<Mock />);
-		expect(noteContainer).toBeDefined();
+		const noteContainer = shallow(<Mock className='container'/>);
+		expect(noteContainer.find(Mock)).to.have.length(1);
 	});
 });
 

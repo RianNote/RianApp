@@ -31,8 +31,10 @@
     width: 10px; 
       & .fixedBar {
         position: fixed;
+        display: flex;
+        flex-direction: column;
         height: 100%;
-        width: 50px;
+        width: 60px;
         border-right: solid #DDDDDD 1px;
       }
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TagInformation from './TagInformation/index.js'
 import CardSnippet from './CardSnippet/index.js'
 import ContainerCss from '../note.css';
-import css from './noteCardTimeline.css'
+import css from './noteCardTimeline.css';
 
 
 export default class NoteCardTimeline extends Component {
@@ -24,7 +24,7 @@ export default class NoteCardTimeline extends Component {
 		return (
 			<div className={ContainerCss['card-List']}>
 				<div className={css.head}>
-              		<textarea className={css.title} placeholder="search tag" value={this.state.title} onChange={this.handleTitleChange} />
+              		<textarea className={css.title} placeholder="SEARCH TAG" value={this.state.title} onChange={this.handleTitleChange} />
               		<TagInformation noteCount={this.state.noteCount} />
            		</div>
            		<div className={css.mansory}>

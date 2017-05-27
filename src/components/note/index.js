@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import {Motion, spring} from 'react-motion';
 import css from './note.css';
 import NoteNav from './noteNav';
-import NoteEditor from './noteEditor';
+import NoteSideBar from './noteSideBar'
 import NoteTimeLine from './noteTimeline';
 import NoteCardTimeline from './noteCardTimeline'
+import NoteEditor from './noteEditor';
 
 @connect(mapState)
 export default class Note extends Component {
@@ -36,7 +37,7 @@ export default class Note extends Component {
     return (
       <div id={css[`note-${Mode}`]}>
         <div className={css.hover} onMouseEnter={ ()=>{this.changeSideBar(true);} } onMouseLeave={ ()=>{this.changeSideBar(false);} }>
-          <div className={css.fixedBar}></div>
+          <NoteSideBar />
           {
             this.state.whichBar === 'TagNav' && this.props.Mode === 'List' ? 
             <NoteNav sideBar={this.state.sideBar} changeWhichBar={this.changeWhichBar} /> : 

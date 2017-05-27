@@ -4,7 +4,8 @@
 	  text-decoration: none;
     display: flex;
     align-items: center;
-	  color: rgb(251, 251, 251);
+	  color: #a5a5a5;
+    margin-left: -11px;
 }
 #tagNav {
 	  z-index: 0;
@@ -14,7 +15,8 @@
     display: flex;
     font-family: 'Lato';
     flex-direction: column;
-    background-color: #FFCAD7;
+    background-color: #ffffff;
+    box-shadow: 6px 0 5px 0 rgba(0, 0, 0, 0.15);
     overflow: scroll;
     & .firstTag{
       display: flex;
@@ -23,20 +25,11 @@
     & .tag {
       display: flex;
       flex: 0 0 40px;
+      margin: -3px auto -3px auto;
       padding-left: 3px;
       padding-right: 10px;
       align-items: stretch;
-      color: gray(95%);
-
-      & .icon {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 20px;
-        margin: 10px;
-        border-radius: 2px;
-        border: 1px solid gray(95%);
-      }
-
+      color: #a5a5a5;
       & .text {
         display: block;
         width: 90px;

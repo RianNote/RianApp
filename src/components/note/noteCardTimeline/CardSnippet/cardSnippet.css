@@ -55,6 +55,8 @@
     }
 }
 
+
+
 .footer {
 
 	display: flex;
@@ -83,16 +85,17 @@
 		}
 		& .tagInstance {
 			font-family: 'Lato';
-			display: inline-block;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-        	overflow: hidden;
 			border-radius: 8px;
-  			border: solid 1px #ffbfcb;
-			text-align: center;
-			width: 25px;
+  		border: solid 1px #ffbfcb;
+			display: flex;
+      align-items: center;
+      justify-content: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+			flex: 0 0 25px;
 			margin: auto 1px auto 1px;
-			padding: 0 1px 0 1px;
 			letter-spacing: 0.1em;
 			font-size: 8px;
 			color: #ffbfcb;
