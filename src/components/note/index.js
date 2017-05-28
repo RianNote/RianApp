@@ -7,8 +7,9 @@ import NoteSideBar from './noteSideBar'
 import NoteTimeLine from './noteTimeline';
 import NoteCardTimeline from './noteCardTimeline'
 import NoteEditor from './noteEditor';
+import { modeChange } from '../../actions/NoteActions';
 
-@connect(mapState)
+@connect(mapState, mapDispatch)
 export default class Note extends Component {
   constructor(props) {
     super(props);
@@ -34,18 +35,22 @@ export default class Note extends Component {
 
   render() {
   	const { Mode } = this.props;
+    let ModeSelect
+    if (this.props.Mode === 'List') {
+      ModeSelect = 'Card'
+    }
+    if (this.props.Mode === 'Card') {
+      ModeSelect = 'List'
+    }
     return (
-      <div id={css[`note-${Mode}`]}>
+      <div id={css.note}>
         <div className={css.hover} onMouseEnter={ ()=>{this.changeSideBar(true);} } onMouseLeave={ ()=>{this.changeSideBar(false);} }>
-          <NoteSideBar />
-          {
-            this.state.whichBar === 'TagNav' && this.props.Mode === 'List' ? 
-            <NoteNav sideBar={this.state.sideBar} changeWhichBar={this.changeWhichBar} /> : 
-            <NoteTimeLine sideBar={this.state.sideBar} changeWhichBar={(argu)=>{this.changeWhichBar(argu);}} />
-          }
+          <NoteSideBar changeMode={()=>{this.props.changeMode(ModeSelect)} } />
+          <NoteNav sideBar={this.state.sideBar} changeWhichBar={this.changeWhichBar} />
+          <NoteTimeLine sideBar={this.state.sideBar} />
         </div>  
           {
-            !SERVER && this.props.Mode === 'List' ? <NoteCardTimeline /> :  <NoteEditor />
+            !SERVER && this.props.Mode === 'List' ? <NoteEditor /> : <NoteCardTimeline /> 
           }
 			</div>
     );
@@ -57,4 +62,12 @@ function mapState(state) {
   	Mode: state.Note.mode,
     Note: state.Note,
   };
+}
+
+function mapDispatch(dispatch) {
+  return {
+    changeMode(mode){
+      dispatch(modeChange(mode))
+    }
+  }
 }

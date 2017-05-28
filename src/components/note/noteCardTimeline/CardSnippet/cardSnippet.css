@@ -94,7 +94,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-align: center;
-			flex: 0 0 25px;
+			max-width: 25px;
 			margin: auto 1px auto 1px;
 			letter-spacing: 0.1em;
 			font-size: 8px;

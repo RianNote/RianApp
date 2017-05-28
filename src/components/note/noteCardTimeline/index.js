@@ -5,7 +5,6 @@ import CardSnippet from './CardSnippet/index.js'
 import ContainerCss from '../note.css';
 import css from './noteCardTimeline.css';
 
-
 export default class NoteCardTimeline extends Component {
 	constructor(props) {
 		super(props);

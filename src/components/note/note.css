@@ -1,4 +1,4 @@
-#note-List {
+#note {
   display: flex;
   width:100%;
   /*flex: 1;*/
@@ -24,18 +24,19 @@
   }
 
   & .hover {
-    z-index: 999;
+    z-index: 0;
     position: fixed;
-    left: 0;
+    left: 0px;
     height: 100%;
-    width: 10px; 
+    border-right: solid #DDDDDD 1px; 
+    display: flex;
       & .fixedBar {
-        position: fixed;
+        left: 0px;
+        z-index: 10;
         display: flex;
         flex-direction: column;
         height: 100%;
         width: 60px;
-        border-right: solid #DDDDDD 1px;
       }
   }
 }

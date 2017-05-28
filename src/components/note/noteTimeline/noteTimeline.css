@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
 .noteList {
 	display: flex;
     flex-direction: column;
     overflow: auto;
-    position: fixed;
-    left: 50px;
+    left: 150px;
     height: 100%;
 }
 .infiniteContainer {
@@ -14,79 +15,33 @@
 	flex: 1 1 auto;
 }
 .timelineSearch {
+	padding-right: 30px;
 	display: flex;
 	width: 100%;
 	flex: 0 0 50px;
 	box-sizing: border-box;
-	border-right: 1px solid gray(90%);
 }
 .timelineSearchBar {
+	width: 227px;
+	height: 30px;
 	box-sizing: border-box;
 	flex: 1;
 	margin-right: 0px;
 	margin-left: 20px;
 	margin-top: 12px;
 	margin-bottom: 12px;
-	border-radius: 10px;
-	border: 1px solid gray(90%);
+	background-color: #ffffff;
+	border: solid 1px #eaeaea;
+	border-radius: 8px;
 	outline: none;
-}
-.timelineSearchButton{
-	box-sizing: border-box;
-	flex: 0 0 30px;
-	margin: 12px;
-	border-radius: 10px;
-	border: 1px solid gray(90%);
-}
-.snippetContainer {
-	display: flex;
-	height: 150px;
-	flex-direction: row;
+	padding-left: 10px;
 }
 
-.snippetSide {
-	display: flex;
-	flex: 0 0 35px;
-	box-sizing: border-box;
-	padding-left: 5px;
-	justify-content: center;
-	align-items: center;
-}
+.timelineSearchBar::placeholder {
+    vertical-align: middle;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 15px;
+    color: #d0d0d0;
+} 
 
-.snippetSide:active {
-	padding-left: 0px;
-	border-left: 5px solid var(--rianColor);
-}
-
-.snippetBody {
-	width: 230px;
-	padding: 8px;
-	display: flex;
-	flex: 1;
-	box-sizing: border-box;
-	border-bottom: 1px solid gray(90%);
-	border-right: 1px solid gray(90%);
-	flex-direction: column;
-	justify-content: stretch;
-}
-.snippetTitle {
-	display: block;
-	flex: 1;
-	line-height: 44px;
-	font-size: 16px;
-	font-weight: bold;
-	justify-content: center;
-	white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;	
-}
-.snippetSnippet {
-	font-size: 13px;
-    line-height: 30px;
-	box-sizing: border-box;
-	display: block;
-	width: 100%;
-    overflow: hidden; 
-	flex: 2;
-	color: gray(50%);
-}

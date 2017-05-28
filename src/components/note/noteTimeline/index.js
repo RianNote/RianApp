@@ -5,7 +5,7 @@ import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import {Motion, spring} from 'react-motion';
 import List from 'react-virtualized/dist/commonjs/List';
 import InfiniteLoader from 'react-virtualized/dist/commonjs/InfiniteLoader';
-import NoteSnippet from './NoteSnippet';
+import TimelineSnippet from './TimelineSnippet';
 import { getNotelineNumber } from '../../../graphqls/TimelineGraphQl.js';
 import css from './noteTimeline.css';
 
@@ -18,6 +18,7 @@ const getTimelineQuery = graphql(getNotelineNumber, {
   }),
   name: "noteData",
 })
+
 @compose(getTimelineQuery)
 @connect(mapState)
 
@@ -67,31 +68,10 @@ export default class NoteTimeLine extends Component {
         { ({x}) => 
             <div className={css.noteList} style={{width: `${x}px`}}>
               <div className={css.timelineSearch}>
-                <input className={css.timelineSearchBar} />
-                <div className={css.timelineSearchButton} />
+                <input className={css.timelineSearchBar} placeholder="SEARCH TAG" />
               </div>
               <div className={css.autoSizer}>
-                {this.props.noteData.noteTimeline &&
-                  <InfiniteLoader
-                    isRowLoaded={this._isRowLoaded}
-                    loadMoreRows={this._loadMoreRows}
-                    rowCount={this.props.noteData.noteTimeline.length}>
-                    {({ onRowsRendered, registerChild }) => (
-                      <AutoSizer>
-                        {({ height, width }) => (
-                          <List
-                            height={height}
-                            rowHeight={150}
-                            onRowsRendered={onRowsRendered}
-                            ref={registerChild}
-                            rowRenderer={this._rowRenderer}
-                            rowCount={this.props.noteData.noteTimeline.length}
-                            width={width} />
-                        )}
-                      </AutoSizer>
-                    )}
-                  </InfiniteLoader>
-                }
+          
               </div>
             </div>
         }
@@ -107,4 +87,33 @@ function mapState(state) {
     userId: state.User._id,
   };
 }
+     // <TimelineSnippet
+               //   style={style}
+             //     key={index}
+           //       title={data.preview.title}
+         //         final_modified_at={data.final_modified_at}
+       //           snippet={data.preview.snippet}
+    ///  />
+
+       // {this.props.noteData.noteTimeline &&
+       //            <InfiniteLoader
+       //              isRowLoaded={this._isRowLoaded}
+       //              loadMoreRows={this._loadMoreRows}
+       //              rowCount={this.props.noteData.noteTimeline.length}>
+       //              {({ onRowsRendered, registerChild }) => (
+       //                <AutoSizer>
+       //                  {({ height, width }) => (
+       //                    <List
+       //                      height={height}
+       //                      rowHeight={150}
+       //                      onRowsRendered={onRowsRendered}
+       //                      ref={registerChild}
+       //                      rowRenderer={this._rowRenderer}
+       //                      rowCount={this.props.noteData.noteTimeline.length}
+       //                      width={width} />
+       //                  )}
+       //                </AutoSizer>
+       //              )}
+       //            </InfiniteLoader>
+       //          }
 

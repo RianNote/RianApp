@@ -6,7 +6,7 @@ import noteListIcon from './NoteListIcon.svg';
 import rianLogo from './RianLogo.svg';
 import star from './Star.svg';
 
-const NoteSideBar = ({changeSideBar}) => {
+const NoteSideBar = ({changeMode}) => {
 	return (
 		<div className={noteCss.fixedBar}>
 			<div className={css.head}>
@@ -19,7 +19,7 @@ const NoteSideBar = ({changeSideBar}) => {
 			</div>
 			<div className={css.tool}>
 				<div className={css.border} />
-				<img className={css.toolIcon} src={noteListIcon} />
+				<img className={css.toolIcon} src={noteListIcon} onClick={changeMode}/>
 				<img className={css.toolIcon} src={trashIcon} />
 			</div>
 			<div className={css.move}>

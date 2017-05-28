@@ -40,7 +40,7 @@ export default class NoteNav extends Component {
     let tagList;
     if (this.props.TagData.getTagList) {
       tagList = this.props.TagData.getTagList.map((Tag, index) => (
-        <div className={css.tag} onClick={() => { this.props.changeWhichBar('NoteList'); }}>
+        <div key={index} className={css.tag} onClick={() => { this.props.changeWhichBar('NoteList'); }}>
           <div className={css.text}>
             {`#${Tag.name}`}
           </div>
@@ -55,10 +55,9 @@ export default class NoteNav extends Component {
     }
     return (
       <div>
-        <Motion style={{ x: spring(this.props.sideBar ? 130 : 0) }}>
+        <Motion style={{ x: spring(this.props.sideBar ? 80 : 0 ) }}>
           { ({ x }) =>
             <div id={css.tagNav} style={{ width: `${x}px` }}>
-              <div className={css.firstTag} />
               <div className={css.tag}>
                 <a className={css.facebookButton} href="/auth/facebook">$Facebook</a>
               </div>
