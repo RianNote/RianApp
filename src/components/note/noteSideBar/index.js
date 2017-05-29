@@ -32,7 +32,7 @@ const NoteSideBar = ({ changeMode }) => (
   );
 
 NoteSideBar.propTypes = {
-  changeMode: PropTypes.func,
+  changeMode: PropTypes.func.isRequired,
 };
 
 NoteSideBar.defaultProps = {

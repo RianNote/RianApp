@@ -27,9 +27,9 @@ const getTimelineQuery = graphql(getNotelineNumber, {
 export default class NoteTimeLine extends Component {
   constructor(props) {
     super(props);
-    this.rowRenderer = this.rowRenderer.bind(this);
-    this.isRowLoaded = this.isRowLoaded.bind(this);
-    this.loadMoreRows = this.loadMoreRows.bind(this);
+    this.state = {
+
+    };
   }
 
   render() {
@@ -51,7 +51,7 @@ export default class NoteTimeLine extends Component {
 }
 
 NoteTimeLine.propTypes = {
-  sideBar: PropTypes.number,
+  sideBar: PropTypes.number.isRequired,
 };
 
 NoteTimeLine.defaultProps = {

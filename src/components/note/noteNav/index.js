@@ -23,23 +23,10 @@ const getTagListQuery = graphql(getTagList, {
 
 @compose(getTagListQuery)
 @connect(mapState)
-
 export default class NoteNav extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-  }
-
-  componentDidMount() {
-    console.log('didMount', this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
-  }
-
-  componentWillUnmount() {
-    console.log('UnmountNoteNav');
   }
 
   render() {
@@ -92,9 +79,9 @@ export default class NoteNav extends Component {
 }
 
 NoteNav.propTypes = {
-  TagData: PropTypes.object,
-  changeWhichBar: PropTypes.func,
-  sideBar: PropTypes.number,
+  TagData: PropTypes.object.isRequired,
+  changeWhichBar: PropTypes.func.isRequired,
+  sideBar: PropTypes.number.isRequired,
 };
 
 NoteNav.defaultProps = {

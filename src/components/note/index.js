@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,6 +10,9 @@ import NoteTimeLine from './noteTimeline';
 import NoteCardTimeline from './noteCardTimeline';
 import NoteEditor from './noteEditor';
 import { modeChange } from '../../actions/NoteActions';
+
+const add = (a: number, b: number): number => a + b;
+add(1, 5);
 
 const mapState = state => ({
   Mode: state.Note.mode,
@@ -81,8 +86,8 @@ export default class Note extends Component {
 }
 
 Note.propTypes = {
-  Mode: PropTypes.oneOf(['List, Card']),
-  changeMode: PropTypes.func,
+  Mode: PropTypes.oneOf(['List, Card']).isRequired,
+  changeMode: PropTypes.func.isRequired,
 };
 
 Note.defaultProps = {

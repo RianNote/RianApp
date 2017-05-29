@@ -29,9 +29,9 @@ const CardSnippet = ({ title, preview, tag }) => (
 );
 
 CardSnippet.propTypes = {
-  title: PropTypes.string,
-  tag: PropTypes.array,
-  preview: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  tag: PropTypes.array.isRequired,
+  preview: PropTypes.string.isRequired,
 };
 
 CardSnippet.defaultProps = {
