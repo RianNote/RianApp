@@ -12,7 +12,7 @@ const mapState = state => ({
 });
 
 const getTimelineQuery = graphql(getNotelineNumber, {
-  options: props => ({
+  options: () => ({
     variables: {
       userId: '5923b81861322804b81cecb6', // 임시 키
     },

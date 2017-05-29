@@ -1,10 +1,16 @@
 import {
-  NOTE_MODE_CHANGE
-} from "../constants";
+  NOTE_MODE_CHANGE,
+} from '../constants';
 
-export function modeChange (mode){
+export function modeChange(mode) {
   return {
     type: NOTE_MODE_CHANGE,
-    mode
-  }
+    mode,
+  };
+}
+
+export function basic() {
+  return {
+
+  };
 }
