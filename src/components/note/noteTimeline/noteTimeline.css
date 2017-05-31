@@ -14,20 +14,21 @@
 	box-sizing: border-box;
 	border-right: 1px solid gray(90%);
 }
-.timelineSearchBar{
+.timelineSearchBar {
 	box-sizing: border-box;
 	flex: 1;
 	margin-right: 0px;
 	margin-left: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 	border-radius: 10px;
 	border: 1px solid gray(90%);
+	outline: none;
 }
 .timelineSearchButton{
 	box-sizing: border-box;
 	flex: 0 0 30px;
-	margin: 10px;
+	margin: 12px;
 	border-radius: 10px;
 	border: 1px solid gray(90%);
 }
@@ -39,7 +40,7 @@
 
 .snippetSide {
 	display: flex;
-	flex: 0 0 60px;
+	flex: 0 0 35px;
 	box-sizing: border-box;
 	padding-left: 5px;
 	justify-content: center;
@@ -52,7 +53,7 @@
 }
 
 .snippetBody {
-	width: 300px;
+	width: 230px;
 	padding: 8px;
 	display: flex;
 	flex: 1;
@@ -66,19 +67,20 @@
 	display: block;
 	flex: 1;
 	line-height: 44px;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 	justify-content: center;
 	white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;	
+    overflow: hidden;
+    text-overflow: ellipsis;	
 }
 .snippetSnippet {
+	font-size: 13px;
+    line-height: 30px;
 	box-sizing: border-box;
 	display: block;
 	width: 100%;
-  overflow: hidden; 
-  line-height: 33px;
+    overflow: hidden; 
 	flex: 2;
 	color: gray(50%);
 }

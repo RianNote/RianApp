@@ -12,7 +12,7 @@ export const BUNDLE_ANALYZER = {
 
 export const CSS_VARIABLES = {
   headerHeight: "70px",
-  navWidth: "150px",
-  timelineWidth: "370px",
+  navWidth: "120px",
+  timelineWidth: "300px",
   rianColor: "#00da82"
 };

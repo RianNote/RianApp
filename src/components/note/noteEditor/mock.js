@@ -19,9 +19,13 @@ export const mockContent = `<h3>Lorem ipsum dolor sit amet,</h3>
 
 <p>nibh at eros interdum laoreet at eu quam. Nullam ut risus viverra, tempor purus at, consectetur mauris. Curabitur at lectus quis eros vehicula porttitor. Morbi dignissim, nibh et ullamcorper semper, nunc ante vehicula quam, a semper dui leo eu urna. Vivamus nunc dui, egestas ac lorem ac, viverra tincidunt massa. Aenean sit amet tristique turpis, non commodo sapien. Suspendisse sit amet ex mattis, sagittis ipsum eget, finibus purus.</p>
 
-<h3>Fusce cursus accumsan sapien,&nbsp;</h3>
+<h1>Fusce cursus accumsan sapien, </h1>
 
-<p>at tincidunt purus viverra ut. Aliquam iaculis nibh nec dolor lacinia iaculis ut a metus. Fusce nulla augue, cursus nec feugiat vulputate, molestie quis diam. Cras sit amet nisl nibh. Nam quis nisl vitae ipsum fermentum condimentum. Aliquam ut risus nec massa blandit imperdiet. Donec sagittis vel orci id accumsan. Aenean eu ex et eros aliquet egestas sit amet vel sapien. Vivamus id dignissim arcu. Integer eget tellus molestie tortor eleifend gravida. Sed eleifend sapien at elit vestibulum elementum. In non suscipit mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur pulvinar facilisis pellentesque.</p>
+<h2>at tincidunt purus viverra ut. Aliquam iaculis </h2>
+
+<h3>nibh nec dolor lacinia iaculis ut a metus.&nbsp;</h3>
+
+<p>Fusce nulla augue, cursus nec feugiat vulputate, molestie quis diam. Cras sit amet nisl nibh. Nam quis nisl vitae ipsum fermentum condimentum. Aliquam ut risus nec massa blandit imperdiet. Donec sagittis vel orci id accumsan. Aenean eu ex et eros aliquet egestas sit amet vel sapien. Vivamus id dignissim arcu. Integer eget tellus molestie tortor eleifend gravida. Sed eleifend sapien at elit vestibulum elementum. In non suscipit mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur pulvinar facilisis pellentesque.</p>
 
 <p>Nam in viverra libero. Aenean pulvinar, risus eu placerat euismod, purus sem vulputate leo, non sodales odio lorem ut eros. Proin finibus leo ac est porttitor sagittis. Aliquam erat volutpat. Sed facilisis molestie mattis. Ut pretium purus dui, et porttitor erat elementum ac. Cras quis auctor nisl. Proin lacinia quam eu libero maximus ultricies. Pellentesque sed sapien mattis, congue eros vel, scelerisque ipsum. Aenean aliquet libero at pulvinar vulputate. Suspendisse feugiat rutrum dolor. Sed vulputate viverra porta. Proin non cursus neque.</p>
 

@@ -14,7 +14,55 @@ export const saveNote = (userid, infor) => {
 		})
 		newNote.save((err, saveNote) => {
 			if (err) throw err
-			resolve()
+			if (!Array.isArray(infor.tag)){
+				//일단 태그가 있는지 없는지 확인
+				Tag.findOne({ name: infor.tag }, (err, doc)=>{
+					//없으면 만들어줌
+					if (!doc) {
+						const newTag = new Tag({
+							userid: userid,
+							notes: [saveNote._id],
+							name: infor.tag
+						})
+						newTag.save((err, newTag) => {
+							resolve()
+						})
+					}
+					//있으면 업데이트
+					if (doc) {
+						Tag.update({name: infor.tag}, { '$push': { notes: saveNote._id } }, (err, tag) => {
+							console.log('tag', tag)
+							resolve()
+						})
+					}
+				})
+				resolve()
+			} else {
+				//태그가 여러개일 경우
+				for (let i = 0; i < infor.tag.length; i++) {
+					Tag.findOne({ name: infor.tag[i] }, (err, doc)=>{
+						//없으면 만들어줌
+						if (!doc) {
+							const newTag = new Tag({
+								userid: userid,
+								notes: [saveNote._id],
+								name: infor.tag[i]
+							})
+							newTag.save((err, newTag) => {
+								resolve()
+							})
+						}
+						//있으면 업데이트
+						if (doc) {
+							Tag.update({name: infor.tag[i]}, { '$push': { notes: saveNote._id } }, (err, tag) => {
+								console.log('tag', tag)
+								resolve()
+							})
+						}
+					})
+				}
+				resolve()
+			}
 		})
 	})
 } 
