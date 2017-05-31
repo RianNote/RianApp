@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
@@ -22,13 +23,29 @@ const getTimelineQuery = graphql(getNotelineNumber, {
   name: 'noteData',
 });
 
+type DefaultProps = {
+  sideBar: boolean
+};
+
+type Props = {
+  sideBar: boolean
+};
+
+type State = {};
+
 @compose(getTimelineQuery)
 @connect(mapState)
-export default class NoteTimeLine extends Component {
-  constructor(props) {
+class NoteTimeLine extends Component<DefaultProps, Props, State> {
+  static defaultProps = {
+    sideBar: false,
+  };
+
+  constructor(props: Props) {
     super(props);
     this.state = {};
   }
+
+  state = {};
 
   render() {
     return (
@@ -265,10 +282,4 @@ export default class NoteTimeLine extends Component {
   }
 }
 
-NoteTimeLine.propTypes = {
-  sideBar: PropTypes.bool.isRequired,
-};
-
-NoteTimeLine.defaultProps = {
-  sideBar: false,
-};
+export default NoteTimeLine 

@@ -19,7 +19,7 @@ const mapState = state => ({
   Note: state.Note,
 });
 @connect(mapState)
-export default class NoteEditor extends Component {
+class NoteEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,8 +79,8 @@ export default class NoteEditor extends Component {
     const config = {
       spellcheck: false,
       width: '100%',
+      toolbarVisibleWithoutSelection: true,
       editorClass: 'mainEditor',
-      spellcheck: false,
       charCounterCount: false,
       toolbarInline: true,
       toolbarButtons: [
@@ -191,3 +191,5 @@ export default class NoteEditor extends Component {
 //   }, true);
 
 // }
+
+export default NoteEditor;

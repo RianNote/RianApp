@@ -1,5 +1,5 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import noteCss from '../note.css';
 import css from './noteSideBar.css';
 import trashIcon from './TrashIcon.svg';
@@ -7,16 +7,48 @@ import trashIconHover from './TrashIcon-hover.svg';
 import noteListIcon from './NoteListIcon.svg';
 import noteListIconHover from './NoteListIcon-hover.svg';
 import star from './Star.svg';
+import starHover from './Star-hover.svg';
 
-class NoteSideBar extends Component {
-  constructor(props) {
+type DefaultProps = {
+  changeMode: Function
+};
+
+type Props = {
+  changeMode: Function
+};
+
+type State = {
+  starHover: boolean,
+  noteListHover: boolean,
+  trashHover: boolean
+};
+
+class NoteSideBar extends Component<DefaultProps, Props, State> {
+  static defaultProps = {
+    changeMode: () => {},
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = {
-      noteListHover: false,
-      trashHover: false,
-    };
+    this.changeStarHover = this.changeStarHover.bind(this);
     this.changeListHover = this.changeListHover.bind(this);
     this.changeTrashHover = this.changeTrashHover.bind(this);
+  }
+
+  state = {
+    starHover: false,
+    noteListHover: false,
+    trashHover: false,
+  };
+
+  changeStarHover: Function;
+  changeListHover: Function;
+  changeTrashHover: Function;
+
+  changeStarHover() {
+    this.setState(prevState => ({
+      starHover: !prevState.starHover,
+    }));
   }
 
   changeListHover() {
@@ -40,8 +72,14 @@ class NoteSideBar extends Component {
         <div className={css.sort}>
           <div className={css.how}>최신</div>
           <div className={css.how}>갯수</div>
-          <div className={css.how}>
-            <img className={css.howIcon} src={star} alt="alt" />
+          <div
+            className={css.how}
+            onMouseOver={this.changeStarHover}
+            onMouseOut={this.changeStarHover}>
+            <img
+              className={css.howIcon}
+              src={!this.state.starHover ? star : starHover}
+              alt="alt" />
           </div>
         </div>
         <div className={css.tool}>
@@ -69,13 +107,5 @@ class NoteSideBar extends Component {
     );
   }
 }
-
-NoteSideBar.propTypes = {
-  changeMode: PropTypes.func.isRequired,
-};
-
-NoteSideBar.defaultProps = {
-  changeMode: () => {},
-};
 
 export default NoteSideBar;

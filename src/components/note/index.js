@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import css from './note.css';
 import NoteNav from './noteNav';
@@ -10,41 +9,52 @@ import NoteCardTimeline from './noteCardTimeline';
 import NoteEditor from './noteEditor';
 import { modeChange } from '../../actions/NoteActions';
 
-const add = (a: number, b: number): number => a + b;
-add(1, 5);
-
-const mapState = state => ({
+const mapState = (state: { Note: { mode: "List" | "Card", Note: any } }) => ({
   Mode: state.Note.mode,
   Note: state.Note,
 });
 
-const mapDispatch = dispatch => ({
-  changeMode(mode) {
+const mapDispatch = (dispatch: Function) => ({
+  changeMode(mode: "List" | "Card") {
     dispatch(modeChange(mode));
   },
 });
 
+type DefaultProps = {
+  Mode: "List" | "Card",
+  changeMode: Function
+};
+
+type Props = {
+  Mode: "List" | "Card",
+  changeMode: Function
+};
+
+type State = {
+  sideBar: boolean
+};
+
 @connect(mapState, mapDispatch)
-export default class Note extends Component {
-  constructor(props) {
+class Note extends Component<DefaultProps, Props, State> {
+  static defaultProps = {
+    Mode: 'List',
+    changeMode: () => {},
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = {
-      sideBar: false,
-      whichBar: 'TagNav',
-    };
     this.changeSideBar = this.changeSideBar.bind(this);
-    this.changeWhichBar = this.changeWhichBar.bind(this);
   }
 
-  changeSideBar(argu) {
+  state = {
+    sideBar: false,
+  };
+
+  changeSideBar: Function;
+
+  changeSideBar(argu: boolean) {
     this.setState({
       sideBar: argu,
-    });
-  }
-
-  changeWhichBar(argu) {
-    this.setState({
-      whichBar: argu,
     });
   }
 
@@ -71,9 +81,7 @@ export default class Note extends Component {
             changeMode={() => {
               this.props.changeMode(ModeSelect);
             }} />
-          <NoteNav
-            sideBar={this.state.sideBar}
-            changeWhichBar={this.changeWhichBar} />
+          <NoteNav sideBar={this.state.sideBar} />
           <NoteTimeLine sideBar={this.state.sideBar} />
         </div>
         {!SERVER && this.props.Mode === 'List'
@@ -84,12 +92,4 @@ export default class Note extends Component {
   }
 }
 
-Note.propTypes = {
-  Mode: PropTypes.oneOf(['List', 'Card']).isRequired,
-  changeMode: PropTypes.func.isRequired,
-};
-
-Note.defaultProps = {
-  Mode: 'List',
-  changeMode: () => {},
-};
+export default Note;
