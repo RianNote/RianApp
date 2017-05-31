@@ -39,7 +39,6 @@
   position: relative;
   z-index: 2;
   -webkit-user-select: auto;
-  background-color: #FBFBFB;
 }
 .fr-element a {
   user-select: auto;
