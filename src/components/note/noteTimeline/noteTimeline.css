@@ -1,47 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 .noteList {
-	display: flex;
-    flex-direction: column;
+	z-index: 3;
     overflow: auto;
     left: 150px;
     height: 100%;
-}
-.infiniteContainer {
-  box-sizing: border-box;
-  border-top: 1px solid gray(80%);
-}
-.autoSizer {
-	flex: 1 1 auto;
-}
-.timelineSearch {
-	padding-right: 30px;
 	display: flex;
-	width: 100%;
-	flex: 0 0 50px;
-	box-sizing: border-box;
-}
-.timelineSearchBar {
-	width: 227px;
-	height: 30px;
-	box-sizing: border-box;
-	flex: 1;
-	margin-right: 0px;
-	margin-left: 20px;
-	margin-top: 12px;
-	margin-bottom: 12px;
+    flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin-top: 30px;
 	background-color: #ffffff;
-	border: solid 1px #eaeaea;
-	border-radius: 8px;
-	outline: none;
-	padding-left: 10px;
+	& .timelineSearch {
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		& .timelineSearchBar {
+			width: 240px;
+			height: 30px;
+			box-sizing: border-box;
+			flex: 1;
+			background-color: #ffffff;
+			border: solid 1px #eaeaea;
+			border-radius: 8px;
+			outline: none;
+			padding-left: 10px;
+		}
+		& .timelineSearchBar::placeholder {
+			vertical-align: middle;
+			font-family: 'Lato';
+			font-weight: 300;
+			font-size: 15px;
+			color: #d0d0d0;
+		} 
+	}
+	& .timelineList {
+		width: 100%;
+		height: 700px;
+		overflow: scroll;
+	}
+
 }
 
-.timelineSearchBar::placeholder {
-    vertical-align: middle;
-    font-family: 'Lato';
-    font-weight: 300;
-    font-size: 15px;
-    color: #d0d0d0;
-} 
+
 

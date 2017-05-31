@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
 import { Motion, spring } from 'react-motion';
 import PropTypes from 'prop-types';
+import TimelineSnippet from './TimelineSnippet/index';
 import { getNotelineNumber } from '../../../graphqls/TimelineGraphQl';
 import css from './noteTimeline.css';
 
@@ -23,27 +24,243 @@ const getTimelineQuery = graphql(getNotelineNumber, {
 
 @compose(getTimelineQuery)
 @connect(mapState)
-
 export default class NoteTimeLine extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <div>
         <Motion style={{ x: spring(this.props.sideBar ? 300 : 0) }}>
-          {({ x }) =>
+          {({ x }) => (
             <div className={css.noteList} style={{ width: `${x}px` }}>
               <div className={css.timelineSearch}>
-                <input className={css.timelineSearchBar} placeholder="SEARCH TAG" />
+                <input
+                  className={css.timelineSearchBar}
+                  placeholder="SEARCH TAG" />
               </div>
-              <div className={css.autoSizer} />
+              <div className={css.timelineList}>
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                                  <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+                <TimelineSnippet
+                  title={'The Flash Tutorial'}
+                  snippet={
+                    'Welcome To Desiclassifieds Free Classifieds Free Ads Free Advertisement'
+                  }
+                  tag={['전공', 'math']} />
+              </div>
             </div>
-          }
+          )}
         </Motion>
       </div>
     );
