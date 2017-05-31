@@ -6,6 +6,12 @@ import { Motion, spring } from 'react-motion';
 import { getTagList } from '../../../graphqls/TagGraphQl';
 import css from './noteNav.css';
 
+/* <div className={css.tag}>
+              <a className={css.facebookButton} href="/auth/facebook">
+                $Facebook
+              </a>
+            </div>*/
+
 const mapState = state => ({
   Mode: state.Note.mode,
   Note: state.Note,
@@ -45,35 +51,41 @@ export default class NoteNav extends Component {
         </div>
       ));
     } else {
-      tagList = [];
-      const temp = (
+      tagList = [
+        '강의',
+        '고향',
+        '감자',
+        '고구마',
+        '강남',
+        '고요한날',
+        '고마움',
+        '기도',
+        '걱정',
+        '감사',
+        '고뇌',
+        '감탄',
+        '그리움',
+        '고난과역경',
+      ];
+      tagList = tagList.map((data, index) => (
         <div
+          key={index}
           className={css.tag}
           onClick={() => {
             this.props.changeWhichBar('NoteList');
           }}>
-          <div className={css.text}>{'#Loading'}</div>
+          <div className={css.text}>{`#${data}`}</div>
         </div>
-      );
-      for (let i = 0; i < 20; i++) {
-        tagList.push(temp);
-      }
+      ));
     }
     return (
-      <div>
-        <Motion style={{ x: spring(this.props.sideBar ? 80 : 0) }}>
-          {({ x }) => (
-            <div id={css.tagNav} style={{ width: `${x}px` }}>
-              <div className={css.tag}>
-                <a className={css.facebookButton} href="/auth/facebook">
-                  $Facebook
-                </a>
-              </div>
-              {tagList}
-            </div>
-          )}
-        </Motion>
-      </div>
+      <Motion style={{ x: spring(this.props.sideBar ? 70 : 0) }}>
+        {({ x }) => (
+          <div id={css.tagNav} style={{ width: `${x}px` }}>
+            {tagList}
+          </div>
+        )}
+      </Motion>
     );
   }
 }
@@ -81,11 +93,11 @@ export default class NoteNav extends Component {
 NoteNav.propTypes = {
   TagData: PropTypes.object.isRequired,
   changeWhichBar: PropTypes.func.isRequired,
-  sideBar: PropTypes.number.isRequired,
+  sideBar: PropTypes.bool.isRequired,
 };
 
 NoteNav.defaultProps = {
   TagData: {},
   changeWhichBar: () => {},
-  sideBar: 0,
+  sideBar: false,
 };

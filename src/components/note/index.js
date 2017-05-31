@@ -77,7 +77,7 @@ export default class Note extends Component {
           <NoteTimeLine sideBar={this.state.sideBar} />
         </div>
         {!SERVER && this.props.Mode === 'List'
-          ? <NoteEditor />
+          ? <NoteEditor sideBar={this.state.sideBar} />
           : <NoteCardTimeline />}
       </div>
     );
@@ -85,7 +85,7 @@ export default class Note extends Component {
 }
 
 Note.propTypes = {
-  Mode: PropTypes.oneOf(['List, Card']).isRequired,
+  Mode: PropTypes.oneOf(['List', 'Card']).isRequired,
   changeMode: PropTypes.func.isRequired,
 };
 

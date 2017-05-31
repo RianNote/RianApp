@@ -1,12 +1,12 @@
-export const mockContent = `<h3>Lorem ipsum dolor sit amet,</h3>
+export const mockContent = `<h3>Choosing what you want</h3>
 
-<p>consectetur adipiscing elit. Sed ipsum dolor, feugiat sed arcu sit amet, commodo faucibus purus. Nunc <a class="fr-strong fr-green" href="http://www.naver.com">egestas</a>vitae dolor eu posuere. Sed tortor tortor, luctus eget diam ac, pulvinar porttitor ipsum. Vivamus libero lorem, hendrerit vitae lacus vitae, laoreet dictum tellus. Cras ac nulla</p>
+<p>It is very easy to start smoking but it is an uphill task to quit it. Ask any chain smoker or even a person who smokes just a few cigarettes everyday. Usually a person can stop smoking for a couple of days, then the urge to smoke is so strong that one makes all kinds of excuses to start it again. So you are back to square one. All kinds of methods have been advocated for quitting smoking, but the one that has made a big impact is Hypnosis. Hypnosis quit smoking methods has divided the medical fraternity into two. While some argue that Hypnosis quit smoking methods are not effective in the long run.
 
-<p>&nbsp;consequat, iaculis diam a, fermentum tellus. Donec auctor nisi at tincidunt vestibulum. Vestibulum nec mi dictum, tempor felis elementum, imperdiet orci. Pellentesque eleifend, magna vitae consectetur vestibulum, dui urna malesuada metus, in pharetra massa arcu non sem.</p>
+</p>
 
-<h3>Vestibulum at accumsan metus.&nbsp;</h3>
+<h3>한글을 테스트하고 있습니다</h3>
 
-<p>Sed aliquam in lectus ac placerat. Donec eget dignissim velit. Donec id tellus scelerisque, consectetur elit et, tristique velit. Pellentesque scelerisque sed velit nec maximus. Vestibulum tempor viverra arcu, vitae laoreet massa aliquam sit amet. Mauris blandit erat feugiat convallis&nbsp;</p>
+<p>저는 지금 한글을 테스트하고 있는데요. 한글이 잘 써지고 있는 것 같습니다. 지금부터 4줄이상을 더 쓸 예정인데 무엇을 써야할지 모르겠네요. 저는 오늘 아침에 토익스피킹 시험을 봤습니다. 레벨 7이 나왔으면 좋겠는데, 느낌상 안나올 것 같네요ㅜㅜ 제발좀 나왔으면 좋겠습니다. 또 시험 보려면 7만 7천원을 지불해야 하거든요. 솔직히 너무 비싸죠? YBM 진짜 너무하네요 돈도 많으면서 한국 학생들 저렴하게 시험볼 수 있도록 배려좀 해주시 조만간 YBM 무너져야 된다고 생각합니다. 영단기가 파산시킬거라고 믿습니다. 감사합니다. 조금 글씨를 더 써보겠습니다. 앞으로 한줄만 더 추가시켜 보겠습니다. 영어 로렘은 있는데 한글 로렘은 없나요? 찾아봐야겠네요. 휴 이제 거의다 쓴 것 같네요ㅎㅎ 굿굿!!;</p>
 
 <ul>
 	<li><span>imperdiet. Phasellus facilisis leo a cursus feugiat. Maecenas eget b</span></li>
@@ -38,4 +38,4 @@ export const mockContent = `<h3>Lorem ipsum dolor sit amet,</h3>
 <p>In sit amet euismod leo, ut consectetur arcu. Integer mattis efficitur sapien ac pellentesque. Nam nibh erat, ultrices sit amet leo et, pellentesque consectetur nunc. Mauris pulvinar, quam sed scelerisque viverra, mi dolor ornare sem, luctus rhoncus turpis ex eu odio. Nam ac pharetra nisi, ac interdum quam. Vivamus at purus gravida, scelerisque felis at, scelerisque ante. Aenean ac nunc euismod, porta risus sed, porttitor metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam malesuada elementum leo, vel suscipit diam condimentum gravida. Donec et nulla id metus vehicula hendrerit ac ut velit. Aliquam justo nunc, hendrerit vehicula augue ac, pellentesque semper nunc.</p>
 
 <p>Vestibulum non facilisis ante, et eleifend tellus. Curabitur at varius nunc. Cras auctor metus non mollis tincidunt. Cras sit amet eros arcu. Donec libero sapien, mollis vel semper a, ultrices sed velit. Nulla commodo justo laoreet molestie imperdiet. Fusce mollis, erat vitae blandit iaculis, elit turpis fermentum metus, sed ornare sem urna sit amet nibh. Donec nec consectetur est, ac vestibulum dolor. Nullam accumsan dolor ac lectus condimentum accumsan. Sed purus quam, tincidunt sed tellus at, fringilla scelerisque dolor. Cras facilisis nunc in dignissim ornare. Vestibulum a ultricies mi, non tempor mauris. Mauris dictum sagittis velit, eu commodo nisl. Nunc in mi quis neque fermentum laoreet. Quisque vitae interdum augue.</p>
-`
+`;

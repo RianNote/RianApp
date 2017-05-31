@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: stretch;
     & .paper {
+        z-index: 0;
         flex: 0 0 600px;
         display: flex;
         flex-direction: row;
@@ -16,7 +17,7 @@
         /*align-items:center;*/
     }
     & .card-List {
-        z-index: -4;
+        z-index: 0;
         margin-left: 50px;
         flex: 0 0 1000px;
         display: flex;
@@ -24,7 +25,7 @@
         justify-content: flex-start;
     }
     & .hover {
-        z-index: 0;
+        z-index: 3;
         position: fixed;
         left: 0px;
         height: 100%;

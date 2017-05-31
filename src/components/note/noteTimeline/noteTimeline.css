@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 .noteList {
-	z-index: 3;
     overflow: auto;
-    left: 150px;
     height: 100%;
 	display: flex;
     flex-direction: column;
@@ -39,6 +37,7 @@
 	& .timelineList {
 		width: 100%;
 		height: 700px;
+		margin-top: 20px;
 		overflow: scroll;
 	}
 

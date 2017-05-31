@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:500');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 .head {
 	margin-bottom: 15px;
@@ -15,7 +15,7 @@
 	resize: none;
 	text-align: center;
   	font-weight: 500;
-  	font-family: 'Quicksand', sans-serif;
+  	font-family: 'Lato';
 }
 
 .title:focus {
@@ -31,6 +31,7 @@
 	height: 40px;
 	margin: 0px;
 	resize: none;
+	font-family: 'Lato';
 }
 
 .tag:focus {
