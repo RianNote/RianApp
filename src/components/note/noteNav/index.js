@@ -48,6 +48,10 @@ class NoteNav extends Component<DefaultProps, Props, State> {
     sideBar: false,
   };
 
+  constructor(props: Props) {
+    super(props);
+  }
+
   state = {};
 
   render() {

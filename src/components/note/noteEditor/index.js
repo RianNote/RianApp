@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FroalaEditor from 'react-froala-wysiwyg';
@@ -12,24 +13,37 @@ import './totalLayout.global.css';
 // Note that Froala Editor has to be required separately
 
 import { mockContent } from './mock';
-import { XYruler } from './util';
+// import { XYruler } from './util';
 
 const mapState = state => ({
   Mode: state.Note.mode,
   Note: state.Note,
 });
+
+type DefaultProps = {
+  sideBar: number
+};
+
+type Props = {
+  sideBar: number
+};
+
+type State = {
+  title: string,
+  tag: string,
+  initControls: string,
+  content: string,
+  typewrite: boolean
+};
+
 @connect(mapState)
-class NoteEditor extends Component {
-  constructor(props) {
+class NoteEditor extends Component<DefaultProps, Props, State> {
+  static defaultProps = {
+    sideBar: 0,
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = {
-      title: 'Lorem ipsum dolor sit amet',
-      tag: '#Latin',
-      options: {},
-      initControls: '',
-      content: mockContent,
-      typewrite: false,
-    };
     this.handleModelChange = this.handleModelChange.bind(this);
     this.handleController = this.handleController.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -38,26 +52,42 @@ class NoteEditor extends Component {
     this.typeWrite = this.typeWrite.bind(this);
   }
 
+  state = {
+    title: 'Lorem ipsum dolor sit amet',
+    tag: '#Latin',
+    options: {},
+    initControls: '',
+    content: mockContent,
+    typewrite: false,
+  };
+
   componentDidMount() {
     this.initControls.initialize();
-    const textEditor = this.initControls.getEditor()();
     this.initControls.getEditor()('toolbar.hide');
   }
 
-  handleModelChange(model) {
-    this.setState((prevState, props) => ({ content: model }));
+  handleModelChange: Function;
+  handleController: Function;
+  handleTitleChange: Function;
+  handleTagChange: Function;
+  fullScreen: Function;
+  typeWrite: Function;
+  initControls: any;
+
+  handleModelChange(model: string) {
+    this.setState(() => ({ content: model }));
   }
 
-  handleController(initControls) {
+  handleController(initControls: any) {
     this.initControls = initControls;
   }
 
-  handleTitleChange(e) {
-    this.setState({ title: e.target.value });
+  handleTitleChange(event: Event & { currentTarget: { value: string } }) {
+    this.setState({ title: event.currentTarget.value });
   }
 
-  handleTagChange(e) {
-    this.setState({ tag: e.target.value });
+  handleTagChange(event: Event & { currentTarget: { value: string } }) {
+    this.setState({ tag: event.currentTarget.value });
   }
 
   fullScreen() {
@@ -69,13 +99,12 @@ class NoteEditor extends Component {
   }
 
   typeWrite() {
-    this.setState((prevState, props) => ({
+    this.setState(prevState => ({
       typewrite: !prevState.typewrite,
     }));
   }
 
   render() {
-    const { Mode } = this.props;
     const config = {
       spellcheck: false,
       width: '100%',
@@ -153,43 +182,5 @@ class NoteEditor extends Component {
     );
   }
 }
-
-// if (this.state.typewrite) {
-//   const adjustScrollTop = (argu) => {
-//       console.log(window.getSelection().getRangeAt(0), window.getSelection().getRangeAt(0).getClientRects())
-//       if (window.getSelection().getRangeAt(0).getClientRects()[0].top > window.innerHeight/2) {
-//             document.getElementsByClassName(css.right)[0].scrollTop =
-//                 document.getElementsByClassName(css.right)[0].scrollTop
-//                   - (window.innerHeight/2 - window.getSelection().getRangeAt(0).getClientRects()[0].top)
-//       } else if (window.getSelection().getRangeAt(0).getClientRects()[0].top < window.innerHeight/2) {
-//             document.getElementsByClassName(css.right)[0].scrollTop =
-//                 document.getElementsByClassName(css.right)[0].scrollTop
-//                   + (window.getSelection().getRangeAt(0).getClientRects()[0].bottom - window.innerHeight/2)
-//       }
-//       console.log(window.innerHeight/2, window.getSelection().getRangeAt(0).getClientRects()[0].bottom)
-//   }
-
-//   $('.fr-view').click(e => {
-//     adjustScrollTop()
-//   })
-
-//   this.initControls.getEditor()('events.on', 'keydown', e => {
-
-//       if (e.which == '13' || e.which == '10') {
-//         adjustScrollTop()
-//       }
-//       if (e.which == '8') {
-//         adjustScrollTop()
-//       }
-//       if (e.which == '38') {
-//         adjustScrollTop()
-//       }
-//       if (e.which == '40') {
-//         adjustScrollTop()
-//       }
-
-//   }, true);
-
-// }
 
 export default NoteEditor;

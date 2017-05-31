@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
 import { Motion, spring } from 'react-motion';
-import PropTypes from 'prop-types';
 import TimelineSnippet from './TimelineSnippet/index';
 import { getNotelineNumber } from '../../../graphqls/TimelineGraphQl';
 import css from './noteTimeline.css';
@@ -282,4 +281,4 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
   }
 }
 
-export default NoteTimeLine 
+export default NoteTimeLine;
