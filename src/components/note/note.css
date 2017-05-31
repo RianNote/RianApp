@@ -1,39 +1,43 @@
-#note-List {
-  display: flex;
-  width:100%;
-  /*flex: 1;*/
-  justify-content: center;
-  align-items: stretch;
-  & .paper {
-    flex: 0 0 600px;
+#note {
     display: flex;
-    flex-direction: row;  
+    width: 100%;
+    /*flex: 1;*/
     justify-content: center;
-    overflow: scroll;
-    padding-top: 30px;
-    padding-left: 150px;
-    padding-right: 150px;
-    /*align-items:center;*/
-  }
-  & .card-List {
-    flex: 0 0 900px;
-    display: flex;
-    flex-direction: column;  
-    justify-content: flex-start;
-  }
-
-  & .hover {
-    z-index: 999;
-    position: fixed;
-    left: 0;
-    height: 100%;
-    width: 10px; 
-      & .fixedBar {
+    align-items: stretch;
+    & .paper {
+        z-index: 0;
+        flex: 0 0 600px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        overflow: scroll;
+        padding-top: 30px;
+        padding-left: 150px;
+        padding-right: 150px;
+        /*align-items:center;*/
+    }
+    & .card-List {
+        z-index: 0;
+        margin-left: 50px;
+        flex: 0 0 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    & .hover {
+        z-index: 3;
         position: fixed;
+        left: 0px;
         height: 100%;
-        width: 50px;
         border-right: solid #DDDDDD 1px;
-      }
-  }
+        display: flex;
+        & .fixedBar {
+            left: 0px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 60px;
+        }
+    }
 }
-

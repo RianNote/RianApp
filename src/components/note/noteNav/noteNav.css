@@ -1,49 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
-
-.facebookButton {
-	  text-decoration: none;
-    display: flex;
-    align-items: center;
-	  color: rgb(251, 251, 251);
-}
 #tagNav {
-	  z-index: 0;
-	  position: fixed;
-    left: 50px;
+    z-index: 109;
     height: 100%;
+    left: 60px;
+    padding-top: 85px;
     display: flex;
+    font-size: 13px;
     font-family: 'Lato';
     flex-direction: column;
-    background-color: #FFCAD7;
+    align-items: center;
+    background-color: #ffffff;
     overflow: scroll;
-    & .firstTag{
-      display: flex;
-      flex: 0 0 50px;
-    }
     & .tag {
-      display: flex;
-      flex: 0 0 40px;
+      flex: 0 0 30px;
       padding-left: 3px;
       padding-right: 10px;
-      align-items: stretch;
-      color: gray(95%);
-
-      & .icon {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 20px;
-        margin: 10px;
-        border-radius: 2px;
-        border: 1px solid gray(95%);
-      }
-
+      color: #a5a5a5;
       & .text {
+        padding-left: 30px;
         display: block;
         width: 90px;
         text-overflow: ellipsis;
         overflow: hidden;
-        line-height: 40px;
+        line-height: 20px;
         align-items: center;
+      }
+      & .text:hover {
+        color: #ff3466;
+      }
+      & .facebookButton {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #a5a5a5;
       }
     }
 }
+

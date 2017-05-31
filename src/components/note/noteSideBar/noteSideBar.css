@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+.head {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& .logo { 
+		width: 38px;
+		height: 38px;
+		border-radius: 8px;
+		background-color: #ff3466;
+		color: #ffffff;
+		font-size: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Lato';
+	}
+}
+.sort {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  & .how {
+	width: 35px;
+	height: 18px;
+	border-radius: 8px;
+	border: solid 1px #ff3466;  
+	margin: 2px auto 2px auto;
+	font-size: 10px;
+	font-weight: 500;
+	font-family: 'Lato';
+	text-align: center;
+	color: #ff3466;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  & .how:hover {
+  	background-color: #ff3466;
+  	color: #ffffff;
+  }
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  & .border {
+  	height: 1px;
+  	width: 18.5px;
+  	background-color: #ebebeb;
+  	margin-bottom: 20px;
+  }
+  & .toolIcon {
+  	margin: 10px auto 10px auto;
+  }
+}
+.move {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	& .border {
+  		height: 1px;
+  		width: 18.5px;
+  		background-color: #ebebeb;
+  		margin-bottom: 20px;
+  	}
+	& .moveIcon {
+		font-family: 'Lato';
+		font-size: 10px;
+		font-weight: 700;
+		color: #ff3466;
+		margin: 10px auto 10px auto;
+	}
+}

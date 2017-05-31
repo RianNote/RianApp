@@ -25,7 +25,7 @@ module.exports = {
   ],
   rules: {
     'arrow-parens': ['error', 'as-needed'],
-    'react/forbid-prop-types': [1, { forbid: ['any']} ],
+    'react/forbid-prop-types': [1, { forbid: ['any'] }],
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'react/prefer-stateless-function': [2, { ignorePureComponents: true }],
     'react/no-multi-comp': 0,

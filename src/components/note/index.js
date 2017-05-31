@@ -1,59 +1,95 @@
+// @flow
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {Motion, spring} from 'react-motion';
 import css from './note.css';
 import NoteNav from './noteNav';
-import NoteEditor from './noteEditor';
+import NoteSideBar from './noteSideBar';
 import NoteTimeLine from './noteTimeline';
-import NoteCardTimeline from './noteCardTimeline'
+import NoteCardTimeline from './noteCardTimeline';
+import NoteEditor from './noteEditor';
+import { modeChange } from '../../actions/NoteActions';
 
-@connect(mapState)
+const add = (a: number, b: number): number => a + b;
+add(1, 5);
+
+const mapState = state => ({
+  Mode: state.Note.mode,
+  Note: state.Note,
+});
+
+const mapDispatch = dispatch => ({
+  changeMode(mode) {
+    dispatch(modeChange(mode));
+  },
+});
+
+@connect(mapState, mapDispatch)
 export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sideBar: false,
-      whichBar: 'TagNav'
-    }
-    this.changeSideBar = this.changeSideBar.bind(this)
-    this.changeWhichBar = this.changeWhichBar.bind(this)
+      whichBar: 'TagNav',
+    };
+    this.changeSideBar = this.changeSideBar.bind(this);
+    this.changeWhichBar = this.changeWhichBar.bind(this);
   }
 
-  changeSideBar(argu){
+  changeSideBar(argu) {
     this.setState({
-      sideBar: argu
-    })
+      sideBar: argu,
+    });
   }
 
-  changeWhichBar(argu){
+  changeWhichBar(argu) {
     this.setState({
-      whichBar: argu
-    })
+      whichBar: argu,
+    });
   }
 
   render() {
-  	const { Mode } = this.props;
+    const { Mode } = this.props;
+    let ModeSelect;
+    if (Mode === 'List') {
+      ModeSelect = 'Card';
+    }
+    if (Mode === 'Card') {
+      ModeSelect = 'List';
+    }
     return (
-      <div id={css[`note-${Mode}`]}>
-        <div className={css.hover} onMouseEnter={ ()=>{this.changeSideBar(true);} } onMouseLeave={ ()=>{this.changeSideBar(false);} }>
-          <div className={css.fixedBar}></div>
-          {
-            this.state.whichBar === 'TagNav' && this.props.Mode === 'List' ? 
-            <NoteNav sideBar={this.state.sideBar} changeWhichBar={this.changeWhichBar} /> : 
-            <NoteTimeLine sideBar={this.state.sideBar} changeWhichBar={(argu)=>{this.changeWhichBar(argu);}} />
-          }
-        </div>  
-          {
-            !SERVER && this.props.Mode === 'List' ? <NoteCardTimeline /> :  <NoteEditor />
-          }
-			</div>
+      <div id={css.note}>
+        <div
+          className={css.hover}
+          onMouseEnter={() => {
+            this.changeSideBar(true);
+          }}
+          onMouseLeave={() => {
+            this.changeSideBar(false);
+          }}>
+          <NoteSideBar
+            changeMode={() => {
+              this.props.changeMode(ModeSelect);
+            }} />
+          <NoteNav
+            sideBar={this.state.sideBar}
+            changeWhichBar={this.changeWhichBar} />
+          <NoteTimeLine sideBar={this.state.sideBar} />
+        </div>
+        {!SERVER && this.props.Mode === 'List'
+          ? <NoteEditor sideBar={this.state.sideBar} />
+          : <NoteCardTimeline />}
+      </div>
     );
   }
 }
 
-function mapState(state) {
-  return {
-  	Mode: state.Note.mode,
-    Note: state.Note,
-  };
-}
+Note.propTypes = {
+  Mode: PropTypes.oneOf(['List', 'Card']).isRequired,
+  changeMode: PropTypes.func.isRequired,
+};
+
+Note.defaultProps = {
+  Mode: 'List',
+  changeMode: () => {},
+};
