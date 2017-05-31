@@ -9,15 +9,13 @@ export const mockContent = `<h3>Lorem ipsum dolor sit amet,</h3>
 <p>Sed aliquam in lectus ac placerat. Donec eget dignissim velit. Donec id tellus scelerisque, consectetur elit et, tristique velit. Pellentesque scelerisque sed velit nec maximus. Vestibulum tempor viverra arcu, vitae laoreet massa aliquam sit amet. Mauris blandit erat feugiat convallis&nbsp;</p>
 
 <ul>
-	<li><span style="font-size: 14px;">imperdiet. Phasellus facilisis leo a cursus feugiat. Maecenas eget b</span></li>
-	<li><span style="font-size: 14px;">ibendum purus. Vestibulum sem velit, placerat a augue quis, posuere faucibus diam.</span></li>
+	<li><span>imperdiet. Phasellus facilisis leo a cursus feugiat. Maecenas eget b</span></li>
+	<li><span>ibendum purus. Vestibulum sem velit, placerat a augue quis, posuere faucibus diam.</span></li>
 </ul>
 
 <h3>Maecenas fermentum risus ac ligula ultrices posuere.&nbsp;</h3>
 
 <p>Integer imperdiet massa eget ipsum aliquet sagittis. Phasellus lorem ex, rutrum et nisi ac, pharetra varius ex. Donec congue maximus augue, a fringilla turpis luctus quis. Etiam viverra urna at ante molestie dapibus. Sed vitae neque eget mi lobortis tristique ac id ipsum. Vestibulum et felis dictum, imperdiet nibh placerat, hendrerit eros. Sed nec neque vehicula massa vehicula lobortis. Cras quis</p>
-
-<p style="text-align: center;"><img src="https://i.froala.com/download/0a0653d3e615a3026dcfcd1ccb9664e7c4ccfd99.jpg?1494565342" style="width: 300px;" class="fr-fic fr-dii">&nbsp;</p>
 
 <p>nibh at eros interdum laoreet at eu quam. Nullam ut risus viverra, tempor purus at, consectetur mauris. Curabitur at lectus quis eros vehicula porttitor. Morbi dignissim, nibh et ullamcorper semper, nunc ante vehicula quam, a semper dui leo eu urna. Vivamus nunc dui, egestas ac lorem ac, viverra tincidunt massa. Aenean sit amet tristique turpis, non commodo sapien. Suspendisse sit amet ex mattis, sagittis ipsum eget, finibus purus.</p>
 
@@ -35,4 +33,5 @@ export const mockContent = `<h3>Lorem ipsum dolor sit amet,</h3>
 
 <p>In sit amet euismod leo, ut consectetur arcu. Integer mattis efficitur sapien ac pellentesque. Nam nibh erat, ultrices sit amet leo et, pellentesque consectetur nunc. Mauris pulvinar, quam sed scelerisque viverra, mi dolor ornare sem, luctus rhoncus turpis ex eu odio. Nam ac pharetra nisi, ac interdum quam. Vivamus at purus gravida, scelerisque felis at, scelerisque ante. Aenean ac nunc euismod, porta risus sed, porttitor metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam malesuada elementum leo, vel suscipit diam condimentum gravida. Donec et nulla id metus vehicula hendrerit ac ut velit. Aliquam justo nunc, hendrerit vehicula augue ac, pellentesque semper nunc.</p>
 
-<p>Vestibulum non facilisis ante, et eleifend tellus. Curabitur at varius nunc. Cras auctor metus non mollis tincidunt. Cras sit amet eros arcu. Donec libero sapien, mollis vel semper a, ultrices sed velit. Nulla commodo justo laoreet molestie imperdiet. Fusce mollis, erat vitae blandit iaculis, elit turpis fermentum metus, sed ornare sem urna sit amet nibh. Donec nec consectetur est, ac vestibulum dolor. Nullam accumsan dolor ac lectus condimentum accumsan. Sed purus quam, tincidunt sed tellus at, fringilla scelerisque dolor. Cras facilisis nunc in dignissim ornare. Vestibulum a ultricies mi, non tempor mauris. Mauris dictum sagittis velit, eu commodo nisl. Nunc in mi quis neque fermentum laoreet. Quisque vitae interdum augue.</p>`
+<p>Vestibulum non facilisis ante, et eleifend tellus. Curabitur at varius nunc. Cras auctor metus non mollis tincidunt. Cras sit amet eros arcu. Donec libero sapien, mollis vel semper a, ultrices sed velit. Nulla commodo justo laoreet molestie imperdiet. Fusce mollis, erat vitae blandit iaculis, elit turpis fermentum metus, sed ornare sem urna sit amet nibh. Donec nec consectetur est, ac vestibulum dolor. Nullam accumsan dolor ac lectus condimentum accumsan. Sed purus quam, tincidunt sed tellus at, fringilla scelerisque dolor. Cras facilisis nunc in dignissim ornare. Vestibulum a ultricies mi, non tempor mauris. Mauris dictum sagittis velit, eu commodo nisl. Nunc in mi quis neque fermentum laoreet. Quisque vitae interdum augue.</p>
+`

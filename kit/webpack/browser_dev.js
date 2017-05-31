@@ -148,4 +148,5 @@ export default new WebpackConfig().extend({
       }
     })
   ],
+  
 });

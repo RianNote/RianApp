@@ -12,10 +12,11 @@ import css from './noteTimeline.css';
 const getTimelineQuery = graphql(getNotelineNumber, { 
   options: (props) => ({
     variables: {
-      userId: "591aa1f5e366280be6db7f58"
-    }
+      userId: "591aa1f5e366280be6db7f58" //임시 키
+    },
+    ssr: false, 
   }),
-  name: "noteData" 
+  name: "noteData",
 })
 @compose(getTimelineQuery)
 @connect(mapState)
@@ -52,7 +53,6 @@ export default class NoteTimeLine extends Component {
   }
 
   _loadMoreRows({ startIndex, stopIndex }) {
-    console.log('index', startIndex, stopIndex);
 
     return new Promise(resolve => {
       resolve();
@@ -60,7 +60,6 @@ export default class NoteTimeLine extends Component {
   }
 
   render() {
-    const { noteData } = this.props
     return (
       <div className={noteCss.middle}>
         <div className={css.timelineSearch}>
@@ -68,11 +67,11 @@ export default class NoteTimeLine extends Component {
           <div className={css.timelineSearchButton} />
         </div>
         <div className={css.autoSizer}>
-          {!noteData.loading &&
+          {this.props.noteData.noteTimeline &&
             <InfiniteLoader
               isRowLoaded={this._isRowLoaded}
               loadMoreRows={this._loadMoreRows}
-              rowCount={noteData.noteTimeline.length}>
+              rowCount={this.props.noteData.noteTimeline.length}>
               {({ onRowsRendered, registerChild }) => (
                 <AutoSizer>
                   {({ height, width }) => (
@@ -82,7 +81,7 @@ export default class NoteTimeLine extends Component {
                       onRowsRendered={onRowsRendered}
                       ref={registerChild}
                       rowRenderer={this._rowRenderer}
-                      rowCount={noteData.noteTimeline.length}
+                      rowCount={this.props.noteData.noteTimeline.length}
                       width={width} />
                   )}
                 </AutoSizer>
