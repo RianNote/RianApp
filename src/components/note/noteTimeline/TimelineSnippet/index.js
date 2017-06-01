@@ -8,9 +8,9 @@ const makeTagToElement = tagSet =>
   ));
 
 const TimelineSnippet = ({
-  title = 'Loading',
-  snippet = 'Loading',
-  tag = [],
+  title,
+  snippet,
+  tag,
 }: { title?: string, snippet?: string, tag: Array<?string> }) => (
   <div className={css.container}>
     <div className={css.left}>

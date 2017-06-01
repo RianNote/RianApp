@@ -1,5 +1,5 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
 import { Motion, spring } from 'react-motion';
@@ -27,13 +27,32 @@ const getTagListQuery = graphql(getTagList, {
   name: 'TagData',
 });
 
-@compose(getTagListQuery)
-@connect(mapState)
-export default class NoteNav extends Component {
-  constructor(props) {
+type DefaultProps = {
+  TagData: any,
+  changeWhichBar: Function,
+  sideBar: boolean
+};
+
+type Props = {
+  TagData: any,
+  changeWhichBar: Function,
+  sideBar: boolean
+};
+
+type State = {};
+
+class NoteNav extends Component<DefaultProps, Props, State> {
+  static defaultProps = {
+    TagData: {},
+    changeWhichBar: () => {},
+    sideBar: false,
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = {};
   }
+
+  state = {};
 
   render() {
     let tagList;
@@ -68,12 +87,7 @@ export default class NoteNav extends Component {
         '고난과역경',
       ];
       tagList = tagList.map((data, index) => (
-        <div
-          key={index}
-          className={css.tag}
-          onClick={() => {
-            this.props.changeWhichBar('NoteList');
-          }}>
+        <div key={index} className={css.tag}>
           <div className={css.text}>{`#${data}`}</div>
         </div>
       ));
@@ -90,14 +104,4 @@ export default class NoteNav extends Component {
   }
 }
 
-NoteNav.propTypes = {
-  TagData: PropTypes.object.isRequired,
-  changeWhichBar: PropTypes.func.isRequired,
-  sideBar: PropTypes.bool.isRequired,
-};
-
-NoteNav.defaultProps = {
-  TagData: {},
-  changeWhichBar: () => {},
-  sideBar: false,
-};
+export default NoteNav;

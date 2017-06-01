@@ -1,21 +1,36 @@
+// @flow
 import React, { Component } from 'react';
 import TagInformation from './TagInformation/index';
 import CardSnippet from './CardSnippet/index';
 import ContainerCss from '../note.css';
 import css from './noteCardTimeline.css';
 
-export default class NoteCardTimeline extends Component {
-  constructor(props) {
+type DefaultProps = {};
+
+type Props = {};
+
+type State = {
+  title: string,
+  noteCount: number
+};
+
+class NoteCardTimeline extends Component<DefaultProps, Props, State> {
+  static defaultProps = {};
+
+  constructor(props: Props) {
     super(props);
-    this.state = {
-      title: '',
-      noteCount: 10,
-    };
     this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
-  handleTitleChange(e) {
-    this.setState({ title: e.target.value });
+  state = {
+    title: '',
+    noteCount: 10,
+  };
+
+  handleTitleChange: Function;
+
+  handleTitleChange(event: Event & { currentTarget: { value: string } }) {
+    this.setState({ title: event.currentTarget.value });
   }
 
   render() {
@@ -131,3 +146,5 @@ export default class NoteCardTimeline extends Component {
     );
   }
 }
+
+export default NoteCardTimeline;

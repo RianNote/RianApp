@@ -77,6 +77,18 @@
 		font-size: 10px;
 		font-weight: 700;
 		color: #ff3466;
+		width: 40px;
+		padding: 2px 0 2px 2px;
+		margin: 12px auto 10px auto;
+	}
+	& .moveIcon:hover {
+		font-family: 'Lato';
+		font-size: 10px;
+		font-weight: 700;
+		color:#ffffff;
+		width: 40px;
+		background-color: #ff3466;
+		padding: 2px 0 2px 2px;
 		margin: 10px auto 10px auto;
 	}
 }
