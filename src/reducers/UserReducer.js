@@ -2,17 +2,17 @@
 
 // } from "../constants";
 
-var UserState = {
+const UserState = {
   _id: null,
   email: null,
   name: null,
   picture: null,
   token: null,
   loading: false,
-  facebook_id: null
+  facebook_id: null,
 };
 
-export function User(state = UserState, action) {
+export default function User(state = UserState, action) {
   switch (action.type) {
     default:
       return state;

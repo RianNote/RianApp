@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
+// import { combineReducers } from 'redux';
 
 // Import Reducers
-import * as NoteReducer from './NoteReducer';
-import * as UserReducer from './UserReducer';
+import NoteReducer from './NoteReducer';
+import UserReducer from './UserReducer';
 // import * as ProjectReducer from './ProjectReducer';
 // import * as CalendarReducer from './CalendarReducer';
 // import * as PlanReducer from './PlanReducer';
@@ -12,9 +12,4 @@ import * as UserReducer from './UserReducer';
 // import * as NoteTimelineReducer from './NoteTimelineReducer';
 // import * as FirebaseChatReducer from './FirebaseChatReducer';
 
-export default Object.assign(
-	{}, 
-	NoteReducer,
-	UserReducer
-)
-
+export default Object.assign({}, { Note: NoteReducer }, { User: UserReducer });

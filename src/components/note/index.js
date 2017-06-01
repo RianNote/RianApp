@@ -10,7 +10,7 @@ import NoteEditor from './noteEditor';
 import { modeChange } from '../../actions/NoteActions';
 
 const mapState = (state: { Note: { mode: "List" | "Card", Note: any } }) => ({
-  Mode: state.Note.mode,
+  // Mode: state.Note.mode,
   Note: state.Note,
 });
 
@@ -76,11 +76,13 @@ class Note extends Component<DefaultProps, Props, State> {
           }}
           onMouseLeave={() => {
             this.changeSideBar(false);
-          }}>
+          }}
+        >
           <NoteSideBar
             changeMode={() => {
               this.props.changeMode(ModeSelect);
-            }} />
+            }}
+          />
           <NoteNav sideBar={this.state.sideBar} />
           <NoteTimeLine sideBar={this.state.sideBar} />
         </div>
