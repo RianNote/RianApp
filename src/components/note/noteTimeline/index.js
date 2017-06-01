@@ -30,7 +30,10 @@ type Props = {
   sideBar: boolean
 };
 
-type State = {};
+type State = {
+  selectedTag: Array<string>,
+  searchInput: string
+};
 
 @compose(getTimelineQuery)
 @connect(mapState)
@@ -41,10 +44,30 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {};
+    this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+    this.addTagInList = this.addTagInList.bind(this);
   }
 
-  state = {};
+  state = {
+    selectedTag: ['만약', '수정'],
+    searchInput: '',
+  };
+
+  handleSearchInputChange: Function;
+  addTagInList: Function;
+
+  handleSearchInputChange(event: Event & { currentTarget: { value: string } }) {
+    this.setState({
+      searchInput: event.currentTarget.value,
+    });
+  }
+
+  addTagInList(tagName: string) {
+    this.setState((prevState: State) => ({
+      selectedTag: prevState.selectedTag.concat(tagName),
+      searchInput: '',
+    }));
+  }
 
   render() {
     return (
@@ -52,10 +75,25 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
         {({ x }) => (
           <div className={css.noteList} style={{ width: `${x}px` }}>
             <div className={css.timelineSearch}>
-              <input
-                className={css.timelineSearchBar}
-                placeholder="SEARCH TAG"
-              />
+              <div className={css.timelineSearchBar}>
+                <div className={css.selectedTagList}>
+                  {this.state.selectedTag.map((tag: string, index: number) => (
+                    <div key={index} className={css.oneOfTag}>
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+                <input
+                  value={this.state.searchInput}
+                  onChange={this.handleSearchInputChange}
+                  onKeyDown={(e) => {
+                    if (e.keyCode === 32) {
+                      this.addTagInList(e.target.value);
+                    }
+                  }}
+                  className={css.tagSearchInput}
+                />
+              </div>
             </div>
             <div className={css.timelineList}>
               <TimelineSnippet

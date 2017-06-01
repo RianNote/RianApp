@@ -23,8 +23,37 @@
 			background-color: #ffffff;
 			border: solid 1px #eaeaea;
 			border-radius: 8px;
-			outline: none;
 			padding-left: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			& .selectedTagList {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				& .oneOfTag {
+					font-family: 'Lato';
+					border-radius: 8px;
+					border: solid 1px #ffbfcb;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+					text-align: center;
+					width: 25px;
+					height: 12px;
+					margin: auto 1px auto 1px;
+					letter-spacing: 0.1em;
+					font-size: 8px;
+					color: #ffbfcb;
+				}
+			}
+			& .tagSearchInput {
+				border: none;
+				outline: none;
+			}
 		}
 		& .timelineSearchBar::placeholder {
 			vertical-align: middle;
