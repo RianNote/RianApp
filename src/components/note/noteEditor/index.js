@@ -21,11 +21,11 @@ const mapState = state => ({
 });
 
 type DefaultProps = {
-  sideBar: number
+  sideBar: boolean
 };
 
 type Props = {
-  sideBar: number
+  sideBar: boolean
 };
 
 type State = {
@@ -39,7 +39,7 @@ type State = {
 @connect(mapState)
 class NoteEditor extends Component<DefaultProps, Props, State> {
   static defaultProps = {
-    sideBar: 0,
+    sideBar: false,
   };
 
   constructor(props: Props) {
