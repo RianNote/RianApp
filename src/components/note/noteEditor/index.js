@@ -146,7 +146,8 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
     return (
       <div
         className={css.paper}
-        style={{ paddingLeft: this.props.sideBar && '500px' }}>
+        style={{ paddingLeft: this.props.sideBar && '500px' }}
+      >
         <div className="left-editor">
           {!this.state.typewrite &&
             <div className="head">
@@ -154,29 +155,34 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
                 className="title"
                 placeholder="title"
                 value={this.state.title}
-                onChange={this.handleTitleChange} />
+                onChange={this.handleTitleChange}
+              />
               <textarea
                 className="tag"
                 placeholder="tag"
                 value={this.state.tag}
-                onChange={this.handleTagChange} />
+                onChange={this.handleTagChange}
+              />
             </div>}
           <FroalaEditor
             tag="mainwriting"
             model={this.state.content}
             config={config}
             onModelChange={this.handleModelChange}
-            onManualControllerReady={this.handleController} />
+            onManualControllerReady={this.handleController}
+          />
         </div>
         <div className="right-tool">
           <div
             className="fa fa-etsy richstyle fa-lg"
             aria-hidden="true"
-            onClick={this.typeWrite} />
+            onClick={this.typeWrite}
+          />
           <div
             className="fa fa-square-o mode fa-lg"
             aria-hidden="true"
-            onClick={this.fullScreen} />
+            onClick={this.fullScreen}
+          />
         </div>
       </div>
     );
