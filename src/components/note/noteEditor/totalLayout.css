@@ -16,13 +16,14 @@
 	margin-top: 40px;
 	& .mainBox {
 		& .head {
+			margin-left: 18px;
 			margin-bottom: 15px;
 			& .title {
 				display: block;
 				width: 100%;
 				border: none;
 				font-size: 30px;
-				color: grey;
+				color: #545454;
 				height: 40px;
 				margin: 0px;
 				resize: none;
