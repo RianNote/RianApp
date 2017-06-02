@@ -1,0 +1,57 @@
+.timelineSearchBar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 240px;
+        height: 30px;
+        box-sizing: border-box;
+        flex: 1;
+        background-color: #ffffff;
+        border: solid 1px #eaeaea;
+        border-radius: 8px;
+        padding-left: 10px;
+        & .tagContent {
+            width: 200px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            overflow: scroll;
+            & .selectedTagList {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                & .oneOfTag {
+                    font-family: 'Lato';
+                    /*background-color: #ff3466;*/
+                    border-radius: 8px;
+                    border: solid 1px #ffbfcb;
+                    margin: 0 auto;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-align: center;
+                    width: 34px;
+                    height: 14px;
+                    margin: 1px 3px 1px 3px;
+                    padding: 2px 2px 0 2px;
+                    letter-spacing: 0.1em;
+                    font-size: 10px;
+                    color: #ffbfcb;
+                }
+                & .oneOfTag:hover {
+                    color: #ffffff;
+                    background-color: #ffbfcb;
+                }
+            }
+            & .tagSearchInput {
+                border: none;
+                outline: none;
+            }
+        }
+        & .expandingIcon {
+            width: 16px;
+            height: 16px;
+        }
+}

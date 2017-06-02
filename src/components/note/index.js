@@ -10,11 +10,11 @@ import NoteEditor from './noteEditor';
 import { modeChange } from '../../actions/NoteActions';
 
 const mapState = (state: { Note: { mode: "List" | "Card", Note: any } }) => ({
-  // Mode: state.Note.mode,
+  Mode: state.Note.mode,
   Note: state.Note,
 });
 
-const mapDispatch = (dispatch: Function) => ({
+const mapDispatch = dispatch => ({
   changeMode(mode: "List" | "Card") {
     dispatch(modeChange(mode));
   },

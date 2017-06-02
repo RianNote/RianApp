@@ -69,16 +69,14 @@
                 font-family: 'Lato';
                 border-radius: 8px;
                 border: solid 1px #ffbfcb;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
                 text-align: center;
-                width: 25px;
+                width: 28px;
                 height: 12px;
                 margin: auto 1px auto 1px;
+                padding: 1px 0 0 0;
                 letter-spacing: 0.1em;
                 font-size: 8px;
                 color: #ffbfcb;
