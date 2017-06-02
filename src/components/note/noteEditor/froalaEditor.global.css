@@ -2925,7 +2925,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 
 
 .fr-view ul {
-  margin: 8px 0 8px 0;
+  margin: 4px 0 4px 0;
 }
 .fr-view li::before {
   content: "• ";
@@ -2936,6 +2936,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view li {
+  margin: 4px 0 4px 0;
   list-style-type:none;
   font-size: 15px;
   font-weight: 400;
