@@ -22,7 +22,6 @@ type Props = {
 
 type State = {
   title: string,
-  tag: string,
   initControls: string,
   content: string,
   typewrite: boolean,
@@ -46,8 +45,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
   }
 
   state = {
-    title: 'Lorem ipsum dolor sit amet',
-    tag: '#Latin',
+    title: '자바 프로그래밍과 객체지향',
     options: {},
     initControls: '',
     content: mockContent,

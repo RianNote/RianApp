@@ -79,6 +79,7 @@
 		flex-direction: row;
 		justify-content: flex-end;
 		padding: 0 2px 2px 2px;
+        margin-bottom: 1px;
 		& .tagImg {
 			width: 16px;
 		    height: 16px;
