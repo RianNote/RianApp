@@ -9,6 +9,13 @@ export const mockContent = `<h3>자바의 이해</h3>
 			<li>즉, 객체 지향 프로그래밍이란 각각의 컴퓨터 부품을 만들고 그 부품들을 조립하여 컴퓨터를 만들 듯이 객체를 만들고 그 객체들을 조립하여 소프트웨어를 만드는 기법이다. 객체 지향 프로그래밍의 특징은 다음과 같다</li>
 		</ul>
 	</li>
+	<li>상속
+
+		<ul>
+			<li>이미 작성된 클래스(부모 클래스)를 이어받아 새로운 클래스(자식 클래스)를 생성하며, 기존의 코드를 재사용할 수 있는 강력한 기법
+				<br>출처: <a href="http://luckyyowu.tistory.com/190">http://luckyyowu.tistory.com/190</a> [요우의 내맘대로 블로그]</li>
+		</ul>
+	</li>
 	<li>메쏘드 구조와 메모리&nbsp;</li>
 	<li>쓰레기 수집의 효율성</li>
 </ul>
@@ -36,4 +43,5 @@ export const mockContent = `<h3>자바의 이해</h3>
 	<li>모델</li>
 	<li>뷰</li>
 	<li>컨트롤러</li>
-</ul>`;
+</ul>
+`;

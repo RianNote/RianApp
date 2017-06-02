@@ -19,7 +19,7 @@
                     font-family: 'Lato';
                     /*background-color: #ff3466;*/
                     border-radius: 8px;
-                    border: solid 1px #ffbfcb;
+                    border: solid 1px #B4B4B4;
                     margin: 0 auto;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -31,11 +31,11 @@
                     padding: 2px 2px 0 2px;
                     letter-spacing: 0.1em;
                     font-size: 10px;
-                    color: #ffbfcb;
+                    color: #B4B4B4;
                 }
                 & .oneOfTag:hover {
                     color: #ffffff;
-                    background-color: #ffbfcb;
+                    background-color: #B4B4B4;
                 }
             }
             & .tagSearchInput {
