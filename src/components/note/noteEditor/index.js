@@ -138,37 +138,39 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
 
     return (
       <div className={css.paper}>
-        <NoteAuth />
-        <div className={totalCss.leftEditor}>
-          {!this.state.typewrite &&
-            <div className={totalCss.head}>
-              <textarea
-                className={totalCss.title}
-                placeholder="title"
-                value={this.state.title}
-                onChange={this.handleTitleChange}
-              />
-              <TagBar />
-            </div>}
-          <FroalaEditor
-            tag="mainwriting"
-            model={this.state.content}
-            config={config}
-            onModelChange={this.handleModelChange}
-            onManualControllerReady={this.handleController}
-          />
-        </div>
-        <div className={totalCss.rightTool}>
-          <div
-            className="fa fa-etsy richstyle fa-lg"
-            aria-hidden="true"
-            onClick={this.typeWrite}
-          />
-          <div
-            className="fa fa-square-o mode fa-lg"
-            aria-hidden="true"
-            onClick={this.fullScreen}
-          />
+        <div className={totalCss.container}>
+          <NoteAuth />
+          <div className={totalCss.mainBox}>
+            {!this.state.typewrite &&
+              <div className={totalCss.head}>
+                <textarea
+                  className={totalCss.title}
+                  placeholder="title"
+                  value={this.state.title}
+                  onChange={this.handleTitleChange}
+                />
+                <TagBar />
+              </div>}
+            <FroalaEditor
+              tag="mainwriting"
+              model={this.state.content}
+              config={config}
+              onModelChange={this.handleModelChange}
+              onManualControllerReady={this.handleController}
+            />
+          </div>
+          <div className={totalCss.optionBox}>
+            <div
+              className="fa fa-etsy richstyle fa-lg"
+              aria-hidden="true"
+              onClick={this.typeWrite}
+            />
+            <div
+              className="fa fa-square-o mode fa-lg"
+              aria-hidden="true"
+              onClick={this.fullScreen}
+            />
+          </div>
         </div>
       </div>
     );
