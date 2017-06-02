@@ -1,24 +1,16 @@
 // @flow
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import FroalaEditor from 'react-froala-wysiwyg';
 import 'froala-editor/js/froala_editor.pkgd.min';
+import FroalaEditor from 'react-froala-wysiwyg';
 import screenfull from 'screenfull';
+import TagBar from './TagBar/index';
 import css from '../note.css';
+import totalCss from './totalLayout.css';
+import './etc.global.css';
 import './froalaEditor.global.css';
 import './fontawesome.global.css';
-import './titleTag.global.css';
-import './totalLayout.global.css';
-
-// Note that Froala Editor has to be required separately
-
 import { mockContent } from './mock';
 // import { XYruler } from './util';
-
-const mapState = state => ({
-  Mode: state.Note.mode,
-  Note: state.Note,
-});
 
 type DefaultProps = {
   sideBar: boolean
@@ -33,10 +25,10 @@ type State = {
   tag: string,
   initControls: string,
   content: string,
-  typewrite: boolean
+  typewrite: boolean,
+  selectedTag: Array<string>
 };
 
-@connect(mapState)
 class NoteEditor extends Component<DefaultProps, Props, State> {
   static defaultProps = {
     sideBar: false,
@@ -44,6 +36,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
 
   constructor(props: Props) {
     super(props);
+    this.screenfull = screenfull;
     this.handleModelChange = this.handleModelChange.bind(this);
     this.handleController = this.handleController.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -59,6 +52,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
     initControls: '',
     content: mockContent,
     typewrite: false,
+    selectedTag: ['수명', '자바'],
   };
 
   componentDidMount() {
@@ -91,8 +85,8 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
   }
 
   fullScreen() {
-    if (screenfull.enabled) {
-      screenfull.request();
+    if (this.screenfull.enabled) {
+      this.screenfull.request();
     } else {
       // Ignore or do something else
     }
@@ -148,21 +142,16 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
         className={css.paper}
         style={{ paddingLeft: this.props.sideBar && '500px' }}
       >
-        <div className="left-editor">
+        <div className={totalCss.leftEditor}>
           {!this.state.typewrite &&
-            <div className="head">
+            <div className={totalCss.head}>
               <textarea
-                className="title"
+                className={totalCss.title}
                 placeholder="title"
                 value={this.state.title}
                 onChange={this.handleTitleChange}
               />
-              <textarea
-                className="tag"
-                placeholder="tag"
-                value={this.state.tag}
-                onChange={this.handleTagChange}
-              />
+              <TagBar />
             </div>}
           <FroalaEditor
             tag="mainwriting"
@@ -172,7 +161,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
             onManualControllerReady={this.handleController}
           />
         </div>
-        <div className="right-tool">
+        <div className={totalCss.rightTool}>
           <div
             className="fa fa-etsy richstyle fa-lg"
             aria-hidden="true"

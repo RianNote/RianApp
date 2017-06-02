@@ -2884,6 +2884,8 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
 .fr-view {
+  margin-left: 10px;
+  max-width: 700px;
   font-family: 'Lato';
   font-weight: 300;
   font-size: 15px;
@@ -2927,7 +2929,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 .fr-view li::before {
   content: "• ";
-  color: #DF6E74; /* or whatever color you prefer */
+  color: #ff3466; /* or whatever color you prefer */
   margin-right: 10px;
   margin-left: -20px;
   font-size: 15px;
