@@ -16,6 +16,11 @@
 		align-items: center;
 		justify-content: center;
 		& .timelineSearchBar {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+
 			width: 240px;
 			height: 30px;
 			box-sizing: border-box;
@@ -24,36 +29,42 @@
 			border: solid 1px #eaeaea;
 			border-radius: 8px;
 			padding-left: 10px;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-start;
-			overflow: scroll;
-			& .selectedTagList {
+			& .tagContent {
+				width: 200px;
 				display: flex;
 				flex-direction: row;
 				justify-content: flex-start;
-				& .oneOfTag {
-					font-family: 'Lato';
-					border-radius: 8px;
-					border: solid 1px #ffbfcb;
+				overflow: scroll;
+				& .selectedTagList {
 					display: flex;
-					align-items: center;
-					justify-content: center;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					overflow: hidden;
-					text-align: center;
-					width: 25px;
-					height: 12px;
-					margin: auto 1px auto 1px;
-					letter-spacing: 0.1em;
-					font-size: 8px;
-					color: #ffbfcb;
+					flex-direction: row;
+					justify-content: flex-start;
+					& .oneOfTag {
+						font-family: 'Lato';
+						border-radius: 8px;
+						border: solid 1px #ffbfcb;
+						margin: 0 auto;
+						padding-top: 1px;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+						text-align: center;
+						width: 25px;
+						height: 12px;
+						margin: auto 1px auto 1px;
+						letter-spacing: 0.1em;
+						font-size: 8px;
+						color: #ffbfcb;
+					}
+				}
+				& .tagSearchInput {
+					border: none;
+					outline: none;
 				}
 			}
-			& .tagSearchInput {
-				border: none;
-				outline: none;
+			& .expandingIcon {
+				width: 16px;
+				height: 16px;
 			}
 		}
 		& .timelineSearchBar::placeholder {

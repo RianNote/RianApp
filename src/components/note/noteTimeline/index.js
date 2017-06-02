@@ -6,6 +6,7 @@ import { Motion, spring } from 'react-motion';
 import TimelineSnippet from './TimelineSnippet/index';
 import { getNotelineNumber } from '../../../graphqls/TimelineGraphQl';
 import css from './noteTimeline.css';
+import expandingItemIcon from './expanding-item-icon.svg';
 
 const mapState = state => ({
   Note: state.Note,
@@ -82,42 +83,56 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
 
   render() {
     return (
-      <Motion style={{ x: spring(this.props.sideBar ? 260 : 0) }}>
+      <Motion style={{ x: spring(this.props.sideBar ? 260 : 260) }}>
         {({ x }) => (
           <div className={css.noteList} style={{ width: `${x}px` }}>
             <div className={css.timelineSearch}>
               <div className={css.timelineSearchBar}>
-                <div className={css.selectedTagList}>
-                  {this.state.selectedTag.map((tag: string, index: number) => (
-                    <div key={index} className={css.oneOfTag}>
-                      {tag}
-                    </div>
-                  ))}
-                </div>
-                <input
-                  value={this.state.searchInput}
-                  onChange={({
-                    currentTarget,
-                  }: { currentTarget: { value: string } }) => {
-                    this.handleSearchInputChange(currentTarget.value);
-                  }}
-                  onKeyUp={({
-                    keyCode,
-                    currentTarget,
-                  }: { keyCode: number, currentTarget: { value: string } }) => {
-                    if (keyCode === 8 && currentTarget.value === '') {
-                      return this.deleteTagInList();
-                    }
-                    if (keyCode === 32 || keyCode === 13) {
-                      if (currentTarget.value === ' ') {
-                        // 공백에서 스페이스 or Enter를 치면 다시 공백으로 돌린다
-                        return this.handleSearchInputChange('');
+                <div className={css.tagContent}>
+                  <div className={css.selectedTagList}>
+                    {this.state.selectedTag.map(
+                      (tag: string, index: number) => (
+                        <div key={index} className={css.oneOfTag}>
+                          {tag}
+                        </div>
+                      ),
+                    )}
+                  </div>
+                  <input
+                    value={this.state.searchInput}
+                    onChange={({
+                      currentTarget,
+                    }: { currentTarget: { value: string } }) => {
+                      this.handleSearchInputChange(currentTarget.value);
+                    }}
+                    onKeyUp={({
+                      keyCode,
+                      currentTarget,
+                    }: {
+                      keyCode: number,
+                      currentTarget: { value: string }
+                    }) => {
+                      if (keyCode === 8 && currentTarget.value === '') {
+                        return this.deleteTagInList();
                       }
-                      // 그 외의 경우 태그 추가
-                      return this.addTagInList(currentTarget.value);
-                    }
-                  }}
-                  className={css.tagSearchInput}
+                      if (keyCode === 32 || keyCode === 13) {
+                        if (currentTarget.value === ' ') {
+                          // 공백에서 스페이스 or Enter를 치면 다시 공백으로 돌린다
+                          return this.handleSearchInputChange('');
+                        }
+                        // 그 외의 경우 태그 추가
+                        return this.addTagInList(currentTarget.value);
+                      }
+                      // because eslint
+                      return undefined;
+                    }}
+                    className={css.tagSearchInput}
+                  />
+                </div>
+                <img
+                  className={css.expandingIcon}
+                  src={expandingItemIcon}
+                  alt="alt"
                 />
               </div>
             </div>
