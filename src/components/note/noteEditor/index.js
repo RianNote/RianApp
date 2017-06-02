@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import 'froala-editor/js/froala_editor.pkgd.min';
+import NoteAuth from '../noteAuth';
 import FroalaEditor from 'react-froala-wysiwyg';
 import screenfull from 'screenfull';
 import TagBar from './TagBar/index';
@@ -138,10 +139,8 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
     };
 
     return (
-      <div
-        className={css.paper}
-        style={{ paddingLeft: this.props.sideBar && '500px' }}
-      >
+      <div className={css.paper}>
+        <NoteAuth />
         <div className={totalCss.leftEditor}>
           {!this.state.typewrite &&
             <div className={totalCss.head}>

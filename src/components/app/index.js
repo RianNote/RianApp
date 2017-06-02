@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
 // Routing
-import { Switch, Link, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 // <Helmet> component for setting the page title
 import Helmet from 'react-helmet';
@@ -23,20 +23,18 @@ import css from './app.css';
 
 // Get the ReactQL logo.  This is a local .svg file, which will be made
 // available as a string relative to [root]/dist/assets/img/
-import logo from './reactql-logo.svg';
+// import logo from './reactql-logo.svg';
 
 // <Note> Component
 import Note from 'src/components/note';
 
 // <Timeline> Component
-import Timeline from 'src/components/timeline'
+import Timeline from 'src/components/timeline';
 // ----------------------
 
 // Helper component that will be conditionally shown when the route matches.
 // This gives you an idea how React Router v4 works
-const Page = ({ match }) => (
-  <h1>Changed route: {match.params.name}</h1>
-);
+const Page = ({ match }) => <h1>Changed route: {match.params.name}</h1>;
 
 // Specify PropTypes if the `match` object, which is injected to props by
 // the <Route> component
@@ -90,7 +88,7 @@ class GraphQLMessage extends React.PureComponent {
         }),
       ),
     }),
-  }
+  };
 
   render() {
     const { data } = this.props;
@@ -112,10 +110,13 @@ export default () => (
   <div id={css.rianLayout}>
     <Helmet
       title="ReactQL application"
-      meta={[{
-        name: 'description',
-        content: 'ReactQL starter kit app',
-      }]} />
+      meta={[
+        {
+          name: 'description',
+          content: 'ReactQL starter kit app',
+        },
+      ]}
+    />
     <Switch>
       <Route exact path="/" component={Note} />
       <Route exact path="/timeline" component={Timeline} />
