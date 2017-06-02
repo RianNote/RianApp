@@ -83,7 +83,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
 
   render() {
     return (
-      <Motion style={{ x: spring(this.props.sideBar ? 260 : 260) }}>
+      <Motion style={{ x: spring(this.props.sideBar ? 260 : 0) }}>
         {({ x }) => (
           <div className={css.noteList} style={{ width: `${x}px` }}>
             <div className={css.timelineSearch}>
