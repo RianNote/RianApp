@@ -2,7 +2,6 @@
     display: flex;
     width: 100%;
     /*flex: 1;*/
-    justify-content: center;
     align-items: stretch;
     & .paper {
         z-index: 0;
