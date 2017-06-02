@@ -46,19 +46,19 @@ class NoteSideBar extends Component<DefaultProps, Props, State> {
   changeTrashHover: Function;
 
   changeStarHover() {
-    this.setState(prevState => ({
+    this.setState((prevState: State) => ({
       starHover: !prevState.starHover,
     }));
   }
 
   changeListHover() {
-    this.setState(prevState => ({
+    this.setState((prevState: State) => ({
       noteListHover: !prevState.noteListHover,
     }));
   }
 
   changeTrashHover() {
-    this.setState(prevState => ({
+    this.setState((prevState: State) => ({
       trashHover: !prevState.trashHover,
     }));
   }
@@ -75,11 +75,13 @@ class NoteSideBar extends Component<DefaultProps, Props, State> {
           <div
             className={css.how}
             onMouseOver={this.changeStarHover}
-            onMouseOut={this.changeStarHover}>
+            onMouseOut={this.changeStarHover}
+          >
             <img
               className={css.howIcon}
               src={!this.state.starHover ? star : starHover}
-              alt="alt" />
+              alt="alt"
+            />
           </div>
         </div>
         <div className={css.tool}>
@@ -90,13 +92,15 @@ class NoteSideBar extends Component<DefaultProps, Props, State> {
             onClick={this.props.changeMode}
             onMouseOver={this.changeListHover}
             onMouseOut={this.changeListHover}
-            alt="alt" />
+            alt="alt"
+          />
           <img
             className={css.toolIcon}
             src={!this.state.trashHover ? trashIcon : trashIconHover}
             onMouseOver={this.changeTrashHover}
             onMouseOut={this.changeTrashHover}
-            alt="alt" />
+            alt="alt"
+          />
         </div>
         <div className={css.move}>
           <div className={css.border} />

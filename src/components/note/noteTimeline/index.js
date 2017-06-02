@@ -46,6 +46,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
     super(props);
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
     this.addTagInList = this.addTagInList.bind(this);
+    this.deleteTagInList = this.deleteTagInList.bind(this);
   }
 
   state = {
@@ -55,10 +56,11 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
 
   handleSearchInputChange: Function;
   addTagInList: Function;
+  deleteTagInList: Function;
 
-  handleSearchInputChange(event: Event & { currentTarget: { value: string } }) {
+  handleSearchInputChange(value: string) {
     this.setState({
-      searchInput: event.currentTarget.value,
+      searchInput: value,
     });
   }
 
@@ -66,6 +68,15 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
     this.setState((prevState: State) => ({
       selectedTag: prevState.selectedTag.concat(tagName),
       searchInput: '',
+    }));
+  }
+
+  deleteTagInList() {
+    this.setState((prevState: State) => ({
+      selectedTag: prevState.selectedTag.slice(
+        0,
+        prevState.selectedTag.length - 1,
+      ),
     }));
   }
 
@@ -85,10 +96,25 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
                 </div>
                 <input
                   value={this.state.searchInput}
-                  onChange={this.handleSearchInputChange}
-                  onKeyDown={(e) => {
-                    if (e.keyCode === 32) {
-                      this.addTagInList(e.target.value);
+                  onChange={({
+                    currentTarget,
+                  }: { currentTarget: { value: string } }) => {
+                    this.handleSearchInputChange(currentTarget.value);
+                  }}
+                  onKeyUp={({
+                    keyCode,
+                    currentTarget,
+                  }: { keyCode: number, currentTarget: { value: string } }) => {
+                    if (keyCode === 8 && currentTarget.value === '') {
+                      return this.deleteTagInList();
+                    }
+                    if (keyCode === 32 || keyCode === 13) {
+                      if (currentTarget.value === ' ') {
+                        // 공백에서 스페이스 or Enter를 치면 다시 공백으로 돌린다
+                        return this.handleSearchInputChange('');
+                      }
+                      // 그 외의 경우 태그 추가
+                      return this.addTagInList(currentTarget.value);
                     }
                   }}
                   className={css.tagSearchInput}
