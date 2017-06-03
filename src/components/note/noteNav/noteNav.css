@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 #tagNav {
-    z-index: 109;
-    height: 100%;
     left: 60px;
-    padding-top: 85px;
+    padding-top: 87px;
     display: flex;
     font-size: 13px;
     font-family: 'Lato';
