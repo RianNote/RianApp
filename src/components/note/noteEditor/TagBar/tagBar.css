@@ -31,11 +31,12 @@
                     padding: 2px 2px 0 2px;
                     letter-spacing: 0.1em;
                     font-size: 10px;
-                    color: #B4B4B4;
-                }
-                & .oneOfTag:hover {
                     color: #ffffff;
                     background-color: #B4B4B4;
+                }
+                & .oneOfTag:hover {
+                    color: #B4B4B4;
+                    background-color: #ffffff;
                 }
             }
             & .tagSearchInput {

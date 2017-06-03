@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import 'froala-editor/js/froala_editor.pkgd.min';
-import NoteAuth from '../noteAuth';
 import FroalaEditor from 'react-froala-wysiwyg';
 import screenfull from 'screenfull';
+import NoteAuth from '../noteAuth';
 import TagBar from './TagBar/index';
 import css from '../note.css';
 import totalCss from './totalLayout.css';
@@ -40,7 +40,6 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
     this.handleModelChange = this.handleModelChange.bind(this);
     this.handleController = this.handleController.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleTagChange = this.handleTagChange.bind(this);
     this.fullScreen = this.fullScreen.bind(this);
     this.typeWrite = this.typeWrite.bind(this);
   }
@@ -59,10 +58,10 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
     this.initControls.getEditor()('toolbar.hide');
   }
 
+  screenfull: any;
   handleModelChange: Function;
   handleController: Function;
   handleTitleChange: Function;
-  handleTagChange: Function;
   fullScreen: Function;
   typeWrite: Function;
   initControls: any;
@@ -77,10 +76,6 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
 
   handleTitleChange(event: Event & { currentTarget: { value: string } }) {
     this.setState({ title: event.currentTarget.value });
-  }
-
-  handleTagChange(event: Event & { currentTarget: { value: string } }) {
-    this.setState({ tag: event.currentTarget.value });
   }
 
   fullScreen() {
@@ -159,7 +154,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
               onManualControllerReady={this.handleController}
             />
           </div>
-          <div className={totalCss.optionBox}>
+          {/* <div className={totalCss.optionBox}>
             <div
               className="fa fa-etsy richstyle fa-lg"
               aria-hidden="true"
@@ -170,7 +165,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
               aria-hidden="true"
               onClick={this.fullScreen}
             />
-          </div>
+          </div>*/}
         </div>
       </div>
     );
