@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+
 .tagBar {
         display: flex;
         flex-direction: row;
@@ -18,25 +20,23 @@
                 & .oneOfTag {
                     font-family: 'Lato';
                     /*background-color: #ff3466;*/
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1px 6px 1px 6px;
                     border-radius: 8px;
-                    border: solid 1px #B4B4B4;
-                    margin: 0 auto;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
+                    border: solid 1px #FF3466;
+                    margin: auto 2px auto 2px;
                     text-align: center;
-                    width: 34px;
                     height: 14px;
-                    margin: 1px 3px 1px 3px;
-                    padding: 2px 2px 0 2px;
+                    font-weight: 300;
                     letter-spacing: 0.1em;
                     font-size: 10px;
-                    color: #ffffff;
-                    background-color: #B4B4B4;
+                    color: #FF3466;
                 }
                 & .oneOfTag:hover {
-                    color: #B4B4B4;
-                    background-color: #ffffff;
+                    color: #ffffff;
+                    background-color: #FF3466;
                 }
             }
             & .tagSearchInput {

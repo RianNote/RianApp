@@ -1,5 +1,13 @@
 export const mockContent = `<h3>자바의 이해</h3>
 
+<p><u>Hello, Java!: 세상에서 가장 사랑받는 프로그래밍 언어</u></p>
+
+<h4>public class HelloWorld {
+	<br>&nbsp; &nbsp;public static void main(String[] args) {
+	<br>&nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Hello World!&quot;);
+	<br>&nbsp; }
+	<br>}</h4>
+
 <p>객체 지향 프로그래밍과 클래스 기법</p>
 
 <ul>
@@ -43,5 +51,4 @@ export const mockContent = `<h3>자바의 이해</h3>
 	<li>모델</li>
 	<li>뷰</li>
 	<li>컨트롤러</li>
-</ul>
-`;
+</ul>`;

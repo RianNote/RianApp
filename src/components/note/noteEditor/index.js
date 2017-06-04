@@ -95,9 +95,8 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
   render() {
     const config = {
       spellcheck: false,
-      width: '100%',
-      toolbarVisibleWithoutSelection: true,
       editorClass: 'mainEditor',
+      width: '100%',
       charCounterCount: false,
       toolbarInline: true,
       toolbarButtons: [
@@ -112,7 +111,6 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
         'formatUL',
         'outdent',
         'indent',
-        'quote',
         '-',
         'insertLink',
         'insertImage',
