@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 .head {
-  
+  align-self: flex-start;
+  margin-left: 10px;
 }
 
 .title {
@@ -33,9 +34,10 @@
 
 .mansory {
     margin-top: 30px;
-    flex: 0 0;
+    flex: 1 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow: scroll;
 }
 

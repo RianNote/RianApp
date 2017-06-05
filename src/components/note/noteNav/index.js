@@ -63,7 +63,8 @@ class NoteNav extends Component<DefaultProps, Props, State> {
           className={css.tag}
           onClick={() => {
             this.props.changeWhichBar('NoteList');
-          }}>
+          }}
+        >
           <div className={css.text}>
             {`#${Tag.name}`}
           </div>
