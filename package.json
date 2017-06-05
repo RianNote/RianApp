@@ -20,6 +20,29 @@
     "flow status": "flow status",
     "flow coverage": "flow coverage"
   },
+  "postcssSortingConfig": {
+    "order": [
+      "custom-properties",
+      "dollar-variables",
+      "declarations",
+      "at-rules",
+      "rules"
+    ],
+    "properties-order": [
+      "display",
+      "position",
+      "flex",
+      "flex-direction",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "margin",
+      "padding",
+      "border",
+      "background"
+    ]
+  },
   "jest": {
     "setupFiles": [
       "./_test_/jestsetup.js"
