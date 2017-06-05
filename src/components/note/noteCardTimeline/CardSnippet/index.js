@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import heartIcon from '../src/heart.svg';
 import css from './cardSnippet.css';
 
 const makeTagToElement = (tagSet: Array<string>) => {
@@ -10,7 +11,8 @@ type Props = {
   title: string,
   preview: string,
   time?: string,
-  tag: Array<string>
+  tag: Array<string>,
+  publish?: boolean | number
 };
 
 const CardSnippet = ({
@@ -18,6 +20,7 @@ const CardSnippet = ({
   preview = '',
   time = '2017.08.24',
   tag = [],
+  publish = false,
 }: Props) => (
   <div className={css.container}>
     <div className={css.head}>
@@ -30,7 +33,13 @@ const CardSnippet = ({
       {preview}
     </div>
     <div className={css.footer}>
-      <div className={css.left} />
+      <div className={css.left}>
+        {publish &&
+          <div className={css.share}>
+            <img src={heartIcon} alt="alt" />
+            <p className={css.number}>{publish}</p>
+          </div>}
+      </div>
       <div className={css.right}>
         <div className={css.time}>
           {time}

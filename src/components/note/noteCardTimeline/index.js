@@ -55,13 +55,15 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
           />
           <PhotoCardSnippet
             title="What If They Let You Run The Hubble"
-            preview="You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that they are about to get their new computer by telling them, “Dude, you’re getting a Dell!” It was a cute series but it reflects the excitement young people get about anything new, particularly if it’s a new machine."
-            tag={['감상']}
+            preview="You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that they are about to get their new computer by telling them, “Dude, you’re getting a Dell!” It"
+            tag={['친구들과 함께하는 유쾌한 저녁', '태그', '글감']}
+            publish={300}
             photo="shanghai.jpg"
           />
           <CardSnippet
             title="Moon Gazing"
             preview="When you enter into any new area of science, you almost always find yourself with a baffling new language of technical terms to learn before you can converse with the experts. This is certainly true in astronomy both in terms of terms that refer to the cosmos and terms that describe the tools of the trade, the most prevalent being the telescope.."
+            publish={100}
             tag={['수업', '개발']}
           />
           <CardSnippet
@@ -72,42 +74,50 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
           <CardSnippet
             title="I want to hold your hand"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
+            publish={93}
             tag={['개발', '영성', '수양']}
           />
           <CardSnippet
             title="It is not your fault"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
+            publish={73}
             tag={['개발', '영성', '수양']}
           />
           <CardSnippet
             title="오늘의 하루는 맑음"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
+            publish={13}
           />
           <CardSnippet
             title="오늘의 요리법"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
+            publish={13}
           />
           <CardSnippet
             title="내일 해야할 것들"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
+            publish={33}
           />
           <CardSnippet
             title="#일기"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
+            publish={99}
           />
           <CardSnippet
             title="내가 사랑하는 음악들"
             preview="여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
+            publish={13}
           />
           <CardSnippet
             title="일일 운동 목표량"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
+            publish={300}
           />
           <CardSnippet
             title="지금 이 순간에 존재하는 방법들에 관하여"
@@ -118,6 +128,7 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
             title="그대와 나의 역할에 관하여"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['감상']}
+            publish={320}
           />
           <CardSnippet
             title="컴퓨터 공학 개론과 당신의 운명"

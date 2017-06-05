@@ -2,22 +2,22 @@
 
 
 .container {
-   	width: 219px;
-	height: 290px;
-    margin: 18px;
     display: flex;
     flex-direction: column;
+    margin: 18px;
+   	width: 219px;
+	height: 290px;
     font-family: 'Lato';
     	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.35);
         border-radius: 8px 8px 8px 8px;
     & .head {
+        display: flex;
         flex: 0 0 115px;
+        flex-direction: column;
         background-position: center;  
         background-size: cover;
         background-image: url('../shanghai.jpg');
         border-radius: 8px 8px 0px 0px;
-        display: flex;
-        flex-direction: column;
         justify-content: flex-start;
         & .title {
             position: relative;
@@ -27,63 +27,81 @@
             font-weight: 300;
             & .block {
                 position: absolute;
-                left: 10px;
                 top: 20px;
+                left: 15px;
                 width: 8px;
                 height: 22px;
-                background-color: #FE6C8F
+                background-color: #FE6C8F;
             }
             & .text{
                 position: absolute;
+                top: 20px;
+                left: 29px;
                 line-height: 1.1;
                 width: 80%;
                 height: 60px;
-                top: 20px;
-                left: 26px;
                 font-size: 15pt;
                 font-weight: 600;
-                overflow: 
+                letter-spacing: -1px;
+	            color: #ffffff;
             }
         }
     }
     & .middle {
-        flex: 0 0 95px;;
+        flex: 0 0 97px;
+        margin-top: 15px; 
+        padding-right: 28px;
+        padding-left: 28px;
+        margin-bottom: 10px;
         font-size: 12px;
-        padding: 15px 25px 10px;
-        line-height: 1.3;
+        line-height: 1.2;
         text-align: left;
         overflow: hidden;
-        color: #8f8f8f;
-        border-left: solid 1px #ececec;
-        border-right: solid 1px #ececec;
+        color: #9e9e9e;
     }
     & .footer {
-        flex: 1.5 0;
         display: flex;
+        flex: 0 0 40px;
         flex-direction: row;
-        border-left: solid 1px #ececec;
-        border-right: solid 1px #ececec;
-        border-bottom: solid 1px #ececec;
         border-radius: 0px 0px 8px 8px;
         & .left {
             flex: 1.3 0;
+            & .share {
+                display: flex;
+                flex: 1 0 80%;
+                margin-top: 15px;
+                padding-right: 1px;
+                align-items: center;
+                justify-content: center;
+                & .heartIcon {
+                    
+                }
+                & .number {
+                    margin: 10px 0px 0px 2px;
+                    font-size: 10px;
+	                color: #ff698e;
+                }
+            }
         }
         & .right {
-            flex: 1 0;
             display: flex;
+            flex: 1 0;
             flex-direction: column;
-            padding-top: 10px;
+            margin-top: 13px;
+            padding-right: 25px;
             & .time {
                 text-align:right;
-                font-size: 12px;
+                font-size: 11px;
                 color: #c6c6c6;
             }
             & .tag {
+                text-align:right;
                 & .tagInstance {
-                    margin: 2px 0 2px 0;
+                    margin-top: 2px;
+                    margin-left: 1px;
                     width: 100%;
-                    height: 25px;
-                    overflow: scroll;
+                    height: 14px;
+                    overflow: hidden;
                     letter-spacing: 0.1em;
                     font-size: 10px;
                     color: #ff698e;
