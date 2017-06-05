@@ -1,5 +1,14 @@
 .loginContainer {
-        position: fixed;
-        right: 0px;
-        top: 0px;
+	display: flex;
+	position: fixed;
+	flex: 0 0 600px;
+	top: 0px;
+	right: 0px;
 }
+/*
+.icons {
+
+}
+.signIn
+.signUp
+.profileButton*/

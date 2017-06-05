@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import ContainerCss from '../note.css';
 import css from './noteAuth.css';
 
 type DefaultProps = {};
@@ -21,7 +20,18 @@ class NotAuth extends Component<DefaultProps, Props, State> {
   render() {
     return (
       <div className={css.loginContainer}>
-        login
+        <div className={css.icons}>
+          icons
+        </div>
+        <div className={css.signIn}>
+          로그인
+        </div>
+        <div className={css.signUp}>
+          회원가입
+        </div>
+        <div className={css.profileButton}>
+          profile
+        </div>
       </div>
     );
   }
