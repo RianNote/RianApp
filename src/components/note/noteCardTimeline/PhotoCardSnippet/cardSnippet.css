@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,600');
+
+
+.container {
+   	width: 219px;
+	height: 290px;
+    margin: 18px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato';
+    	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.35);
+        border-radius: 8px 8px 8px 8px;
+    & .head {
+        flex: 0 0 115px;
+        background-position: center;  
+        background-size: cover;
+        background-image: url('../shanghai.jpg');
+        border-radius: 8px 8px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        & .title {
+            position: relative;
+            letter-spacing: -1px;
+            text-align: left;
+            color: #ffffff;
+            font-weight: 300;
+            & .block {
+                position: absolute;
+                left: 10px;
+                top: 20px;
+                width: 8px;
+                height: 22px;
+                background-color: #FE6C8F
+            }
+            & .text{
+                position: absolute;
+                line-height: 1.1;
+                width: 80%;
+                height: 60px;
+                top: 20px;
+                left: 26px;
+                font-size: 15pt;
+                font-weight: 600;
+                overflow: 
+            }
+        }
+    }
+    & .middle {
+        flex: 0 0 95px;;
+        font-size: 12px;
+        padding: 15px 25px 10px;
+        line-height: 1.3;
+        text-align: left;
+        overflow: hidden;
+        color: #8f8f8f;
+        border-left: solid 1px #ececec;
+        border-right: solid 1px #ececec;
+    }
+    & .footer {
+        flex: 1.5 0;
+        display: flex;
+        flex-direction: row;
+        border-left: solid 1px #ececec;
+        border-right: solid 1px #ececec;
+        border-bottom: solid 1px #ececec;
+        border-radius: 0px 0px 8px 8px;
+        & .left {
+            flex: 1.3 0;
+        }
+        & .right {
+            flex: 1 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+            & .time {
+                text-align:right;
+                font-size: 12px;
+                color: #c6c6c6;
+            }
+            & .tag {
+                & .tagInstance {
+                    margin: 2px 0 2px 0;
+                    width: 100%;
+                    height: 25px;
+                    overflow: scroll;
+                    letter-spacing: 0.1em;
+                    font-size: 10px;
+                    color: #ff698e;
+                }
+            }      
+        }     
+    }
+}
+
+.container:hover {
+   	width: 219px;
+	height: 290px;
+    margin-top: 7px;
+    border-radius: 8px;
+    transition-delay: 1s;
+    box-shadow: 0 11px 17px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.35);
+    transition: all 0.2s linear;
+}

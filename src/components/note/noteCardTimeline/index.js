@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import TagInformation from './TagInformation/index';
 import CardSnippet from './CardSnippet/index';
+import PhotoCardSnippet from './PhotoCardSnippet/index';
 import ContainerCss from '../note.css';
 import css from './noteCardTimeline.css';
 
@@ -52,10 +53,11 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
             time="2017.09.06"
             tag={['친구들과 함께하는 유쾌한 저녁', '태그', '글감']}
           />
-          <CardSnippet
+          <PhotoCardSnippet
             title="What If They Let You Run The Hubble"
             preview="You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that they are about to get their new computer by telling them, “Dude, you’re getting a Dell!” It was a cute series but it reflects the excitement young people get about anything new, particularly if it’s a new machine."
             tag={['감상']}
+            photo="shanghai.jpg"
           />
           <CardSnippet
             title="Moon Gazing"
@@ -99,7 +101,7 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
           />
           <CardSnippet
             title="내가 사랑하는 음악들"
-            preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
+            preview="여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
           />
           <CardSnippet

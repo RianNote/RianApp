@@ -98,6 +98,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
       editorClass: 'mainEditor',
       width: '100%',
       charCounterCount: false,
+      tabSpaces: 8,
       toolbarInline: true,
       toolbarButtons: [
         'bold',
@@ -113,7 +114,6 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
         'indent',
         '-',
         'insertLink',
-        'insertImage',
         '|',
         'insertHR',
         '|',
@@ -123,6 +123,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
       ],
       paragraphFormat: {
         N: 'Normal',
+        H4: 'Code',
         H3: 'Head 3',
         H2: 'Head 2',
         H1: 'Head 1',
