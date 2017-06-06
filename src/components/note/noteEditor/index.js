@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import 'froala-editor/js/froala_editor.pkgd.min';
 import FroalaEditor from 'react-froala-wysiwyg';
 import screenfull from 'screenfull';
-import NoteAuth from '../noteAuth';
 import TagBar from './TagBar/index';
 import css from '../note.css';
 import totalCss from './totalLayout.css';
@@ -133,7 +132,6 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
     return (
       <div className={css.paper}>
         <div className={totalCss.container}>
-          <NoteAuth />
           <div className={totalCss.mainBox}>
             {!this.state.typewrite &&
               <div className={totalCss.head}>

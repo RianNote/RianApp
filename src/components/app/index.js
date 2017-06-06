@@ -25,6 +25,9 @@ import css from './app.css';
 // available as a string relative to [root]/dist/assets/img/
 // import logo from './reactql-logo.svg';
 
+// <Nav> Component
+import Nav from './nav';
+
 // <Note> Component
 import Note from 'src/components/note';
 
@@ -107,7 +110,7 @@ class GraphQLMessage extends React.PureComponent {
 // the route, along with a <Route> 'listener' that will conditionally display
 // the <Page> component based on the route name
 export default () => (
-  <div id={css.rianLayout}>
+  <div id={css.app}>
     <Helmet
       title="ReactQL application"
       meta={[
@@ -117,6 +120,7 @@ export default () => (
         },
       ]}
     />
+    <Nav />
     <Switch>
       <Route exact path="/" component={Note} />
       <Route exact path="/timeline" component={Timeline} />
