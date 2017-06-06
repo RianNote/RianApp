@@ -102,12 +102,12 @@ class NoteSideBar extends Component<DefaultProps, Props, State> {
     return (
       <div
         className={css.nav}
-        onMouseOver={() => {
+        onMouseEnter={() => {
           if (!this.state.sideBar) {
             this.changeSideBar(true);
           }
         }}
-        onMouseOut={() => {
+        onMouseLeave={() => {
           this.changeSideBar(false);
         }}
       >
