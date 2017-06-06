@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import css from './cardSnippet.css';
+import css from './photoCardSnippet.css';
 import heartIcon from '../src/heart.svg';
 const makeTagToElement = (tagSet: Array<string>) => {
   const SumTagSet = tagSet.reduce((a: string, b: string) => `${a}#${b}`, '');
