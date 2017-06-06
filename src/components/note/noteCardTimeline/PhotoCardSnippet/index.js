@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import css from './cardSnippet.css';
+import css from './photoCardSnippet.css';
 import heartIcon from '../src/heart.svg';
 const makeTagToElement = (tagSet: Array<string>) => {
   const SumTagSet = tagSet.reduce((a: string, b: string) => `${a}#${b}`, '');
@@ -11,8 +11,8 @@ type Props = {
   preview: string,
   time?: string,
   tag: Array<string>,
-  photo: string,
-  publish?: boolean | number
+  photo?: string,
+  publish?: number
 };
 
 const CardSnippet = ({
@@ -20,8 +20,7 @@ const CardSnippet = ({
   preview = '',
   time = '2017.08.24',
   tag = [],
-  photo = '',
-  publish = false,
+  publish,
 }: Props) => (
   <div className={css.container}>
     <div className={css.head}>

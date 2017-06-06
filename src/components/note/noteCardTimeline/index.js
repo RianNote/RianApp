@@ -47,7 +47,7 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
           <TagInformation noteCount={this.state.noteCount} />
         </div>
         <div className={css.mansory}>
-          <CardSnippet
+          <PhotoCardSnippet
             title="The Universe Through A Child S "
             preview="In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble. While NASA has had many ups and downs, the launch and continued operation of the Hubble space telescope probably ranks next to the moon landings and the development of the Space"
             time="2017.09.06"
@@ -60,18 +60,18 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
             publish={300}
             photo="shanghai.jpg"
           />
-          <CardSnippet
+          <PhotoCardSnippet
             title="Moon Gazing"
             preview="When you enter into any new area of science, you almost always find yourself with a baffling new language of technical terms to learn before you can converse with the experts. This is certainly true in astronomy both in terms of terms that refer to the cosmos and terms that describe the tools of the trade, the most prevalent being the telescope.."
             publish={100}
             tag={['수업', '개발']}
           />
-          <CardSnippet
+          <PhotoCardSnippet
             title="Space The Final Frontier"
             preview="The Emerald Buddha is a figurine of a sitting Budha, that is the is the palladium of the Kingdom of Thailand. The Buddha is made of green jade, suprisingly not of emerald, clothed in gold is approximately 45 cm tall. The Buddha is kept in the Chapel of the Emerald Buddha, which is located on the grounds of the Grand Palace in Bangkok."
             tag={['음악', '가사']}
           />
-          <CardSnippet
+          <PhotoCardSnippet
             title="I want to hold your hand"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             publish={93}
@@ -101,7 +101,7 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
             tag={['개발', '영성', '수양']}
             publish={33}
           />
-          <CardSnippet
+          <PhotoCardSnippet
             title="#일기"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}
@@ -140,7 +140,7 @@ class NoteCardTimeline extends Component<DefaultProps, Props, State> {
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['음악', '가사']}
           />
-          <CardSnippet
+          <PhotoCardSnippet
             title="I want to hold your hand"
             preview="현재에 감사하고 경의를 표하라. 지금이 근본이 되고 중요한 구심점이 될 때 삶은 여유롭게 풀리기 시작한다."
             tag={['개발', '영성', '수양']}

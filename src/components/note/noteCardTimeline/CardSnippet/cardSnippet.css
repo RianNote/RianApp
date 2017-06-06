@@ -68,7 +68,7 @@
                 & .share {
                     display: flex;
                     flex: 1 0 80%;
-                    margin-top: 15px;
+                    margin-top: 10%;
                     padding-right: 1px;
                     align-items: center;
                     justify-content: center;
@@ -111,6 +111,7 @@
 }
 
 .container:hover {
+    border: 0px;
    	width: 219px;
 	height: 290px;
     margin-top: 7px;

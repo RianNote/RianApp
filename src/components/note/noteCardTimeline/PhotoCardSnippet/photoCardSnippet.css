@@ -5,11 +5,11 @@
     display: flex;
     flex-direction: column;
     margin: 18px;
+    border: solid 1px #ececec;
    	width: 219px;
 	height: 290px;
     font-family: 'Lato';
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1);
-    border: solid 1px #ececec;
     border-radius: 10px;
     & .head {
         display: flex;
@@ -17,7 +17,7 @@
         flex-direction: column;
         background-position: center;  
         background-size: cover;
-        background-image: url('../shanghai.jpg');
+        background-image: url('../src/Main-Shanghai-Skyline-689x465.jpg');
         border-radius: 10px 10px 0px 0px;
         justify-content: flex-start;
         & .title {
@@ -49,11 +49,11 @@
         }
     }
     & .middle {
-        flex: 0 0 97px;
+        flex: 0 0 100px;
         margin-top: 15px; 
         padding-right: 28px;
         padding-left: 28px;
-        margin-bottom: 10px;
+        margin-bottom: 2.6%;
         font-size: 12px;
         line-height: 1.2;
         text-align: left;
@@ -70,7 +70,7 @@
             & .share {
                 display: flex;
                 flex: 1 0 80%;
-                margin-top: 15px;
+                margin-top: 12%;
                 padding-right: 1px;
                 align-items: center;
                 justify-content: center;
@@ -88,7 +88,7 @@
             display: flex;
             flex: 1 0;
             flex-direction: column;
-            margin-top: 13px;
+            margin-top: 10px;
             padding-right: 25px;
             & .time {
                 text-align:right;
@@ -113,6 +113,7 @@
 }
 
 .container:hover {
+    border: 0px;
    	width: 219px;
 	height: 290px;
     margin-top: 7px;

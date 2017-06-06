@@ -7,11 +7,23 @@ const makeTagToElement = tagSet =>
     <div key={index} className={css.tagInstance}>{data}</div>
   ));
 
+type Props = {
+  title: string,
+  preview: string,
+  time?: string,
+  tag: Array<string>,
+  photo?: string,
+  publish?: number
+};
+
 const TimelineSnippet = ({
-  title,
-  snippet,
-  tag,
-}: { title?: string, snippet?: string, tag: Array<string> }) => (
+  title = '',
+  preview = '',
+  time = '2017.08.24',
+  tag = [],
+  photo,
+  publish,
+}: Props) => (
   <div className={css.container}>
     <div className={css.left}>
       <div className={css.block} />
@@ -21,7 +33,7 @@ const TimelineSnippet = ({
     </div>
     <div className={css.right}>
       <div className={css.snippet}>
-        {snippet}
+        {preview}
       </div>
       <div className={css.tag}>
         <img
