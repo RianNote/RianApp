@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.nav {
+	display: flex;
+	/*flex: 0 0 60px;*/
+}
+.menu {
+    width: 60px;
+}
 
 .head {
 	margin-top: 20px;
@@ -92,3 +101,40 @@
 		margin: 10px auto 10px auto;
 	}
 }
+
+#hoverNav {
+    left: 60px;
+    padding-top: 87px;
+    display: flex;
+    font-size: 13px;
+    font-family: 'Lato';
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    overflow: scroll;
+    & .tag {
+      flex: 0 0 30px;
+      padding-left: 3px;
+      padding-right: 10px;
+      color: #a5a5a5;
+      & .text {
+        padding-left: 30px;
+        display: block;
+        width: 90px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 20px;
+        align-items: center;
+      }
+      & .text:hover {
+        color: #ff3466;
+      }
+      & .facebookButton {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #a5a5a5;
+      }
+    }
+}
+

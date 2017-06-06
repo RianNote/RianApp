@@ -48,7 +48,11 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
 
   render() {
     return (
-      <Motion style={{ x: spring(this.props.sideBar ? 260 : 0) }}>
+      <Motion
+        style={{
+          x: spring(this.props.sideBar && this.props.mode === 'List' ? 240 : 0),
+        }}
+      >
         {({ x }) => (
           <div className={css.noteList} style={{ width: `${x}px` }}>
             <TagSearch />

@@ -1,7 +1,6 @@
 #note {
     display: flex;
-    width: 100%;
-    /*flex: 1;*/
+    flex: 1;
     align-items: stretch;
     & .paper {
         z-index: 0;
