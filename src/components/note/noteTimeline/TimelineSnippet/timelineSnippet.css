@@ -6,6 +6,7 @@
     width: 240px;
 	height: 110px;
 	border-radius: 8px;
+    border: solid 1px #eaeaea;
 	background-color: #ffffff;
     & .left {
         position: relative;

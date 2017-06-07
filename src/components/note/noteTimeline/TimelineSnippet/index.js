@@ -23,8 +23,9 @@ const TimelineSnippet = ({
   tag = [],
   photo,
   publish,
+  style
 }: Props) => (
-  <div className={css.container}>
+  <div className={css.container} style={style}>
     <div className={css.left}>
       <div className={css.block} />
       <div className={css.title}>

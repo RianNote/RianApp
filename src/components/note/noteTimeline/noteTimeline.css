@@ -2,15 +2,14 @@
 
 .noteList {
 	display: flex;
-    flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
+	flex-direction: column;
 	background-color: #ffffff;
 	& .timelineSearch {
-		flex: 0 0 40px;
-		box-sizing: border-box;
+		margin-top: 10px;
 		display: flex;
+		flex: 0 0 70px;
 		flex-direction: column;
+		box-sizing: border-box;
 		align-items: center;
 		justify-content: center;
 	}

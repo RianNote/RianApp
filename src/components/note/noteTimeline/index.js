@@ -52,6 +52,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
   constructor(props: Props) {
     super(props);
     this._rowRenderer = this._rowRenderer.bind(this);
+    this.count = 0;
   }
 
   state = {
@@ -62,6 +63,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
 
   _rowRenderer({ index, isScrolling, key, style }) {
     const data = this.state.List[index];
+    console.log('index', index);
     return (
       <TimelineSnippet
         key={index}
@@ -73,12 +75,23 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
     );
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(this.props.sideBar, nextProps.sideBar);
+    console.log(this.props.sideBar === nextProps.sideBar);
+    console.log(this.count);
+    this.count++;
+    if (this.props.sideBar === nextProps.sideBar) {
+      return false;
+    }
+    return true;
+  }
   render() {
+    console.log(this.state.List.length, 'sdfs');
     return (
-      <Motion style={{ x: spring(this.props.sideBar ? 260 : 0) }}>
+      <Motion style={{ x: spring(this.props.sideBar ? 260 : 260) }}>
         {({ x }) => (
           <div className={css.noteList} style={{ width: `${x}px` }}>
-            {/* <TagSearch />*/}
+            <TagSearch />
             <div className={css.timelineList}>
               <AutoSizer>
                 {({ height, width }) => (
@@ -86,7 +99,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
                     rowRenderer={this._rowRenderer}
                     height={height}
                     width={width}
-                    rowHeight={110}
+                    rowHeight={130}
                     rowCount={this.state.List.length}
                   />
                 )}

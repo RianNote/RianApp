@@ -99,6 +99,7 @@ class NoteEditor extends Component<DefaultProps, Props, State> {
       charCounterCount: false,
       tabSpaces: 8,
       toolbarInline: true,
+      toolbarVisibleWithoutSelection: false,
       toolbarButtonsSM: [
         'bold',
         'italic',
