@@ -1,27 +1,22 @@
-const Note = `	
-	type NoteHead {
-		tag: [String]
-		totalCount: Int
-		notes(tag: [String], after:ID, limit:Int, sortby: String): [Note]
-		pageInfo(tag: [String], after:ID, limit: Int): Page
-	}
-
+const Note = `
 	type Note {
 		_id: ID!
-		title: String
-		preview: String
-		tag: String
-		image: String
-		publish: Boolean
-		star: Int
-		created_at: String,
-		final_modified_at: String
+		created_at: String!
+		final_modified_at: String!
+		tag: [String]
+		preview: Preview
+		content: Content
 	}
 
-	type Page {
-		endCursor: ID!
-		isLastPage: Boolean
+	type Preview {
+		title: String!
+		snippet: String!
 	}
-`;
 
-export default () => [Note];
+	type Content {
+		data: String!
+		publish: Boolean!
+	}
+`
+
+export default () => [Note]

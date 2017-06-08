@@ -112,17 +112,15 @@ class GraphQLMessage extends React.PureComponent {
 export default () => (
   <div id={css.app}>
     <Helmet
-      title="Rian"
+      title="ReactQL application"
       meta={[
         {
           name: 'description',
-          content: 'Rian Note',
+          content: 'ReactQL starter kit app',
         },
       ]}
     />
-    <Switch>
-      <Route exact path="/" component={Nav} />
-    </Switch>
+    <Nav />
     <Switch>
       <Route exact path="/" component={Note} />
       <Route exact path="/timeline" component={Timeline} />

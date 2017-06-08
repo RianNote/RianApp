@@ -2,20 +2,23 @@
 
 .noteList {
 	display: flex;
-	flex-direction: column;
+    flex-direction: column;
+    overflow: auto;
 	background-color: #ffffff;
+
 	& .timelineSearch {
-		margin-top: 10px;
 		display: flex;
-		flex: 0 0 70px;
+		flex: 0 0 30px;
 		flex-direction: column;
+		margin-top: 30px;
 		box-sizing: border-box;
 		align-items: center;
 		justify-content: center;
 	}
 	& .timelineList {
-		flex: 1 1 auto;
-		width: 100%;
+		flex: 1;
+		margin-top: 20px;
+		overflow: scroll;
 	}
 
 }
