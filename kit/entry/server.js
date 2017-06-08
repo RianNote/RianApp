@@ -139,7 +139,6 @@ const scripts = ['manifest.js', 'vendor.js', 'browser.js'].map(
     })
     // Everything else is React
     .get('/*', isLoggedIn, async (ctx) => {
-      console.log('ctx', ctx.cookies.get());
       const preloadedState = ctx.state.initial || {};
       const route = {};
 
