@@ -2889,7 +2889,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
   max-width: 700px;
   font-family: 'Lato';
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   color: #545454;
 }
 
@@ -2913,7 +2913,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h3:before {
-  font-size: 18px;
+  font-size: 15px;
   content: 'H3';
   margin-right: 10px;
   margin-left: -13px;
@@ -2927,7 +2927,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h2:before {
-  font-size: 18px;
+  font-size: 15px;
   content: 'H2';
   margin-right: 10px;
   margin-left: -13px;
@@ -2941,7 +2941,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 }
 
 .fr-view h1:before {
-  font-size: 18px;
+  font-size: 15px;
   content: 'H1';
   margin-right: 10px;
   margin-left: -13px;
@@ -2962,7 +2962,7 @@ div.sc-cm-holder.sc-cm_show > ul > li.sc-cm__item.sc-cm__item_dropdown.sc-cm__it
 .fr-view li {
   margin: 1px 10px 1px 0;
   list-style-type:none;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   color: #545454;
   line-height: 30px;

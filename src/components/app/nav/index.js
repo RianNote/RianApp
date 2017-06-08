@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import screenfull from 'screenfull';
 import { modeChange } from '../../../actions/NoteActions';
 import css from './nav.css';
 import trashIcon from './icons/TrashIcon.svg';
@@ -11,7 +12,7 @@ import star from './icons/Star.svg';
 import starHover from './icons/Star-hover.svg';
 
 // <HoverNav/> Component
-import HoverNav from './hoverNav.js';
+import HoverNav from './hoverNav';
 
 // <NoteTimeline /> Component
 import NoteTimeline from '../../note/noteTimeline';
@@ -27,11 +28,13 @@ const mapDispatch = dispatch => ({
 });
 
 type DefaultProps = {
-  sideBar: boolean
+  sideBar: boolean,
+  Mode: "List" | "Card"
 };
 
 type Props = {
-  changeMode: Function
+  changeMode: Function,
+  Mode: "List" | "Card"
 };
 
 type State = {
@@ -45,15 +48,17 @@ type State = {
 class NoteSideBar extends Component<DefaultProps, Props, State> {
   static defaultProps = {
     sideBar: false,
+    Mode: 'Card',
   };
 
   constructor(props: Props) {
     super(props);
-    console.log(props, 'NAV PROPS');
+    this.screenfull = screenfull;
     this.changeSideBar = this.changeSideBar.bind(this);
     this.changeStarHover = this.changeStarHover.bind(this);
     this.changeListHover = this.changeListHover.bind(this);
     this.changeTrashHover = this.changeTrashHover.bind(this);
+    this.fullScreen = this.fullScreen.bind(this);
   }
 
   state = {
@@ -62,10 +67,21 @@ class NoteSideBar extends Component<DefaultProps, Props, State> {
     noteListHover: false,
     trashHover: false,
   };
+
+  screenfull: any;
+  fullScreen: Function;
   changeSideBar: Function;
   changeStarHover: Function;
   changeListHover: Function;
   changeTrashHover: Function;
+
+  fullScreen() {
+    if (this.screenfull.enabled) {
+      this.screenfull.request();
+    } else {
+      // Ignore or do something else
+    }
+  }
 
   changeSideBar(argu: boolean) {
     this.setState({
@@ -113,7 +129,7 @@ class NoteSideBar extends Component<DefaultProps, Props, State> {
       >
         <div className={css.menu}>
           <div className={css.head}>
-            <div className={css.logo}>R</div>
+            <div className={css.logo} onClick={this.fullScreen}>R</div>
           </div>
           <div className={css.sort}>
             <div className={css.how}>최신</div>
