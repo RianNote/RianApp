@@ -10,6 +10,10 @@ const mapState = (state: { Note: { mode: "List" | "Card" } }) => ({
   Mode: state.Note.mode,
 });
 
+type DefaultProps = {
+  Mode: "List" | "Card"
+};
+
 type Props = {
   Mode: "List" | "Card"
 };
@@ -17,7 +21,7 @@ type Props = {
 type State = {};
 
 @connect(mapState)
-class Note extends Component<Props, State> {
+class Note extends Component<DefaultProps, Props, State> {
   constructor(props: Props) {
     super(props);
   }

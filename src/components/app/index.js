@@ -33,6 +33,9 @@ import Note from 'src/components/note';
 
 // <Timeline> Component
 import Timeline from 'src/components/timeline';
+
+// <NoteAuth> Component
+import NoteAuth from 'src/components/note/noteAuth';
 // ----------------------
 
 // Helper component that will be conditionally shown when the route matches.
@@ -121,9 +124,12 @@ export default () => (
       ]}
     />
     <Nav />
-    <Switch>
-      <Route exact path="/" component={Note} />
-      <Route exact path="/timeline" component={Timeline} />
-    </Switch>
+    <div id={css.mainComponent}>
+      <NoteAuth />
+      <Switch>
+        <Route exact path="/" component={Note} />
+        <Route exact path="/timeline" component={Timeline} />
+      </Switch>
+    </div>
   </div>
 );

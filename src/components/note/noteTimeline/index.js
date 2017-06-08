@@ -50,7 +50,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
     return (
       <Motion
         style={{
-          x: spring(this.props.sideBar && this.props.mode === 'List' ? 240 : 0),
+          x: spring(this.props.sideBar && this.props.mode === 'List' ? 242 : 0),
         }}
       >
         {({ x }) => (
