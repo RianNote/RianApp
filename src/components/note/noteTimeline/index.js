@@ -88,7 +88,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
   render() {
     console.log(this.state.List.length, 'sdfs');
     return (
-      <Motion style={{ x: spring(this.props.sideBar ? 260 : 260) }}>
+      <Motion style={{ x: spring(this.props.sideBar ? 260 : 0) }}>
         {({ x }) => (
           <div className={css.noteList} style={{ width: `${x}px` }}>
             <TagSearch />
@@ -99,7 +99,7 @@ class NoteTimeLine extends Component<DefaultProps, Props, State> {
                     rowRenderer={this._rowRenderer}
                     height={height}
                     width={width}
-                    rowHeight={130}
+                    rowHeight={120}
                     rowCount={this.state.List.length}
                   />
                 )}
