@@ -10,3 +10,10 @@
   height: 100vh;
   min-width: 1300px;
 }
+
+#mainComponent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+}
