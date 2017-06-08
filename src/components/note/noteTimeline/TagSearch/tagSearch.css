@@ -24,7 +24,7 @@
                     margin: 0 auto;
                     margin: 1px 3px 1px 3px;
                     padding: 2px 2px 0 2px;
-                    border: solid 1px #ffbfcb;
+                    border: solid 1px #FF3466;
                     font-family: 'Lato';
                     /*background-color: #ff3466;*/
                     border-radius: 8px;
@@ -36,11 +36,11 @@
                     height: 14px;
                     letter-spacing: 0.1em;
                     font-size: 10px;
-                    color: #ffbfcb;
+                    color: #FF3466;
                 }
                 & .oneOfTag:hover {
                     color: #ffffff;
-                    background-color: #ffbfcb;
+                    background-color: #FF3466;
                 }
             }
             & .tagSearchInput {
